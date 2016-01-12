@@ -70,7 +70,7 @@
 		5753BEB61C4458D500304498 /* BeachFinder */ = {
 			isa = PBXGroup;
 			children = (
-				5753BECA1C445BD500304498 /* Views */,
+				5753BECF1C447A6900304498 /* Views */,
 				5753BEC91C445BBF00304498 /* Controllers */,
 				5753BEB71C4458D500304498 /* AppDelegate.swift */,
 				5753BEBE1C4458D500304498 /* Assets.xcassets */,
@@ -88,7 +88,7 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		5753BECA1C445BD500304498 /* Views */ = {
+		5753BECF1C447A6900304498 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				5753BECC1C445C0B00304498 /* MainViewController.xib */,
