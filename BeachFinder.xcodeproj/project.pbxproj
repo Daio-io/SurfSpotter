@@ -12,12 +12,14 @@
 		5753BEC21C4458D500304498 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5753BEC01C4458D500304498 /* LaunchScreen.storyboard */; };
 		5753BECD1C445C0B00304498 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5753BECB1C445C0B00304498 /* MainViewController.swift */; };
 		5753BECE1C445C0B00304498 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5753BECC1C445C0B00304498 /* MainViewController.xib */; };
-		D56AD380610DFA40A8D17458 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B83C44FCB8E1B91CCC6B99AF /* libPods.a */; };
+		57EF0A931C455F2400695BC0 /* BeachLocatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EF0A921C455F2400695BC0 /* BeachLocatorService.swift */; };
+		DB903AA29B6A48C25CF1CFE0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43156B5FD7E971278E18C0C5 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		07050374223A7CBAE10AD995 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		26A810F1FCF5604C107D3AB8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		43156B5FD7E971278E18C0C5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5753BEB41C4458D500304498 /* BeachFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeachFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5753BEB71C4458D500304498 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5753BEBE1C4458D500304498 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -25,7 +27,7 @@
 		5753BEC31C4458D500304498 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5753BECB1C445C0B00304498 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5753BECC1C445C0B00304498 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = ../Controllers/MainViewController.xib; sourceTree = "<group>"; };
-		B83C44FCB8E1B91CCC6B99AF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		57EF0A921C455F2400695BC0 /* BeachLocatorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachLocatorService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D56AD380610DFA40A8D17458 /* libPods.a in Frameworks */,
+				DB903AA29B6A48C25CF1CFE0 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +72,7 @@
 		5753BEB61C4458D500304498 /* BeachFinder */ = {
 			isa = PBXGroup;
 			children = (
+				57EF0A911C455F0300695BC0 /* Services */,
 				5753BECF1C447A6900304498 /* Views */,
 				5753BEC91C445BBF00304498 /* Controllers */,
 				5753BEB71C4458D500304498 /* AppDelegate.swift */,
@@ -96,10 +99,18 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		57EF0A911C455F0300695BC0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				57EF0A921C455F2400695BC0 /* BeachLocatorService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		9E6F0280635B99D8F5820FD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B83C44FCB8E1B91CCC6B99AF /* libPods.a */,
+				43156B5FD7E971278E18C0C5 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -228,6 +239,7 @@
 			files = (
 				5753BECD1C445C0B00304498 /* MainViewController.swift in Sources */,
 				5753BEB81C4458D500304498 /* AppDelegate.swift in Sources */,
+				57EF0A931C455F2400695BC0 /* BeachLocatorService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

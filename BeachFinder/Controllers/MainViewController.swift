@@ -10,8 +10,9 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
-class MainViewController: UIViewController, CLLocationManagerDelegate {
+class MainViewController: UIViewController, CLLocationManagerDelegate, BeachLocatorServiceDelegate {
     let locationManager = CLLocationManager()
+    let locator = BeachLocatorService()
     var mapView : GMSMapView
     
     init() {
@@ -19,8 +20,10 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             longitude: -2.294144, zoom: 6)
         self.mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
         self.mapView.myLocationEnabled = true
-        
         super.init(nibName:nil, bundle:nil)
+        
+        self.locator.delegate = self
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -56,7 +59,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         
         self.locationManager.stopUpdatingLocation()
         
-        self.getSurfData("https://beach-locator.herokuapp.com/location?lat=\(locValues.latitude)&long=\(locValues.longitude)&dist=100000")
+        self.getSurfData(locValues.latitude, long: locValues.longitude, dist: 500000)
         
     }
     
@@ -67,43 +70,19 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     // TODO: create service/repo to make proper network requests
     
-    func getSurfData(requestUrl: String) {
+    func getSurfData(lat: Double, long: Double, dist: Int) {
         
-        print(requestUrl)
-        let url: NSURL = NSURL(string: requestUrl)!
-        let request: NSURLRequest = NSURLRequest(URL: url)
-        
-        var response: NSURLResponse?
-        do {
-            let urlData = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
-            if let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlData, options: .MutableContainers) as? NSDictionary {
-                if let arr = jsonResult["response"] as? Array<NSDictionary> where arr.count > 0 {
-                    for (index, element) in arr.enumerate() {
-                        let results = element as NSDictionary
-                        let location = results["location"] as! String
-                        let country = results["country"] as! String
-                        let coords = results["coords"] as! Dictionary<String, CLLocationDegrees>
-                        
-                        let lat = coords["lat"]!
-                        let long = coords["long"]!
-                        
-                        let marker = GMSMarker()
-                        marker.position = CLLocationCoordinate2DMake(lat, long)
-                        marker.title = location
-                        marker.snippet = country
-                        marker.map = self.mapView
-                        print(index, ":", element)
-                    }
- 
-                }
-                
-            } else {
-                print("failed")
-            }
-        } catch _ {
-             print("failed")
-        }
+        self.locator.getNearestBeachesForLocation(lat, longitide: long, distance: dist)
     }
     
+    // MARK: BeachLocatorServiceDelegate
+    
+    func didFindLocation(location: BeachLocation) {
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2DMake(location.lat, location.lon)
+        marker.title = location.location
+        marker.snippet = location.country
+        marker.map = self.mapView
+    }
 
 }
