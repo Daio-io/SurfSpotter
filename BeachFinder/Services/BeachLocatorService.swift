@@ -10,57 +10,51 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-protocol BeachLocatorServiceDelegate {
-    func didFindLocation(location: BeachLocation)
-}
-
 public typealias BeachLocatorCoordinate = Double
 
 struct BeachLocation {
-    var location: String
-    var spotId: Int
-    var country: String
-    var lat: BeachLocatorCoordinate
-    var lon: BeachLocatorCoordinate
+    
+    let location: String
+    let spotId: Int
+    let country: String
+    let lat: BeachLocatorCoordinate
+    let lon: BeachLocatorCoordinate
 }
 
 class BeachLocatorService : NSObject {
     
-    internal var delegate: BeachLocatorServiceDelegate?
-    
     let baseUrl = "https://beach-locator.herokuapp.com/location"
     
     func getNearestBeachesForLocation(latitude: BeachLocatorCoordinate,
-        longitide: BeachLocatorCoordinate, distance: Int) {
+        longitide: BeachLocatorCoordinate, distance: Int, success: BeachLocation -> Void, failure: NSError -> Void) {
             
-            if let del = self.delegate {
-                
-                let url = getRequestString(latitude, lon:longitide, dist: distance)
-                
-                Alamofire.request(.GET, url)
-                    .responseJSON { response in switch response.result {
-                    case .Success(let jsonData):
-                        let json = JSON(jsonData)
-                        if json["status"] == "success" {
-                            
-                            let result = json["response"][0]
-                            let loc = result["location"].stringValue
-                            let spotId = result["spotId"].intValue
-                            let county = result["country"].stringValue
-                            let lat = result["coords"]["lat"].doubleValue
-                            let lon = result["coords"]["long"].doubleValue
-                            
-                            let beachLocation = BeachLocation(location: loc, spotId: spotId, country: county, lat: lat, lon: lon)
-                            del.didFindLocation(beachLocation)
-                        }
+            let url = getRequestString(latitude, lon:longitide, dist: distance)
+            
+            Alamofire.request(.GET, url)
+                .responseJSON { response in switch response.result {
+                case .Success(let jsonData):
+                    let json = JSON(jsonData)
+                    if json["status"].stringValue == "success" {
                         
+                        let result = json["response"][0]
+                        let loc = result["location"].stringValue
+                        let spotId = result["spotId"].intValue
+                        let county = result["country"].stringValue
+                        let lat = result["coords"]["lat"].doubleValue
+                        let lon = result["coords"]["long"].doubleValue
                         
-                    case .Failure(let error):
-                        print("Request failed with error: \(error)")
-                        }
-                }
-                
+                        let beachLocation = BeachLocation(location: loc, spotId: spotId, country: county, lat: lat, lon: lon)
+                        success(beachLocation)
+                    } else {
+                        let message = json["message"].stringValue
+                        failure(NSError(domain: message, code: 1, userInfo: nil))
+                    }
+                    
+                case .Failure(let error):
+                    failure(error)
+                    }
             }
+            
     }
     
     private func getRequestString(lat: BeachLocatorCoordinate, lon: BeachLocatorCoordinate, dist: Int) -> String {

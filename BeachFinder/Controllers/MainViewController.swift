@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
-class MainViewController: UIViewController, CLLocationManagerDelegate, BeachLocatorServiceDelegate {
+class MainViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     let locator = BeachLocatorService()
     var mapView : GMSMapView
@@ -21,8 +21,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, BeachLoca
         self.mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
         self.mapView.myLocationEnabled = true
         super.init(nibName:nil, bundle:nil)
-        
-        self.locator.delegate = self
         
     }
     
@@ -51,6 +49,26 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, BeachLoca
         
     }
     
+    // MARK - Internal
+    
+    func getSurfData(lat: Double, long: Double, dist: Int) {
+        
+        weak var weakSelf = self
+        
+        locator.getNearestBeachesForLocation(lat, longitide: long, distance: dist,
+            success: { response in response
+                
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2DMake(response.lat, response.lon)
+                marker.title = response.location
+                marker.snippet = response.country
+                marker.map = weakSelf?.mapView
+                
+            }, failure: {error in error
+                print(error.domain)
+        } )
+    }
+    
     // MARK: CLLocationManagerDelegate
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -64,25 +82,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, BeachLoca
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print(error)
-    }
-    
-    
-    // TODO: create service/repo to make proper network requests
-    
-    func getSurfData(lat: Double, long: Double, dist: Int) {
-        
-        self.locator.getNearestBeachesForLocation(lat, longitide: long, distance: dist)
-    }
-    
-    // MARK: BeachLocatorServiceDelegate
-    
-    func didFindLocation(location: BeachLocation) {
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2DMake(location.lat, location.lon)
-        marker.title = location.location
-        marker.snippet = location.country
-        marker.map = self.mapView
+        print("Location error: \(error)")
     }
 
 }
