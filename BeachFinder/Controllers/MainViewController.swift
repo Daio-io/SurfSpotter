@@ -14,8 +14,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     let locator = BeachLocatorService()
     
-    var currentLat: Double?
-    var currentLong: Double?
+    var currentLocation: Coordinates?
     
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var mapViewPlaceholder: GMSMapView!
@@ -23,7 +22,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     init() {
         super.init(nibName:nil, bundle:nil)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,21 +53,20 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     func getLocationData(lat: Double, long: Double, dist: Int) {
         
         weak var weakSelf = self
-
         let coords = (lat, long)
-        let camera = GMSCameraPosition.cameraWithLatitude(lat,
-            longitude: long, zoom: 8)
-        
-        self.mapViewPlaceholder.camera = camera
+        let myLocation = CLLocation(latitude: lat, longitude: long)
         
         self.mapViewPlaceholder.clear()
         locator.getNearestBeachesForLocation(coords, distance: dist,
             success: { response in response
                 for beach in response {
                     let marker = GMSMarker()
+                    let beachLocation = CLLocation(latitude: beach.coords.lat, longitude: beach.coords.lon)
+                    let distance = myLocation.distanceFromLocation(beachLocation)
                     marker.position = CLLocationCoordinate2DMake(beach.coords.lat, beach.coords.lon)
+                    
                     marker.title = beach.location
-                    marker.snippet = beach.country
+                    marker.snippet = String(Int(distance)) + " meters away"
                     marker.map = weakSelf?.mapViewPlaceholder
                 }
             }, failure: {error in error
@@ -78,10 +75,10 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func distanceChanged(sender: AnyObject) {
-        if let long = currentLong, lat = currentLat {
+        if let location = currentLocation {
             let dist = Int(self.distanceSlider.value)
             self.distanceLabel.text = String(self.distanceSlider.value) + "m"
-            self.getLocationData(lat, long: long, dist: dist)
+            self.getLocationData(location.lat, long: location.lon, dist: dist)
         }
 
     }
@@ -90,12 +87,14 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValues:CLLocationCoordinate2D = (manager.location?.coordinate)!
-        print("location: \(locValues.longitude) and \(locValues.latitude)")
         
         self.locationManager.stopUpdatingLocation()
         
-        currentLat = locValues.latitude;
-        currentLong = locValues.longitude;
+        let camera = GMSCameraPosition.cameraWithLatitude(locValues.latitude,
+            longitude: locValues.longitude, zoom: 8)
+        self.mapViewPlaceholder.camera = camera
+        
+        currentLocation = Coordinates(locValues.latitude, locValues.longitude)
         let distance = Int(self.distanceSlider.value)
         self.getLocationData(locValues.latitude, long: locValues.longitude, dist: distance)
         
