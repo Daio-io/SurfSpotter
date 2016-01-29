@@ -13,13 +13,15 @@ import CoreLocation
 class MainViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     let locator = BeachLocatorService()
-    var mapView : GMSMapView
+    
+    var currentLat: Double?
+    var currentLong: Double?
+    
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var mapViewPlaceholder: GMSMapView!
+    @IBOutlet weak var distanceSlider: UISlider!
     
     init() {
-        let camera = GMSCameraPosition.cameraWithLatitude(53.470884,
-            longitude: -2.294144, zoom: 6)
-        self.mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
-        self.mapView.myLocationEnabled = true
         super.init(nibName:nil, bundle:nil)
         
     }
@@ -30,9 +32,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view = self.mapView
-    
+        self.mapViewPlaceholder.myLocationEnabled = true
+        self.distanceLabel.text = String(self.distanceSlider.value) + "m"
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -51,24 +52,40 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     // MARK - Internal
     
-    func getSurfData(lat: Double, long: Double, dist: Int) {
+    func getLocationData(lat: Double, long: Double, dist: Int) {
         
         weak var weakSelf = self
+
+        let coords = (lat, long)
+        let camera = GMSCameraPosition.cameraWithLatitude(lat,
+            longitude: long, zoom: 8)
         
-        locator.getNearestBeachesForLocation(lat, longitide: long, distance: dist,
+        self.mapViewPlaceholder.camera = camera
+        
+        self.mapViewPlaceholder.clear()
+        locator.getNearestBeachesForLocation(coords, distance: dist,
             success: { response in response
-                
-                let marker = GMSMarker()
-                marker.position = CLLocationCoordinate2DMake(response.lat, response.lon)
-                marker.title = response.location
-                marker.snippet = response.country
-                marker.map = weakSelf?.mapView
-                
+                for beach in response {
+                    let marker = GMSMarker()
+                    marker.position = CLLocationCoordinate2DMake(beach.coords.lat, beach.coords.lon)
+                    marker.title = beach.location
+                    marker.snippet = beach.country
+                    marker.map = weakSelf?.mapViewPlaceholder
+                }
             }, failure: {error in error
                 print(error.domain)
         } )
     }
     
+    @IBAction func distanceChanged(sender: AnyObject) {
+        if let long = currentLong, lat = currentLat {
+            let dist = Int(self.distanceSlider.value)
+            self.distanceLabel.text = String(self.distanceSlider.value) + "m"
+            self.getLocationData(lat, long: long, dist: dist)
+        }
+
+    }
+
     // MARK: CLLocationManagerDelegate
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -77,7 +94,10 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         
         self.locationManager.stopUpdatingLocation()
         
-        self.getSurfData(locValues.latitude, long: locValues.longitude, dist: 500000)
+        currentLat = locValues.latitude;
+        currentLong = locValues.longitude;
+        let distance = Int(self.distanceSlider.value)
+        self.getLocationData(locValues.latitude, long: locValues.longitude, dist: distance)
         
     }
     

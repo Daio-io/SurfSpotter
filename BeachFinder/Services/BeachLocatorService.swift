@@ -10,55 +10,65 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-public typealias BeachLocatorCoordinate = Double
+class BeachLocatorService: NSObject {
 
-struct BeachLocation {
-    
-    let location: String
-    let spotId: Int
-    let country: String
-    let lat: BeachLocatorCoordinate
-    let lon: BeachLocatorCoordinate
-}
-
-class BeachLocatorService : NSObject {
-    
     let baseUrl = "https://beach-locator.herokuapp.com/location"
-    
-    func getNearestBeachesForLocation(latitude: BeachLocatorCoordinate,
-        longitide: BeachLocatorCoordinate, distance: Int, success: BeachLocation -> Void, failure: NSError -> Void) {
-            
-            let url = getRequestString(latitude, lon:longitide, dist: distance)
-            
-            Alamofire.request(.GET, url)
-                .responseJSON { response in switch response.result {
-                case .Success(let jsonData):
-                    let json = JSON(jsonData)
-                    if json["status"].stringValue == "success" {
-                        
-                        let result = json["response"][0]
-                        let loc = result["location"].stringValue
-                        let spotId = result["spotId"].intValue
-                        let county = result["country"].stringValue
-                        let lat = result["coords"]["lat"].doubleValue
-                        let lon = result["coords"]["long"].doubleValue
-                        
-                        let beachLocation = BeachLocation(location: loc, spotId: spotId, country: county, lat: lat, lon: lon)
-                        success(beachLocation)
-                    } else {
-                        let message = json["message"].stringValue
-                        failure(NSError(domain: message, code: 1, userInfo: nil))
-                    }
-                    
-                case .Failure(let error):
-                    failure(error)
-                    }
+
+    func getNearestBeachesForLocation(coords: (lat:Double, lon:Double),
+                                      distance: Int,
+                                      success: Array<BeachLocation> -> Void,
+                                      failure: NSError -> Void) {
+
+        let url = getRequestString(coords, dist: distance)
+
+        Alamofire.request(.GET, url)
+        .responseJSON {
+            response in switch response.result {
+            case .Success(let jsonData):
+
+                let json = JSON(jsonData)
+                if json["status"] == "success" {
+
+                    let results = json["response"].array!
+
+                    let beaches = self.buildResults(results)
+
+                    success(beaches)
+
+                } else {
+                    let message = json["message"].stringValue
+                    failure(NSError(domain: message, code: 1, userInfo: nil))
+                }
+
+            case .Failure(let error):
+                failure(error)
             }
-            
+        }
+
     }
-    
-    private func getRequestString(lat: BeachLocatorCoordinate, lon: BeachLocatorCoordinate, dist: Int) -> String {
-        return baseUrl + "?lat=\(lat)&long=\(lon)&dist=\(dist)"
+
+    private func buildResults(results: [JSON]) -> [BeachLocation] {
+        var beaches: [BeachLocation] = []
+
+        for item in results {
+
+            let loc = item["location"].stringValue
+            let spotId = item["spotId"].intValue
+            let county = item["country"].stringValue
+            let lat = item["coords"]["lat"].doubleValue
+            let lon = item["coords"]["long"].doubleValue
+
+            let beachLocation = BeachLocation(location: loc, spotId: spotId, country: county, coords: Coordinates(lat, lon))
+            beaches.append(beachLocation)
+        }
+
+        return beaches;
     }
-    
+
+    private func getRequestString(coords: Coordinates,
+                                  dist: Int) -> String {
+
+        return baseUrl + "?lat=\(coords.lat)&long=\(coords.lon)&dist=\(dist)"
+    }
+
 }

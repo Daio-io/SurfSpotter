@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		5753BEB81C4458D500304498 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5753BEB71C4458D500304498 /* AppDelegate.swift */; };
 		5753BEBF1C4458D500304498 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5753BEBE1C4458D500304498 /* Assets.xcassets */; };
-		5753BEC21C4458D500304498 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5753BEC01C4458D500304498 /* LaunchScreen.storyboard */; };
 		5753BECD1C445C0B00304498 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5753BECB1C445C0B00304498 /* MainViewController.swift */; };
 		5753BECE1C445C0B00304498 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5753BECC1C445C0B00304498 /* MainViewController.xib */; };
 		57EF0A931C455F2400695BC0 /* BeachLocatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EF0A921C455F2400695BC0 /* BeachLocatorService.swift */; };
+		BA88B3DAF40C4EB38B4F3527 /* BeachLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88B4D76B55E12ACB8BC748 /* BeachLocation.swift */; };
 		DB903AA29B6A48C25CF1CFE0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43156B5FD7E971278E18C0C5 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,11 +23,11 @@
 		5753BEB41C4458D500304498 /* BeachFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeachFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5753BEB71C4458D500304498 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5753BEBE1C4458D500304498 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5753BEC11C4458D500304498 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5753BEC31C4458D500304498 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5753BECB1C445C0B00304498 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5753BECC1C445C0B00304498 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = ../Controllers/MainViewController.xib; sourceTree = "<group>"; };
 		57EF0A921C455F2400695BC0 /* BeachLocatorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachLocatorService.swift; sourceTree = "<group>"; };
+		BA88B4D76B55E12ACB8BC748 /* BeachLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +77,8 @@
 				5753BEC91C445BBF00304498 /* Controllers */,
 				5753BEB71C4458D500304498 /* AppDelegate.swift */,
 				5753BEBE1C4458D500304498 /* Assets.xcassets */,
-				5753BEC01C4458D500304498 /* LaunchScreen.storyboard */,
 				5753BEC31C4458D500304498 /* Info.plist */,
+				BA88B183CF261F1501B58AEB /* Model */,
 			);
 			path = BeachFinder;
 			sourceTree = "<group>";
@@ -113,6 +113,14 @@
 				43156B5FD7E971278E18C0C5 /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA88B183CF261F1501B58AEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA88B4D76B55E12ACB8BC748 /* BeachLocation.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,7 +184,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5753BEC21C4458D500304498 /* LaunchScreen.storyboard in Resources */,
 				5753BECE1C445C0B00304498 /* MainViewController.xib in Resources */,
 				5753BEBF1C4458D500304498 /* Assets.xcassets in Resources */,
 			);
@@ -240,21 +247,11 @@
 				5753BECD1C445C0B00304498 /* MainViewController.swift in Sources */,
 				5753BEB81C4458D500304498 /* AppDelegate.swift in Sources */,
 				57EF0A931C455F2400695BC0 /* BeachLocatorService.swift in Sources */,
+				BA88B3DAF40C4EB38B4F3527 /* BeachLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		5753BEC01C4458D500304498 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5753BEC11C4458D500304498 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5753BEC41C4458D500304498 /* Debug */ = {
@@ -344,9 +341,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BeachFinder/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/Frameworks/Echo";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Echo",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.daio.BeachFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -356,9 +359,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BeachFinder/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/Frameworks/Echo";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Echo",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.daio.BeachFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
