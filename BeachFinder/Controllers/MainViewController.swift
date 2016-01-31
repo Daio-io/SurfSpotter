@@ -11,14 +11,13 @@ import GoogleMaps
 import CoreLocation
 
 class MainViewController: UIViewController, CLLocationManagerDelegate {
-    let locationManager = CLLocationManager()
-    let locator = BeachLocatorService()
-    
-    var currentLocation: Coordinates?
-    
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var mapViewPlaceholder: GMSMapView!
     @IBOutlet weak var distanceSlider: UISlider!
+    
+    let locationManager = CLLocationManager()
+    let locator = BeachLocatorService()
+    var currentLocation: Coordinates?
     
     init() {
         super.init(nibName:nil, bundle:nil)
@@ -27,7 +26,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     required init?(coder aDecoder: NSCoder) {
         fatalError("Not implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapViewPlaceholder.myLocationEnabled = true
@@ -52,26 +51,31 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     func getLocationData(lat: Double, long: Double, dist: Int) {
         
-        weak var weakSelf = self
         let coords = (lat, long)
         let myLocation = CLLocation(latitude: lat, longitude: long)
-        
         self.mapViewPlaceholder.clear()
-        locator.getNearestBeachesForLocation(coords, distance: dist,
-            success: { response in response
-                for beach in response {
-                    let marker = GMSMarker()
-                    let beachLocation = CLLocation(latitude: beach.coords.lat, longitude: beach.coords.lon)
-                    let distance = myLocation.distanceFromLocation(beachLocation)
-                    marker.position = CLLocationCoordinate2DMake(beach.coords.lat, beach.coords.lon)
-                    
-                    marker.title = beach.location
-                    marker.snippet = String(Int(distance)) + " meters away"
-                    marker.map = weakSelf?.mapViewPlaceholder
-                }
-            }, failure: {error in error
-                print(error.domain)
-        } )
+        
+        let _ = locator.getNearestBeachesForLocation(coords, distance: dist)
+            .subscribe(
+                onNext: {[unowned self] (beach) -> Void in
+                
+                self.dropMarker(beach, currentLoc: myLocation)
+                
+                },
+                onError:  {(error) -> Void in
+                    print(error)
+            })
+    }
+    
+    private func dropMarker(beach: BeachLocation, currentLoc: CLLocation) {
+        let marker = GMSMarker()
+        let beachLocation = CLLocation(latitude: beach.coords.lat, longitude: beach.coords.lon)
+        let distance = currentLoc.distanceFromLocation(beachLocation)
+        marker.position = CLLocationCoordinate2DMake(beach.coords.lat, beach.coords.lon)
+        
+        marker.title = beach.location
+        marker.snippet = String(Int(distance)) + " Meters away"
+        marker.map = self.mapViewPlaceholder
     }
     
     @IBAction func distanceChanged(sender: AnyObject) {
@@ -80,9 +84,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             self.distanceLabel.text = String(self.distanceSlider.value) + "m"
             self.getLocationData(location.lat, long: location.lon, dist: dist)
         }
-
+        
     }
-
+    
     // MARK: CLLocationManagerDelegate
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -103,5 +107,5 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("Location error: \(error)")
     }
-
+    
 }
