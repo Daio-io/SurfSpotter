@@ -16,12 +16,12 @@ class BeachLocatorService: NSObject {
     let baseUrl = "https://beach-locator.herokuapp.com/location"
     
     func getNearestBeachesForLocation(coords: (lat:Double, lon:Double),
-        distance: Int) -> Observable<BeachLocation> {
+        distance: Int) -> Observable<[BeachLocation]> {
             
             let url = self.getRequestString(coords, dist: distance)
             let request = Alamofire.request(.GET, url)
             
-            return Observable.create {(observer: AnyObserver<BeachLocation>) -> Disposable in
+            return Observable.create {(observer: AnyObserver<[BeachLocation]>) -> Disposable in
                 request.responseJSON {
                     response in switch response.result {
                     case .Success(let jsonData):
@@ -30,10 +30,11 @@ class BeachLocatorService: NSObject {
                         if json["status"] == "success" {
                             let results = json["response"].array!
                             
-                            for item in results {
-                                let beachLocation = BeachLocation(json: item)
-                                observer.onNext(beachLocation)
-                            }
+                            let beaches = results.map({ (result) -> BeachLocation in
+                                return BeachLocation(json: result)
+                            })
+                            
+                            observer.onNext(beaches)
                             
                             observer.onCompleted()
                             

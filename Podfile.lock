@@ -1,12 +1,17 @@
 PODS:
-  - Alamofire (3.1.4)
-  - GoogleMaps (1.11.1)
-  - RxSwift (2.1.0)
+  - Alamofire (3.2.0)
+  - FoldingCell (0.7.1)
+  - GoogleMaps (1.12.1)
+  - RxCocoa (2.2.0):
+    - RxSwift (~> 2.2)
+  - RxSwift (2.2.0)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - FoldingCell (~> 0.6)
   - GoogleMaps
+  - RxCocoa (~> 2.1)
   - RxSwift (~> 2.1)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
@@ -16,13 +21,15 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwiftyJSON:
-    :commit: 929539eb6a3304eaa9153ca44041a78b85bf2ee5
+    :commit: 42bdb102d2624b143c07850ebdc1537d5b6579b6
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: fbc829692f351fa1d8a31dd75fd7f7f56fea31fb
-  GoogleMaps: c947160008f414c66707a5ea60f35e92055c7670
-  RxSwift: 110fb07f81c17c2c3b3254d168363057b1880d18
+  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  FoldingCell: 1b048934f8ecd15fa18a20375d55c6b0e83c4f37
+  GoogleMaps: d4e7526e96e78faf7131ea95f13dd5411cc2916d
+  RxCocoa: 42efb7a7145a8d1d5878e94ce48a580d29e0c796
+  RxSwift: b8a749f2204c6c7a5c29b306a9c3bc11d5b87c5b
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0

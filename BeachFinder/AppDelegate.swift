@@ -14,10 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        GMSServices.provideAPIKey("API_KEY")
+        GMSServices.provideAPIKey("KEY_HERE")
         displayMainViewController()
         // Override point for customization after application launch.
         return true

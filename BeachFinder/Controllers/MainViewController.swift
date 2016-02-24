@@ -17,6 +17,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     let locator = BeachLocatorService()
+    let service = SurfQueryService()
     var currentLocation: Coordinates?
     
     init() {
@@ -31,6 +32,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         self.mapViewPlaceholder.myLocationEnabled = true
         self.distanceLabel.text = String(self.distanceSlider.value) + "m"
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -52,19 +54,25 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     func getLocationData(lat: Double, long: Double, dist: Int) {
         
         let coords = (lat, long)
-        let myLocation = CLLocation(latitude: lat, longitude: long)
+        
         self.mapViewPlaceholder.clear()
         
         let _ = locator.getNearestBeachesForLocation(coords, distance: dist)
             .subscribe(
-                onNext: {[unowned self] (beach) -> Void in
+                onNext: {[unowned self] (beaches) -> Void in
                 
-                self.dropMarker(beach, currentLoc: myLocation)
-                
+                    let viewModels = beaches.map({ (beach) -> BeachLocationItemViewModel in
+                        return BeachLocationItemViewModel(self.service, beach)
+                    })
+                    let co = BeachLocationsViewController(beaches: viewModels)
+                    
+                    self.presentViewController(co, animated: true, completion: nil)
+                    
                 },
                 onError:  {(error) -> Void in
                     print(error)
             })
+        
     }
     
     private func dropMarker(beach: BeachLocation, currentLoc: CLLocation) {
@@ -81,8 +89,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func distanceChanged(sender: AnyObject) {
         if let location = currentLocation {
             let dist = Int(self.distanceSlider.value)
-            self.distanceLabel.text = String(self.distanceSlider.value) + "m"
-            self.getLocationData(location.lat, long: location.lon, dist: dist)
+            distanceLabel.text = String(self.distanceSlider.value) + "m"
+            getLocationData(location.lat, long: location.lon, dist: dist)
+            
         }
         
     }

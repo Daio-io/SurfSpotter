@@ -22,4 +22,11 @@ public struct BeachLocation {
         let lon = json["coords"]["long"].doubleValue
         self.coords = Coordinates(lat, lon)
     }
+    
+    init(location: String, spotId: Int, country: String, lat: Double, lon: Double) {
+        self.location = location
+        self.spotId = spotId
+        self.country = country
+        self.coords = Coordinates(lat, lon)
+    }
 }
