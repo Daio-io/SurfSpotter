@@ -17,14 +17,13 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var distanceSlider: UISlider!
     
     let locationManager = CLLocationManager()
-    let locator = BeachLocatorService()
-    let service = SurfQueryService()
+    lazy var service = SurfQueryService()
     let disposeBag = DisposeBag()
     
     var viewModel: HomeViewModel
     
     init() {
-        viewModel = HomeViewModel(self.locator)
+        viewModel = HomeViewModel(BeachLocatorService())
         super.init(nibName:nil, bundle:nil)
     }
     
