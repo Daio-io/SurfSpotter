@@ -18,16 +18,19 @@ class BeachLocationCell : FoldingCell {
     @IBOutlet private weak var closedTitle: UILabel!
     @IBOutlet private weak var mapPlaceholder: GMSMapView!
     
+    let disposeBag = DisposeBag()
+    
     override func awakeFromNib() {
         self.mapPlaceholder.myLocationEnabled = true
         foregroundView.layer.masksToBounds = true
+        foregroundView.layer.cornerRadius = 10
         
         super.awakeFromNib()
     }
     
     override func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
         // durations count equal it itemCount
-        let durations = [0.33, 0.26, 0.26] // timing animation for each view
+        let durations = [0.26, 0.2, 0.2]// timing animation for each view
         return durations[itemIndex]
     }
     
@@ -37,10 +40,16 @@ class BeachLocationCell : FoldingCell {
             return String("Swell: \(min)-\(max)ft")
         }
         
-        let _ = swellText.bindTo(titleLabel.rx_text)
-        let _ = viewModel.location.asObservable().bindTo(closedTitle.rx_text)
+        swellText.asObservable()
+            .startWith("Loading")
+            .bindTo(titleLabel.rx_text)
+            .addDisposableTo(disposeBag)
         
-        let _ = viewModel.coords.asObservable()
+        viewModel.location.asObservable()
+            .bindTo(closedTitle.rx_text)
+            .addDisposableTo(disposeBag)
+        
+        viewModel.coords.asObservable()
             .subscribeNext { [unowned self] (coords) -> Void in
                 self.mapPlaceholder.clear()
                 let camera = GMSCameraPosition.cameraWithLatitude(coords.lat,
@@ -53,7 +62,7 @@ class BeachLocationCell : FoldingCell {
                 
                 marker.title = viewModel.location.value
                 marker.map = self.mapPlaceholder
-        }
+        }.addDisposableTo(disposeBag)
         
     }
     

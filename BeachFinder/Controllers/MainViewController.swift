@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
+import RxSwift
 
 class MainViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var distanceLabel: UILabel!
@@ -18,9 +19,12 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     let locator = BeachLocatorService()
     let service = SurfQueryService()
-    var currentLocation: Coordinates?
+    let disposeBag = DisposeBag()
+    
+    var viewModel: HomeViewModel
     
     init() {
+        viewModel = HomeViewModel(self.locator)
         super.init(nibName:nil, bundle:nil)
     }
     
@@ -31,8 +35,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapViewPlaceholder.myLocationEnabled = true
-        self.distanceLabel.text = String(self.distanceSlider.value) + "m"
-        
+        self.bind()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -50,50 +53,49 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     // MARK - Internal
+    func bind() {
+        bindViewModel()
+        bindSliderToTextView()
+    }
     
-    func getLocationData(lat: Double, long: Double, dist: Int) {
+    func bindViewModel() {
         
-        let coords = (lat, long)
+        Observable.combineLatest(viewModel.distance.asObservable(),
+                viewModel.currentLocation.asObservable()) { (distance, location) -> (Int, Coordinates)in
+                    return (distance, location)
+            }.throttle(0.5, scheduler: MainScheduler.instance)
+            .subscribeNext { [unowned self] (distance, location) -> Void in
+                self.viewModel.scan()
+        }.addDisposableTo(disposeBag)
         
-        self.mapViewPlaceholder.clear()
-        
-        let _ = locator.getNearestBeachesForLocation(coords, distance: dist)
-            .subscribe(
-                onNext: {[unowned self] (beaches) -> Void in
-                
-                    let viewModels = beaches.map({ (beach) -> BeachLocationItemViewModel in
-                        return BeachLocationItemViewModel(self.service, beach)
-                    })
-                    let co = BeachLocationsViewController(beaches: viewModels)
-                    
-                    self.presentViewController(co, animated: true, completion: nil)
-                    
-                },
-                onError:  {(error) -> Void in
-                    print(error)
+        viewModel.locations.asObservable()
+            .skipWhile({ (locations) -> Bool in
+                return locations.isEmpty
             })
-        
-    }
-    
-    private func dropMarker(beach: BeachLocation, currentLoc: CLLocation) {
-        let marker = GMSMarker()
-        let beachLocation = CLLocation(latitude: beach.coords.lat, longitude: beach.coords.lon)
-        let distance = currentLoc.distanceFromLocation(beachLocation)
-        marker.position = CLLocationCoordinate2DMake(beach.coords.lat, beach.coords.lon)
-        
-        marker.title = beach.location
-        marker.snippet = String(Int(distance)) + " Meters away"
-        marker.map = self.mapViewPlaceholder
-    }
-    
-    @IBAction func distanceChanged(sender: AnyObject) {
-        if let location = currentLocation {
-            let dist = Int(self.distanceSlider.value)
-            distanceLabel.text = String(self.distanceSlider.value) + "m"
-            getLocationData(location.lat, long: location.lon, dist: dist)
+            .subscribeNext {[unowned self] (locations) -> Void in
+                
+                let viewModels = locations.map({ (beach) -> BeachLocationItemViewModel in
+                    return BeachLocationItemViewModel(self.service, beach)
+                })
+                let co = BeachLocationsViewController(beaches: viewModels)
+                
+                self.presentViewController(co, animated: true, completion: nil)
             
-        }
-        
+        }.addDisposableTo(disposeBag)
+
+    }
+    
+    func bindSliderToTextView() {
+        distanceSlider.rx_value.asObservable()
+            .startWith(distanceSlider.value)
+            .doOnNext({[unowned self] (distance) -> Void in
+                self.viewModel.distance.value = Int(distance)
+                })
+            .map({ (distance) -> String in
+                return String("\(distance)m")
+            })
+            .bindTo(distanceLabel.rx_text)
+            .addDisposableTo(disposeBag)
     }
     
     // MARK: CLLocationManagerDelegate
@@ -101,16 +103,14 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValues:CLLocationCoordinate2D = (manager.location?.coordinate)!
         
-        self.locationManager.stopUpdatingLocation()
+        locationManager.stopUpdatingLocation()
         
         let camera = GMSCameraPosition.cameraWithLatitude(locValues.latitude,
             longitude: locValues.longitude, zoom: 8)
         self.mapViewPlaceholder.camera = camera
         
-        currentLocation = Coordinates(locValues.latitude, locValues.longitude)
-        let distance = Int(self.distanceSlider.value)
-        self.getLocationData(locValues.latitude, long: locValues.longitude, dist: distance)
-        
+        viewModel.currentLocation.value = Coordinates(locValues.latitude, locValues.longitude)
+        viewModel.distance.value = Int(distanceSlider.value)
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {

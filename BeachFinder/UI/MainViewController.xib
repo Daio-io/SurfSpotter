@@ -24,9 +24,6 @@
                 </view>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5000" minValue="0.0" maxValue="100000" translatesAutoresizingMaskIntoConstraints="NO" id="pmD-Rq-ZO9">
                     <rect key="frame" x="6" y="570" width="588" height="21"/>
-                    <connections>
-                        <action selector="distanceChanged:" destination="-1" eventType="touchUpInside" id="Tx4-5L-rHh"/>
-                    </connections>
                 </slider>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lT-eF-WRm">
                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>

@@ -11,8 +11,8 @@ import RxSwift
 
 class BeachLocationItemViewModel : NSObject {
     
-    private var surfService: SurfReportService
-    private var locationId: Int
+    private let surfService: SurfReportService
+    private let locationId: Int
     private var subscription: Disposable?
     
     let location = Variable("")

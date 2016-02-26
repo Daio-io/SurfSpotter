@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import RxSwift
 
-class BeachLocatorService: NSObject {
+class BeachLocatorService: BeachLocationService {
     
     let baseUrl = "https://beach-locator.herokuapp.com/location"
     
