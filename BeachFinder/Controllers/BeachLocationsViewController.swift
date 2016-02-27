@@ -13,7 +13,7 @@ class BeachLocationsViewController: UITableViewController {
     // Constants for should be equal to or greater than
     // the cell forgroundview height
     let kCloseCellHeight: CGFloat = 97
-    let kOpenCellHeight: CGFloat = 320
+    let kOpenCellHeight: CGFloat = 420
     var beaches : [BeachLocationItemViewModel]
     
     let beachCellIdentifier = "BeachLocationCell"

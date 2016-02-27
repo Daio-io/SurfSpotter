@@ -49,6 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let window = window {
             let mainController = MainViewController()
             let naviController = UINavigationController(rootViewController: mainController)
+            
+            naviController.navigationBar.tintColor = UIColor.amber500
+            naviController.navigationBar.barTintColor = UIColor.blue600
+            
             window.rootViewController = naviController
             window.makeKeyAndVisible()
         }

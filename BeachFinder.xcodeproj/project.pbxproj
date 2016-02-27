@@ -20,6 +20,12 @@
 		57DE5D601C6BA429002A74B9 /* BeachLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57DE5D5F1C6BA429002A74B9 /* BeachLocationCell.xib */; };
 		57DE5D651C6BAB64002A74B9 /* BeachLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DE5D631C6BAB64002A74B9 /* BeachLocationsViewController.swift */; };
 		57E04E641C805EA5003DED3D /* CurrentLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E04E631C805EA5003DED3D /* CurrentLocationService.swift */; };
+		57E04E6A1C821AD7003DED3D /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57E04E671C821AD7003DED3D /* Roboto-Bold.ttf */; };
+		57E04E6B1C821AD7003DED3D /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57E04E681C821AD7003DED3D /* Roboto-Medium.ttf */; };
+		57E04E6C1C821AD7003DED3D /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57E04E691C821AD7003DED3D /* Roboto-Regular.ttf */; };
+		57E04E751C8260CA003DED3D /* BeachFinderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E04E741C8260CA003DED3D /* BeachFinderLabel.swift */; };
+		57E04E771C8262DB003DED3D /* UILabel+FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E04E761C8262DB003DED3D /* UILabel+FontStyle.swift */; };
+		57E04E791C826712003DED3D /* UIColor+Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E04E781C826712003DED3D /* UIColor+Material.swift */; };
 		57E2CD051C737E7100B212DC /* BeachLocationItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E2CD041C737E7100B212DC /* BeachLocationItemViewModel.swift */; };
 		57EF0A931C455F2400695BC0 /* BeachLocatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EF0A921C455F2400695BC0 /* BeachLocatorService.swift */; };
 		57F6AE381C71DC4D009A152B /* BeachSurfReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F6AE371C71DC4D009A152B /* BeachSurfReport.swift */; };
@@ -46,6 +52,12 @@
 		57DE5D5F1C6BA429002A74B9 /* BeachLocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeachLocationCell.xib; sourceTree = "<group>"; };
 		57DE5D631C6BAB64002A74B9 /* BeachLocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachLocationsViewController.swift; sourceTree = "<group>"; };
 		57E04E631C805EA5003DED3D /* CurrentLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationService.swift; sourceTree = "<group>"; };
+		57E04E671C821AD7003DED3D /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		57E04E681C821AD7003DED3D /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		57E04E691C821AD7003DED3D /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		57E04E741C8260CA003DED3D /* BeachFinderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachFinderLabel.swift; sourceTree = "<group>"; };
+		57E04E761C8262DB003DED3D /* UILabel+FontStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+FontStyle.swift"; sourceTree = "<group>"; };
+		57E04E781C826712003DED3D /* UIColor+Material.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Material.swift"; sourceTree = "<group>"; };
 		57E2CD041C737E7100B212DC /* BeachLocationItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachLocationItemViewModel.swift; sourceTree = "<group>"; };
 		57EF0A921C455F2400695BC0 /* BeachLocatorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachLocatorService.swift; sourceTree = "<group>"; };
 		57F6AE371C71DC4D009A152B /* BeachSurfReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachSurfReport.swift; sourceTree = "<group>"; };
@@ -73,13 +85,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		570337271C7DA20200DB5BE1 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		570F10071C5E4BDA0038A0B1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				57690CBF1C6BA3A700B7361A /* BeachLocationCell.swift */,
+				57E04E741C8260CA003DED3D /* BeachFinderLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -101,6 +107,7 @@
 		5753BEAB1C4458D500304498 = {
 			isa = PBXGroup;
 			children = (
+				57E04E651C821AD7003DED3D /* Resources */,
 				5753BEB61C4458D500304498 /* BeachFinder */,
 				5753BEB51C4458D500304498 /* Products */,
 				288A8221AE9CD0316641E00F /* Pods */,
@@ -119,7 +126,7 @@
 		5753BEB61C4458D500304498 /* BeachFinder */ = {
 			isa = PBXGroup;
 			children = (
-				570337271C7DA20200DB5BE1 /* Utils */,
+				57E04E711C825CDE003DED3D /* Utils */,
 				576690C21C70FF19000CCB83 /* ViewModels */,
 				5721A0151C6BA1F400B26C8A /* Views */,
 				570F10071C5E4BDA0038A0B1 /* UI */,
@@ -149,6 +156,25 @@
 				570337241C7D9C9E00DB5BE1 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		57E04E651C821AD7003DED3D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				57E04E671C821AD7003DED3D /* Roboto-Bold.ttf */,
+				57E04E681C821AD7003DED3D /* Roboto-Medium.ttf */,
+				57E04E691C821AD7003DED3D /* Roboto-Regular.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		57E04E711C825CDE003DED3D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				57E04E761C8262DB003DED3D /* UILabel+FontStyle.swift */,
+				57E04E781C826712003DED3D /* UIColor+Material.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		57EF0A911C455F0300695BC0 /* Services */ = {
@@ -242,7 +268,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5753BEBF1C4458D500304498 /* Assets.xcassets in Resources */,
+				57E04E6C1C821AD7003DED3D /* Roboto-Regular.ttf in Resources */,
 				570F10091C5E4BDA0038A0B1 /* MainViewController.xib in Resources */,
+				57E04E6B1C821AD7003DED3D /* Roboto-Medium.ttf in Resources */,
+				57E04E6A1C821AD7003DED3D /* Roboto-Bold.ttf in Resources */,
 				570337231C7D321400DB5BE1 /* BeachLocationsViewController.xib in Resources */,
 				57DE5D601C6BA429002A74B9 /* BeachLocationCell.xib in Resources */,
 			);
@@ -303,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57E04E771C8262DB003DED3D /* UILabel+FontStyle.swift in Sources */,
 				5753BECD1C445C0B00304498 /* MainViewController.swift in Sources */,
 				570337251C7D9C9E00DB5BE1 /* HomeViewModel.swift in Sources */,
 				5753BEB81C4458D500304498 /* AppDelegate.swift in Sources */,
@@ -310,11 +340,13 @@
 				57E04E641C805EA5003DED3D /* CurrentLocationService.swift in Sources */,
 				57DE5D651C6BAB64002A74B9 /* BeachLocationsViewController.swift in Sources */,
 				578A11741C7A8BBA000F0246 /* SurfQueryService.swift in Sources */,
+				57E04E791C826712003DED3D /* UIColor+Material.swift in Sources */,
 				578A11721C7A8A00000F0246 /* SurfReportService.swift in Sources */,
 				5703372B1C7DA5D900DB5BE1 /* BeachLocationService.swift in Sources */,
 				57E2CD051C737E7100B212DC /* BeachLocationItemViewModel.swift in Sources */,
 				BA88B3DAF40C4EB38B4F3527 /* BeachLocation.swift in Sources */,
 				57690CC01C6BA3A700B7361A /* BeachLocationCell.swift in Sources */,
+				57E04E751C8260CA003DED3D /* BeachFinderLabel.swift in Sources */,
 				57F6AE381C71DC4D009A152B /* BeachSurfReport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

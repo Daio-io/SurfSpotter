@@ -10,15 +10,15 @@ import UIKit
 import RxSwift
 
 class MainViewController: UIViewController {
-    @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var distanceSlider: UISlider!
-    @IBOutlet weak var foundLocationsLabel: UILabel!
-    @IBOutlet weak var viewLocationsButton: UIButton!
+    @IBOutlet private weak var distanceLabel: UILabel!
+    @IBOutlet private weak var distanceSlider: UISlider!
+    @IBOutlet private weak var foundLocationsLabel: UILabel!
+    @IBOutlet private weak var viewLocationsButton: UIButton!
     
-    lazy var service = SurfQueryService()
-    let disposeBag = DisposeBag()
+    private lazy var service = SurfQueryService()
+    private let disposeBag = DisposeBag()
     
-    var viewModel: HomeViewModel
+    private var viewModel: HomeViewModel
     
     init() {
         viewModel = HomeViewModel(BeachLocatorService(), CurrentLocationService())
@@ -45,13 +45,13 @@ class MainViewController: UIViewController {
     
     // MARK - Internal
     
-    func bind() {
+    private func bind() {
         bindViewModel()
         bindSliderToTextView()
         bindLocationsLabel()
     }
     
-    func bindViewModel() {
+    private func bindViewModel() {
         
         Observable.combineLatest(viewModel.distance.asObservable(),
             viewModel.currentLocation.asObservable()) { (distance, location) -> (Int, Coordinates)in
@@ -63,10 +63,10 @@ class MainViewController: UIViewController {
         
     }
     
-    func bindLocationsLabel() {
+    private func bindLocationsLabel() {
         viewModel.locations.asObservable()
             .map({ (locations) -> String in
-                return "\(locations.count) Beaches found"
+                return "\(locations.count) Beaches Found"
             })
             .bindTo(foundLocationsLabel.rx_text)
             .addDisposableTo(disposeBag)
@@ -80,14 +80,14 @@ class MainViewController: UIViewController {
         
     }
     
-    func bindSliderToTextView() {
+    private func bindSliderToTextView() {
         distanceSlider.rx_value.asObservable()
             .startWith(distanceSlider.value)
             .doOnNext({[unowned self] (distance) -> Void in
                 self.viewModel.distance.value = Int(distance)
                 })
             .map({ (distance) -> String in
-                return String("\(distance)m")
+                return String("Scan Range: \(distance)m")
             })
             .bindTo(distanceLabel.rx_text)
             .addDisposableTo(disposeBag)

@@ -37,7 +37,7 @@ class BeachLocationCell : FoldingCell {
     
     override func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
         // durations count equal it itemCount
-        let durations = [0.26, 0.2, 0.2]// timing animation for each view
+        let durations = [0.26, 0.2, 0.2, 0.2]// timing animation for each view
         return durations[itemIndex]
     }
     

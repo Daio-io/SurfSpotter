@@ -12,14 +12,14 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="667"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cJF-q9-lpC" id="mhr-6W-5Hx">
-                <rect key="frame" x="0.0" y="0.0" width="600" height="666.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="600" height="667"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xea-YT-oDw" customClass="RotatedView" customModule="FoldingCell">
                         <rect key="frame" x="16" y="23" width="568" height="75"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcX-ZF-gwg">
-                                <rect key="frame" x="71" y="8" width="33.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcX-ZF-gwg" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                                <rect key="frame" x="71" y="8" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.67843137254901964" green="0.83529411764705885" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.90588235294117647" green="0.92156862745098034" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="vSr-VW-hcD" firstAttribute="top" secondItem="dcX-ZF-gwg" secondAttribute="top" id="CfY-XJ-h02"/>
                             <constraint firstAttribute="height" constant="75" id="JBt-rb-yAj"/>
@@ -53,10 +53,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40V-zM-Ty4">
-                        <rect key="frame" x="16" y="105" width="568" height="300"/>
+                        <rect key="frame" x="16" y="105" width="568" height="400"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-TD-tk6">
-                                <rect key="frame" x="8" y="8" width="34.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-TD-tk6" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                                <rect key="frame" x="8" y="8" width="35" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -68,49 +68,61 @@
                                     <color key="titleColor" red="1" green="0.0" blue="0.074020686490546161" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCq-gl-7YB">
-                                <rect key="frame" x="8" y="48" width="38" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCq-gl-7YB" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                                <rect key="frame" x="8" y="48" width="38" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8P5-6M-CH3">
-                                <rect key="frame" x="74" y="48" width="36.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8P5-6M-CH3" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                                <rect key="frame" x="74" y="48" width="37" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeq-Ez-6Co">
-                                <rect key="frame" x="72" y="8" width="33.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeq-Ez-6Co" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                                <rect key="frame" x="72" y="8" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLa-WZ-WXP" userLabel="Sea Level">
+                                <rect key="frame" x="0.0" y="300" width="568" height="100"/>
+                                <color key="backgroundColor" red="0.0" green="0.52156862745098043" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p53-kz-fgd" customClass="GMSMapView">
-                                <rect key="frame" x="8" y="77" width="552" height="215"/>
+                                <rect key="frame" x="8" y="167" width="552" height="225"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0078431372550000003" green="0.70980392160000005" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.82352941180000006" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="300" id="1Tg-as-ePI"/>
+                            <constraint firstAttribute="height" constant="400" id="1Tg-as-ePI"/>
                             <constraint firstItem="lNS-TD-tk6" firstAttribute="top" secondItem="40V-zM-Ty4" secondAttribute="top" constant="8" id="6rj-le-usH"/>
+                            <constraint firstItem="hLa-WZ-WXP" firstAttribute="width" secondItem="40V-zM-Ty4" secondAttribute="width" id="9QY-HN-wWk"/>
                             <constraint firstItem="lNS-TD-tk6" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" constant="8" id="BE4-pk-BbZ"/>
                             <constraint firstItem="aCq-gl-7YB" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" constant="8" id="Cfv-Hm-bQB"/>
                             <constraint firstItem="aCq-gl-7YB" firstAttribute="top" secondItem="lNS-TD-tk6" secondAttribute="bottom" constant="19.5" id="FZh-uI-BPo"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="JGC-RT-3XT"/>
                             <constraint firstItem="jeq-Ez-6Co" firstAttribute="leading" secondItem="lNS-TD-tk6" secondAttribute="trailing" constant="30" id="JqX-Xs-fTL"/>
+                            <constraint firstItem="hLa-WZ-WXP" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="KoY-0u-rBd"/>
                             <constraint firstItem="8P5-6M-CH3" firstAttribute="leading" secondItem="aCq-gl-7YB" secondAttribute="trailing" constant="28" id="Lvb-xY-8bd"/>
+                            <constraint firstAttribute="bottom" secondItem="hLa-WZ-WXP" secondAttribute="bottom" id="Q5M-VK-Ehs"/>
+                            <constraint firstItem="hLa-WZ-WXP" firstAttribute="centerX" secondItem="p53-kz-fgd" secondAttribute="centerX" id="R78-Uf-apM"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" constant="8" id="TUR-Rc-yXe"/>
                             <constraint firstItem="8P5-6M-CH3" firstAttribute="top" secondItem="lNS-TD-tk6" secondAttribute="bottom" constant="19.5" id="XDN-bJ-24g"/>
                             <constraint firstAttribute="bottom" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="8" id="XbT-T0-rw7"/>
                             <constraint firstAttribute="trailing" secondItem="p53-kz-fgd" secondAttribute="trailing" constant="8" id="d84-9U-H2w"/>
+                            <constraint firstAttribute="bottom" secondItem="hLa-WZ-WXP" secondAttribute="bottom" id="k3n-Bg-ul6"/>
                             <constraint firstAttribute="trailing" secondItem="ngX-j5-K0s" secondAttribute="trailing" constant="10" id="lbh-q1-QUI"/>
                             <constraint firstItem="jeq-Ez-6Co" firstAttribute="top" secondItem="40V-zM-Ty4" secondAttribute="top" constant="8" id="lm5-Qn-GNV"/>
+                            <constraint firstAttribute="trailing" secondItem="hLa-WZ-WXP" secondAttribute="trailing" id="lnh-x2-DOz"/>
                             <constraint firstAttribute="bottom" secondItem="p53-kz-fgd" secondAttribute="bottom" id="nAF-SW-Moc"/>
+                            <constraint firstItem="hLa-WZ-WXP" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="pKF-gN-FW4"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="top" secondItem="40V-zM-Ty4" secondAttribute="top" constant="56" id="r3h-d4-7aw"/>
                             <constraint firstItem="ngX-j5-K0s" firstAttribute="top" secondItem="40V-zM-Ty4" secondAttribute="top" constant="10" id="rAy-2G-HBE"/>
-                            <constraint firstItem="p53-kz-fgd" firstAttribute="top" secondItem="40V-zM-Ty4" secondAttribute="top" constant="77" id="wA9-HW-WBm"/>
+                            <constraint firstItem="hLa-WZ-WXP" firstAttribute="top" secondItem="40V-zM-Ty4" secondAttribute="top" constant="300" id="v4O-GG-KkN"/>
+                            <constraint firstItem="p53-kz-fgd" firstAttribute="top" secondItem="40V-zM-Ty4" secondAttribute="top" constant="167" id="wA9-HW-WBm"/>
                             <constraint firstAttribute="trailing" secondItem="p53-kz-fgd" secondAttribute="trailing" id="zDS-en-4VK"/>
                         </constraints>
                         <variation key="default">
@@ -119,6 +131,10 @@
                                 <exclude reference="nAF-SW-Moc"/>
                                 <exclude reference="r3h-d4-7aw"/>
                                 <exclude reference="zDS-en-4VK"/>
+                                <exclude reference="9QY-HN-wWk"/>
+                                <exclude reference="Q5M-VK-Ehs"/>
+                                <exclude reference="lnh-x2-DOz"/>
+                                <exclude reference="pKF-gN-FW4"/>
                             </mask>
                         </variation>
                     </view>
@@ -132,6 +148,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="40V-zM-Ty4" secondAttribute="trailing" constant="8" id="fzK-Xb-biO"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="itemCount">
                     <integer key="value" value="4"/>
