@@ -19,6 +19,7 @@
 		578A11741C7A8BBA000F0246 /* SurfQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578A11731C7A8BBA000F0246 /* SurfQueryService.swift */; };
 		57DE5D601C6BA429002A74B9 /* BeachLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57DE5D5F1C6BA429002A74B9 /* BeachLocationCell.xib */; };
 		57DE5D651C6BAB64002A74B9 /* BeachLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DE5D631C6BAB64002A74B9 /* BeachLocationsViewController.swift */; };
+		57E04E641C805EA5003DED3D /* CurrentLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E04E631C805EA5003DED3D /* CurrentLocationService.swift */; };
 		57E2CD051C737E7100B212DC /* BeachLocationItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E2CD041C737E7100B212DC /* BeachLocationItemViewModel.swift */; };
 		57EF0A931C455F2400695BC0 /* BeachLocatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EF0A921C455F2400695BC0 /* BeachLocatorService.swift */; };
 		57F6AE381C71DC4D009A152B /* BeachSurfReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F6AE371C71DC4D009A152B /* BeachSurfReport.swift */; };
@@ -44,6 +45,7 @@
 		578A11731C7A8BBA000F0246 /* SurfQueryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurfQueryService.swift; sourceTree = "<group>"; };
 		57DE5D5F1C6BA429002A74B9 /* BeachLocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeachLocationCell.xib; sourceTree = "<group>"; };
 		57DE5D631C6BAB64002A74B9 /* BeachLocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachLocationsViewController.swift; sourceTree = "<group>"; };
+		57E04E631C805EA5003DED3D /* CurrentLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationService.swift; sourceTree = "<group>"; };
 		57E2CD041C737E7100B212DC /* BeachLocationItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachLocationItemViewModel.swift; sourceTree = "<group>"; };
 		57EF0A921C455F2400695BC0 /* BeachLocatorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachLocatorService.swift; sourceTree = "<group>"; };
 		57F6AE371C71DC4D009A152B /* BeachSurfReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachSurfReport.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				578A11711C7A8A00000F0246 /* SurfReportService.swift */,
 				578A11731C7A8BBA000F0246 /* SurfQueryService.swift */,
 				5703372A1C7DA5D900DB5BE1 /* BeachLocationService.swift */,
+				57E04E631C805EA5003DED3D /* CurrentLocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				570337251C7D9C9E00DB5BE1 /* HomeViewModel.swift in Sources */,
 				5753BEB81C4458D500304498 /* AppDelegate.swift in Sources */,
 				57EF0A931C455F2400695BC0 /* BeachLocatorService.swift in Sources */,
+				57E04E641C805EA5003DED3D /* CurrentLocationService.swift in Sources */,
 				57DE5D651C6BAB64002A74B9 /* BeachLocationsViewController.swift in Sources */,
 				578A11741C7A8BBA000F0246 /* SurfQueryService.swift in Sources */,
 				578A11721C7A8A00000F0246 /* SurfReportService.swift in Sources */,

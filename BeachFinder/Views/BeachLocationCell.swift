@@ -14,16 +14,23 @@ import RxCocoa
 
 class BeachLocationCell : FoldingCell {
     
-    @IBOutlet private weak var titleLabel: UILabel!
+    let loadingText = "Loading"
+    // Closed cell
     @IBOutlet private weak var closedTitle: UILabel!
+    
+    // Open cell
+    @IBOutlet private weak var openDateText: UILabel!
+    @IBOutlet private weak var openTimeText: UILabel!
+    @IBOutlet private weak var openSwellText: UILabel!
+    @IBOutlet private weak var openWindText: UILabel!
     @IBOutlet private weak var mapPlaceholder: GMSMapView!
     
     let disposeBag = DisposeBag()
     
     override func awakeFromNib() {
-        self.mapPlaceholder.myLocationEnabled = true
+        mapPlaceholder.myLocationEnabled = true
         foregroundView.layer.masksToBounds = true
-        foregroundView.layer.cornerRadius = 10
+        foregroundView.layer.cornerRadius = 8
         
         super.awakeFromNib()
     }
@@ -36,16 +43,34 @@ class BeachLocationCell : FoldingCell {
     
     func bind(viewModel: BeachLocationItemViewModel) {
         
-        let swellText = Observable.combineLatest(viewModel.minSwell.asObservable(), viewModel.maxSwell.asObservable()) {min, max in
+        let swellText = Observable.combineLatest(viewModel.minSwell.asObservable(),
+            viewModel.maxSwell.asObservable()) { min, max in
             return String("Swell: \(min)-\(max)ft")
         }
         
         swellText.asObservable()
-            .startWith("Loading")
-            .bindTo(titleLabel.rx_text)
+            .startWith(loadingText)
+            .bindTo(openSwellText.rx_text)
+            .addDisposableTo(disposeBag)
+        
+        viewModel.wind.asObservable()
+            .map { (wind) -> String in
+            return "Wind: \(wind)mph"
+        }.bindTo(openWindText.rx_text)
+        .addDisposableTo(disposeBag)
+        
+        viewModel.date.asObservable()
+            .startWith(loadingText)
+            .bindTo(openDateText.rx_text)
+            .addDisposableTo(disposeBag)
+        
+        viewModel.time.asObservable()
+            .startWith(loadingText)
+            .bindTo(openTimeText.rx_text)
             .addDisposableTo(disposeBag)
         
         viewModel.location.asObservable()
+            .startWith(loadingText)
             .bindTo(closedTitle.rx_text)
             .addDisposableTo(disposeBag)
         
@@ -57,13 +82,11 @@ class BeachLocationCell : FoldingCell {
                 self.mapPlaceholder.camera = camera
                 
                 let marker = GMSMarker()
-                
                 marker.position = CLLocationCoordinate2DMake(coords.lat, coords.lon)
-                
                 marker.title = viewModel.location.value
                 marker.map = self.mapPlaceholder
         }.addDisposableTo(disposeBag)
         
     }
-    
+
 }

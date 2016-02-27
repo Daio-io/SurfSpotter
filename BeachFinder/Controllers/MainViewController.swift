@@ -7,23 +7,21 @@
 //
 
 import UIKit
-import GoogleMaps
-import CoreLocation
 import RxSwift
 
-class MainViewController: UIViewController, CLLocationManagerDelegate {
+class MainViewController: UIViewController {
     @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var mapViewPlaceholder: GMSMapView!
     @IBOutlet weak var distanceSlider: UISlider!
+    @IBOutlet weak var foundLocationsLabel: UILabel!
+    @IBOutlet weak var viewLocationsButton: UIButton!
     
-    let locationManager = CLLocationManager()
     lazy var service = SurfQueryService()
     let disposeBag = DisposeBag()
     
     var viewModel: HomeViewModel
     
     init() {
-        viewModel = HomeViewModel(BeachLocatorService())
+        viewModel = HomeViewModel(BeachLocatorService(), CurrentLocationService())
         super.init(nibName:nil, bundle:nil)
     }
     
@@ -33,55 +31,53 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.mapViewPlaceholder.myLocationEnabled = true
-        self.bind()
+        bind()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewDidAppear(animated: Bool) {
-        
-        self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            self.locationManager.delegate = self
-            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            self.locationManager.requestAlwaysAuthorization()
-            self.locationManager.startUpdatingLocation()
-        }
-        
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        viewModel.locateMe()
     }
     
     // MARK - Internal
+    
     func bind() {
         bindViewModel()
         bindSliderToTextView()
+        bindLocationsLabel()
     }
     
     func bindViewModel() {
         
         Observable.combineLatest(viewModel.distance.asObservable(),
-                viewModel.currentLocation.asObservable()) { (distance, location) -> (Int, Coordinates)in
-                    return (distance, location)
+            viewModel.currentLocation.asObservable()) { (distance, location) -> (Int, Coordinates)in
+                return (distance, location)
             }.throttle(0.5, scheduler: MainScheduler.instance)
             .subscribeNext { [unowned self] (distance, location) -> Void in
                 self.viewModel.scan()
-        }.addDisposableTo(disposeBag)
+            }.addDisposableTo(disposeBag)
+        
+    }
+    
+    func bindLocationsLabel() {
+        viewModel.locations.asObservable()
+            .map({ (locations) -> String in
+                return "\(locations.count) Beaches found"
+            })
+            .bindTo(foundLocationsLabel.rx_text)
+            .addDisposableTo(disposeBag)
+        
         
         viewModel.locations.asObservable()
-            .skipWhile({ (locations) -> Bool in
-                return locations.isEmpty
-            })
-            .subscribeNext {[unowned self] (locations) -> Void in
-                
-                let viewModels = locations.map({ (beach) -> BeachLocationItemViewModel in
-                    return BeachLocationItemViewModel(self.service, beach)
-                })
-                let co = BeachLocationsViewController(beaches: viewModels)
-                
-                self.presentViewController(co, animated: true, completion: nil)
-            
-        }.addDisposableTo(disposeBag)
-
+            .map { (locations) -> Bool in
+                return !locations.isEmpty
+            }.bindTo(viewLocationsButton.rx_enabled)
+            .addDisposableTo(disposeBag)
+        
     }
     
     func bindSliderToTextView() {
@@ -97,23 +93,14 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             .addDisposableTo(disposeBag)
     }
     
-    // MARK: CLLocationManagerDelegate
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locValues:CLLocationCoordinate2D = (manager.location?.coordinate)!
+    
+    @IBAction func viewLocations(sender: AnyObject) {
+        let viewModels = viewModel.locations.value.map({ (beach) -> BeachLocationItemViewModel in
+            return BeachLocationItemViewModel(self.service, beach)
+        })
+        let co = BeachLocationsViewController(beaches: viewModels)
         
-        locationManager.stopUpdatingLocation()
-        
-        let camera = GMSCameraPosition.cameraWithLatitude(locValues.latitude,
-            longitude: locValues.longitude, zoom: 8)
-        self.mapViewPlaceholder.camera = camera
-        
-        viewModel.currentLocation.value = Coordinates(locValues.latitude, locValues.longitude)
-        viewModel.distance.value = Int(distanceSlider.value)
+        navigationController?.pushViewController(co, animated: true)
     }
-    
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("Location error: \(error)")
-    }
-    
 }

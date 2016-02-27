@@ -11,9 +11,10 @@ import RxSwift
 
 class BeachLocationItemViewModel : NSObject {
     
-    private let surfService: SurfReportService
-    private let locationId: Int
+    private let surfService: SurfReportService?
     private var subscription: Disposable?
+    
+    private let locationId: Int
     
     let location = Variable("")
     let maxSwell = Variable(0)
@@ -41,7 +42,7 @@ class BeachLocationItemViewModel : NSObject {
     
     func refresh(start: Int, _ fin: Int) {
         
-        subscription = surfService.getSurfData(locationId, startTime: start, finishTime: fin)
+        subscription = surfService?.getSurfData(locationId, startTime: start, finishTime: fin)
             .take(1)
             .subscribe(onNext: { [unowned self] (surfReport) -> Void in
                 self.maxSwell.value = surfReport.maxSwell
@@ -51,13 +52,7 @@ class BeachLocationItemViewModel : NSObject {
                 self.solidStar.value = surfReport.solidStar
                 self.fadedStar.value = surfReport.fadedStar
                 self.wind.value = surfReport.wind
-                }, onError: { (errorType) -> Void in
-                    
-                }, onCompleted: { () -> Void in
-                    
-                }) { () -> Void in
-                    
-        }
+                }, onError: nil, onCompleted: nil, onDisposed: nil)
     }
     
 }

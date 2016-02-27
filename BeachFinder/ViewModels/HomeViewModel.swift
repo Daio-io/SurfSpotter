@@ -9,27 +9,39 @@
 import Foundation
 import RxSwift
 
-class HomeViewModel: NSObject {
-
-    private let locatorService: BeachLocationService
-    private var subscription: Disposable?
+class HomeViewModel {
     
-    var locations = Variable(Array<BeachLocation>())
-    var currentLocation = Variable(Coordinates(0, 0))
-    var distance = Variable(0)
+    private let beachFinderService: BeachLocationService?
+    private let locationService: CurrentLocationService?
     
-    init(_ service: BeachLocationService) {
-        self.locatorService = service
+    private let disposeBag = DisposeBag()
+    
+    let locations = Variable(Array<BeachLocation>())
+    let currentLocation = Variable(Coordinates(0, 0))
+    let distance = Variable(0)
+    
+    init(_ beachFinderService: BeachLocationService, _ locationService: CurrentLocationService) {
+        self.beachFinderService = beachFinderService
+        self.locationService = locationService
+        
+        locationService.currentLocationObservable()
+            .throttle(0.5, scheduler: MainScheduler.instance)
+            .subscribeNext { [unowned self] (coords) -> Void in
+                self.currentLocation.value = coords
+            }.addDisposableTo(disposeBag)
     }
     
-    deinit {
-       subscription?.dispose()
+    func locateMe() {
+        locationService?.locate()
     }
     
     func scan() {
-        subscription = locatorService.getNearestBeachesForLocation(currentLocation.value, distance: distance.value)
-        .subscribeNext { [unowned self] (locations) -> Void in
-            self.locations.value = locations
-        }
+        beachFinderService?.getNearestBeachesForLocation(currentLocation.value, distance: distance.value)
+            .subscribe(onNext: { [unowned self] (locations) -> Void in
+                self.locations.value = locations
+                }, onError: { [unowned self] (error) -> Void in
+                    self.locations.value = []
+                }, onCompleted: nil, onDisposed: nil)
+            .addDisposableTo(disposeBag)
     }
 }

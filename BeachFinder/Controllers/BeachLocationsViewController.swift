@@ -23,7 +23,6 @@ class BeachLocationsViewController: UITableViewController {
     init(beaches: [BeachLocationItemViewModel]) {
         self.beaches = beaches
         super.init(nibName: nil, bundle: nil)
-        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -71,12 +70,6 @@ class BeachLocationsViewController: UITableViewController {
         
         cell!.bind(currentBeach)
         return cell!
-    }
-    
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    
-        return 50
-        
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

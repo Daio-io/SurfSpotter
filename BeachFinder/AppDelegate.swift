@@ -48,7 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame:UIScreen.mainScreen().bounds)
         if let window = window {
             let mainController = MainViewController()
-            window.rootViewController = mainController
+            let naviController = UINavigationController(rootViewController: mainController)
+            window.rootViewController = naviController
             window.makeKeyAndVisible()
         }
     }
