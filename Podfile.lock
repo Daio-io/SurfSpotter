@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (3.2.0)
-  - FoldingCell (0.7.1)
-  - GoogleMaps (1.12.1)
+  - Alamofire (3.2.1)
+  - FoldingCell (0.7.2)
+  - GoogleMaps (1.12.2)
   - RxCocoa (2.2.0):
     - RxSwift (~> 2.2)
   - RxSwift (2.2.0)
@@ -25,9 +25,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
-  FoldingCell: 1b048934f8ecd15fa18a20375d55c6b0e83c4f37
-  GoogleMaps: d4e7526e96e78faf7131ea95f13dd5411cc2916d
+  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
+  FoldingCell: 19a31a3e51003af0da522ecfd57d321941a17c91
+  GoogleMaps: cc76edaa94a4284e80ecd7089ed319d1cca5f37e
   RxCocoa: 42efb7a7145a8d1d5878e94ce48a580d29e0c796
   RxSwift: b8a749f2204c6c7a5c29b306a9c3bc11d5b87c5b
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
