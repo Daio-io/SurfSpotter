@@ -50,8 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let mainController = MainViewController()
             let naviController = UINavigationController(rootViewController: mainController)
             
-            naviController.navigationBar.tintColor = UIColor.amber500
-            naviController.navigationBar.barTintColor = UIColor.blue600
+            naviController.navigationBar.tintColor = UIColor.Amber500()
+            naviController.navigationBar.barTintColor = UIColor.Blue600()
             
             window.rootViewController = naviController
             window.makeKeyAndVisible()

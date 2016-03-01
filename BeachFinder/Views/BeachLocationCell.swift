@@ -32,6 +32,8 @@ class BeachLocationCell : FoldingCell {
         foregroundView.layer.masksToBounds = true
         foregroundView.layer.cornerRadius = 8
         
+        backViewColor = UIColor.BlueGrey50()
+        
         super.awakeFromNib()
     }
     
@@ -40,6 +42,8 @@ class BeachLocationCell : FoldingCell {
         let durations = [0.26, 0.2, 0.2, 0.2]// timing animation for each view
         return durations[itemIndex]
     }
+    
+    // MARK - Internal
     
     func bind(viewModel: BeachLocationItemViewModel) {
         

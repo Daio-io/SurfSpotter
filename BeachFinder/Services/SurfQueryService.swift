@@ -18,7 +18,7 @@ class SurfQueryService : SurfReportService {
     
     func getSurfData(locationId: Int, startTime: Int, finishTime: Int) -> Observable<BeachSurfReport> {
     
-        let baseUrl = "https://surf-query.herokuapp.com?apikey=\(apiKey)&spotid=\(locationId)&start=\(startTime)&end=\(finishTime)"
+        let baseUrl = "https://surf-query.herokuapp.com/next?apikey=\(apiKey)&spotid=\(locationId)&start=\(startTime)&end=\(finishTime)"
         let request = Alamofire.request(.GET, baseUrl)
         
         return Observable.create {(observer: AnyObserver<BeachSurfReport>) -> Disposable in
@@ -28,10 +28,9 @@ class SurfQueryService : SurfReportService {
                     
                     let json = JSON(jsonData)
                     if json["status"] == "success" {
-                        let results = json["response"].array!
                         
-                        for item in results {
-                            let surfReport = BeachSurfReport(json: item)
+                        if let item = json["response"].array where item.count == 1 {
+                            let surfReport = BeachSurfReport(json: item[0])
                             observer.onNext(surfReport)
                         }
                         

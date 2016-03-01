@@ -18,6 +18,7 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
     override init() {
         super.init()
         self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.requestAlwaysAuthorization()
@@ -43,7 +44,7 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("Location error: \(error)")
+        print("Location error: \(error.localizedDescription)")
     }
     
 }
