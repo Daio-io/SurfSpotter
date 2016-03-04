@@ -27,6 +27,8 @@ class BeachLocationCell : FoldingCell {
     
     let disposeBag = DisposeBag()
     
+    var viewModel: BeachLocationItemViewModel?
+    
     override func awakeFromNib() {
         mapPlaceholder.myLocationEnabled = true
         foregroundView.layer.masksToBounds = true
@@ -36,20 +38,19 @@ class BeachLocationCell : FoldingCell {
         
         super.awakeFromNib()
     }
-    
-    override func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
+        
+    override func animationDuration(itemIndex:NSInteger, type:AnimationType) -> NSTimeInterval {
         // durations count equal it itemCount
-        let durations = [0.26, 0.2, 0.2, 0.2]// timing animation for each view
+        let durations = [0.26, 0.2, 0.2]// timing animation for each view
         return durations[itemIndex]
     }
     
-    // MARK - Internal
-    
     func bind(viewModel: BeachLocationItemViewModel) {
         
+        self.viewModel = viewModel
         let swellText = Observable.combineLatest(viewModel.minSwell.asObservable(),
             viewModel.maxSwell.asObservable()) { min, max in
-            return String("Swell: \(min)-\(max)ft")
+                return String("\(min)-\(max)ft")
         }
         
         swellText.asObservable()
@@ -57,28 +58,35 @@ class BeachLocationCell : FoldingCell {
             .bindTo(openSwellText.rx_text)
             .addDisposableTo(disposeBag)
         
-        viewModel.wind.asObservable()
+        bindViewModelToViews()
+    }
+
+    
+    // MARK - Internal
+
+    private func bindViewModelToViews() {
+        viewModel?.wind.asObservable()
             .map { (wind) -> String in
-            return "Wind: \(wind)mph"
-        }.bindTo(openWindText.rx_text)
-        .addDisposableTo(disposeBag)
+                return "\(wind)mph"
+            }.bindTo(openWindText.rx_text)
+            .addDisposableTo(disposeBag)
         
-        viewModel.date.asObservable()
+        viewModel?.date.asObservable()
             .startWith(loadingText)
             .bindTo(openDateText.rx_text)
             .addDisposableTo(disposeBag)
         
-        viewModel.time.asObservable()
+        viewModel?.time.asObservable()
             .startWith(loadingText)
             .bindTo(openTimeText.rx_text)
             .addDisposableTo(disposeBag)
         
-        viewModel.location.asObservable()
+        viewModel?.location.asObservable()
             .startWith(loadingText)
             .bindTo(closedTitle.rx_text)
             .addDisposableTo(disposeBag)
         
-        viewModel.coords.asObservable()
+        viewModel?.coords.asObservable()
             .subscribeNext { [unowned self] (coords) -> Void in
                 self.mapPlaceholder.clear()
                 let camera = GMSCameraPosition.cameraWithLatitude(coords.lat,
@@ -87,10 +95,16 @@ class BeachLocationCell : FoldingCell {
                 
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2DMake(coords.lat, coords.lon)
-                marker.title = viewModel.location.value
+                marker.title = self.viewModel?.location.value
                 marker.map = self.mapPlaceholder
-        }.addDisposableTo(disposeBag)
+            }.addDisposableTo(disposeBag)
+    }
+    
+    @IBAction func navigateToBeachClicked(sender: AnyObject) {
+        
+        if let model = viewModel {
+            print("lets go \(model.coords.value.lat) \(model.coords.value.lon)")
+        }
         
     }
-
 }

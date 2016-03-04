@@ -13,9 +13,7 @@ extension NSDate {
     func currentHour() -> Int {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components(.Hour, fromDate: self)
-        let hour = components.hour
-        
-        return hour
+        return components.hour
     }
     
 }

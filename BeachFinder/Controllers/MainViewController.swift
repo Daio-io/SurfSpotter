@@ -96,7 +96,7 @@ class MainViewController: UIViewController {
     
     
     @IBAction func viewLocations(sender: AnyObject) {
-        let viewModels = viewModel.locations.value.map({ (beach) -> BeachLocationItemViewModel in
+        let viewModels = viewModel.locations.value.map({ [unowned self] (beach) -> BeachLocationItemViewModel in
             return BeachLocationItemViewModel(self.service, beach)
         })
         let co = BeachLocationsViewController(beaches: viewModels)
