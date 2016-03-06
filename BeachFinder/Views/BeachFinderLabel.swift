@@ -12,7 +12,7 @@ class BeachFinderLabel: UILabel {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.font = UIFont(name: "Roboto-Medium", size: self.font.pointSize)
+        self.font = UIFont(name: "Roboto-Regular", size: self.font.pointSize)
     }
 
 }

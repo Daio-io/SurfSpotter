@@ -50,8 +50,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let mainController = MainViewController()
             let naviController = UINavigationController(rootViewController: mainController)
             
-            naviController.navigationBar.tintColor = UIColor.Amber500()
-            naviController.navigationBar.barTintColor = UIColor.Blue600()
+            // Make navigationbar transparent
+            naviController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+            naviController.navigationBar.shadowImage = UIImage()
+            naviController.navigationBar.tintColor = UIColor.blackColor()
+            naviController.navigationBar.translucent = true
             
             window.rootViewController = naviController
             window.makeKeyAndVisible()

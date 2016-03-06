@@ -37,13 +37,8 @@ class MainViewController: UIViewController {
         bind()
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
     override func viewDidAppear(animated: Bool) {
         viewModel.locateMe()
-        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     // MARK - Internal
@@ -53,7 +48,8 @@ class MainViewController: UIViewController {
         viewModel.currentLocation.asObservable()
         .subscribeNext { [unowned self] (lat, lon) -> Void in
             self.mainMapView.camera = GMSCameraPosition.cameraWithLatitude(lat,
-                longitude: lon, zoom: 10)
+                longitude: lon, zoom: 8
+            )
         }.addDisposableTo(disposeBag)
         
         viewModel.locations.asObservable()
@@ -108,14 +104,9 @@ class MainViewController: UIViewController {
     
     private func bindCityAddressToLabel() {
         viewModel.currentCity.asObservable()
-            .map({ (city) -> String in
-                return "Current Location: \(city)"
-            })
             .bindTo(currentCityLabel.rx_text)
             .addDisposableTo(disposeBag)
     }
-    
-    
     
     @IBAction func viewLocations(sender: AnyObject) {
         let viewModels = viewModel.locations.value.map({ [unowned self] (beach) -> BeachLocationItemViewModel in

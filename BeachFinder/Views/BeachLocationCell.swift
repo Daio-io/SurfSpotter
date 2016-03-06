@@ -32,8 +32,6 @@ class BeachLocationCell : FoldingCell {
     override func awakeFromNib() {
         mapPlaceholder.myLocationEnabled = true
         foregroundView.layer.masksToBounds = true
-        foregroundView.layer.cornerRadius = 8
-        
         backViewColor = UIColor.BlueGrey50()
         
         super.awakeFromNib()
