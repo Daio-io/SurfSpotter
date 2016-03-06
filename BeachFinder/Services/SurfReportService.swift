@@ -10,5 +10,5 @@ import Foundation
 import RxSwift
 
 protocol SurfReportService {
-    func getSurfData(locationId: Int, startTime: Int, finishTime: Int) -> Observable<BeachSurfReport>
+    func getNextSurf(locationId: Int, startTime: Int) -> Observable<BeachSurfReport>
 }

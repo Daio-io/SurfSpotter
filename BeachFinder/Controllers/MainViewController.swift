@@ -8,12 +8,13 @@
 
 import UIKit
 import RxSwift
+import GoogleMaps
 
 class MainViewController: UIViewController {
     @IBOutlet private weak var distanceLabel: UILabel!
     @IBOutlet private weak var distanceSlider: UISlider!
-    @IBOutlet private weak var foundLocationsLabel: UILabel!
-    @IBOutlet private weak var viewLocationsButton: UIButton!
+    @IBOutlet private weak var mainMapView: GMSMapView!
+    @IBOutlet private weak var currentCityLabel: BeachFinderLabel!
     
     private lazy var service = SurfQueryService()
     private let disposeBag = DisposeBag()
@@ -31,6 +32,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpMap()
         bind()
     }
     
@@ -39,16 +41,25 @@ class MainViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
         viewModel.locateMe()
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     // MARK - Internal
     
+    private func setUpMap() {
+        mainMapView.myLocationEnabled = true
+        viewModel.currentLocation.asObservable()
+        .subscribeNext { [unowned self] (lat, lon) -> Void in
+            self.mainMapView.camera = GMSCameraPosition.cameraWithLatitude(lat,
+                longitude: lon, zoom: 10)
+        }.addDisposableTo(disposeBag)
+    }
+    
     private func bind() {
         bindViewModel()
         bindSliderToTextView()
-        bindLocationsLabel()
+        bindCityAddressToLabel()
     }
     
     private func bindViewModel() {
@@ -63,23 +74,6 @@ class MainViewController: UIViewController {
         
     }
     
-    private func bindLocationsLabel() {
-        viewModel.locations.asObservable()
-            .map({ (locations) -> String in
-                return "\(locations.count) Beaches Found"
-            })
-            .bindTo(foundLocationsLabel.rx_text)
-            .addDisposableTo(disposeBag)
-        
-        
-        viewModel.locations.asObservable()
-            .map { (locations) -> Bool in
-                return !locations.isEmpty
-            }.bindTo(viewLocationsButton.rx_enabled)
-            .addDisposableTo(disposeBag)
-        
-    }
-    
     private func bindSliderToTextView() {
         distanceSlider.rx_value.asObservable()
             .startWith(distanceSlider.value)
@@ -87,9 +81,18 @@ class MainViewController: UIViewController {
                 self.viewModel.distance.value = Int(distance)
                 })
             .map({ (distance) -> String in
-                return String("Scan Range: \(distance)m")
+                return String("\(distance) meters")
             })
             .bindTo(distanceLabel.rx_text)
+            .addDisposableTo(disposeBag)
+    }
+    
+    private func bindCityAddressToLabel() {
+        viewModel.currentCity.asObservable()
+            .map({ (city) -> String in
+                return "Current Location: \(city)"
+            })
+            .bindTo(currentCityLabel.rx_text)
             .addDisposableTo(disposeBag)
     }
     

@@ -16,9 +16,9 @@ class SurfQueryService : SurfReportService {
     // temp
     let apiKey = "_"
     
-    func getSurfData(locationId: Int, startTime: Int, finishTime: Int) -> Observable<BeachSurfReport> {
+    func getNextSurf(locationId: Int, startTime: Int) -> Observable<BeachSurfReport> {
     
-        let baseUrl = "https://surf-query.herokuapp.com/next?apikey=\(apiKey)&spotid=\(locationId)&start=\(startTime)&end=\(finishTime)"
+        let baseUrl = "https://surf-query.herokuapp.com/next?apikey=\(apiKey)&spotid=\(locationId)&start=\(startTime)"
         
         let request = Alamofire.request(.GET, baseUrl)
         

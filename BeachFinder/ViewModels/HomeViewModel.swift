@@ -18,6 +18,7 @@ class HomeViewModel {
     
     let locations = Variable(Array<BeachLocation>())
     let currentLocation = Variable(Coordinates(0, 0))
+    let currentCity = Variable("")
     let distance = Variable(0)
     
     init(_ beachFinderService: BeachLocationService, _ locationService: CurrentLocationService) {
@@ -29,6 +30,11 @@ class HomeViewModel {
             .subscribeNext { [unowned self] (coords) -> Void in
                 self.currentLocation.value = coords
             }.addDisposableTo(disposeBag)
+        
+        locationService.currentCityLocation()
+            .subscribeNext { [unowned self](city) -> Void in
+                self.currentCity.value = city
+        }.addDisposableTo(disposeBag)
     }
     
     func locateMe() {

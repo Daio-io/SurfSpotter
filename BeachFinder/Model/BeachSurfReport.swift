@@ -14,6 +14,7 @@ internal struct BeachSurfReport {
     let date : String
     let time : String
     let wind : Int
+    let temp : Int
     let minSwell : Int
     let maxSwell : Int
     let solidStar : Int
@@ -23,9 +24,10 @@ internal struct BeachSurfReport {
         self.timeStamp = json["timestamp"].doubleValue
         self.date = json["date"].stringValue
         self.time = json["time"].stringValue
-        self.wind = json["wind"].intValue
-        self.minSwell = json["minSwell"].intValue
-        self.maxSwell = json["maxSwell"].intValue
+        self.wind = json["weather"]["wind"].intValue
+        self.temp = json["weather"]["temperature"].intValue
+        self.minSwell = json["swell"]["minSwell"].intValue
+        self.maxSwell = json["swell"]["maxSwell"].intValue
         self.solidStar = json["solidStar"].intValue
         self.fadedStar = json["fadedStar"].intValue
     }

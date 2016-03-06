@@ -6,4 +6,15 @@
 //  Copyright © 2016 daio. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class BeachFinderButton: UIButton {
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        if let title = titleLabel {
+            title.font = UIFont(name: "Roboto-Medium", size: title.font!.pointSize)
+        }
+    }
+    
+}

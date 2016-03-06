@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2300199A1C8C3D4E0053B047 /* beach.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 230019991C8C3D4E0053B047 /* beach.jpg */; };
+		230019A21C8C80280053B047 /* BeachFinderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230019A11C8C80280053B047 /* BeachFinderButton.swift */; };
+		230019A61C8C925A0053B047 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230019A51C8C925A0053B047 /* LaunchScreen.storyboard */; };
 		23BCF31E1C864F6D007AD549 /* NSDate+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCF31D1C864F6D007AD549 /* NSDate+Time.swift */; };
 		570337231C7D321400DB5BE1 /* BeachLocationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570337221C7D321400DB5BE1 /* BeachLocationsViewController.xib */; };
 		570337251C7D9C9E00DB5BE1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570337241C7D9C9E00DB5BE1 /* HomeViewModel.swift */; };
@@ -34,8 +37,24 @@
 		DB903AA29B6A48C25CF1CFE0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43156B5FD7E971278E18C0C5 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		23E425631C8A5BBF000CAEED /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		07050374223A7CBAE10AD995 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		230019991C8C3D4E0053B047 /* beach.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beach.jpg; sourceTree = "<group>"; };
+		230019A11C8C80280053B047 /* BeachFinderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachFinderButton.swift; sourceTree = "<group>"; };
+		230019A51C8C925A0053B047 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23BCF31D1C864F6D007AD549 /* NSDate+Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Time.swift"; sourceTree = "<group>"; };
 		26A810F1FCF5604C107D3AB8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		43156B5FD7E971278E18C0C5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		230019A41C8C924E0053B047 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				230019A51C8C925A0053B047 /* LaunchScreen.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		288A8221AE9CD0316641E00F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +129,7 @@
 			children = (
 				57690CBF1C6BA3A700B7361A /* BeachLocationCell.swift */,
 				57E04E741C8260CA003DED3D /* BeachFinderLabel.swift */,
+				230019A11C8C80280053B047 /* BeachFinderButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,6 +156,7 @@
 		5753BEB61C4458D500304498 /* BeachFinder */ = {
 			isa = PBXGroup;
 			children = (
+				230019A41C8C924E0053B047 /* Support */,
 				57E04E711C825CDE003DED3D /* Utils */,
 				576690C21C70FF19000CCB83 /* ViewModels */,
 				5721A0151C6BA1F400B26C8A /* Views */,
@@ -166,6 +195,7 @@
 				57E04E671C821AD7003DED3D /* Roboto-Bold.ttf */,
 				57E04E681C821AD7003DED3D /* Roboto-Medium.ttf */,
 				57E04E691C821AD7003DED3D /* Roboto-Regular.ttf */,
+				230019991C8C3D4E0053B047 /* beach.jpg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -186,8 +216,8 @@
 				57EF0A921C455F2400695BC0 /* BeachLocatorService.swift */,
 				578A11711C7A8A00000F0246 /* SurfReportService.swift */,
 				578A11731C7A8BBA000F0246 /* SurfQueryService.swift */,
-				5703372A1C7DA5D900DB5BE1 /* BeachLocationService.swift */,
 				57E04E631C805EA5003DED3D /* CurrentLocationService.swift */,
+				5703372A1C7DA5D900DB5BE1 /* BeachLocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -222,6 +252,7 @@
 				5753BEB21C4458D500304498 /* Resources */,
 				54B06312E8D8F8A10693EF38 /* Embed Pods Frameworks */,
 				182ECC8CA09851043F9B5835 /* Copy Pods Resources */,
+				23E425631C8A5BBF000CAEED /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -244,6 +275,7 @@
 				TargetAttributes = {
 					5753BEB31C4458D500304498 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = RUACP22HMJ;
 					};
 				};
 			};
@@ -270,6 +302,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				230019A61C8C925A0053B047 /* LaunchScreen.storyboard in Resources */,
+				2300199A1C8C3D4E0053B047 /* beach.jpg in Resources */,
 				5753BEBF1C4458D500304498 /* Assets.xcassets in Resources */,
 				57E04E6C1C821AD7003DED3D /* Roboto-Regular.ttf in Resources */,
 				570F10091C5E4BDA0038A0B1 /* MainViewController.xib in Resources */,
@@ -350,6 +384,7 @@
 				BA88B3DAF40C4EB38B4F3527 /* BeachLocation.swift in Sources */,
 				23BCF31E1C864F6D007AD549 /* NSDate+Time.swift in Sources */,
 				57690CC01C6BA3A700B7361A /* BeachLocationCell.swift in Sources */,
+				230019A21C8C80280053B047 /* BeachFinderButton.swift in Sources */,
 				57E04E751C8260CA003DED3D /* BeachFinderLabel.swift in Sources */,
 				57F6AE381C71DC4D009A152B /* BeachSurfReport.swift in Sources */,
 			);
@@ -444,12 +479,15 @@
 			baseConfigurationReference = 07050374223A7CBAE10AD995 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BeachFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/Frameworks/Echo";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.daio.BeachFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -459,12 +497,15 @@
 			baseConfigurationReference = 26A810F1FCF5604C107D3AB8 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BeachFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/Frameworks/Echo";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.daio.BeachFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -9,30 +9,36 @@
 import Foundation
 import CoreLocation
 import RxSwift
+import GoogleMaps
 
 class CurrentLocationService: NSObject, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
+    let geoCoder = GMSGeocoder()
+    
     private var currentLocation = Variable(Coordinates(0, 0))
+    private var cityLocation = Variable("")
     
     override init() {
         super.init()
-        self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            self.locationManager.requestAlwaysAuthorization()
-            self.locationManager.delegate = self
-            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        }
     }
     
-    func currentLocationObservable() -> Observable<Coordinates> {        
+    func currentLocationObservable() -> Observable<Coordinates> {
         return currentLocation.asObservable()
     }
     
+    func currentCityLocation() -> Observable<String> {
+        return cityLocation.asObservable()
+    }
+    
     func locate() {
-        locationManager.startUpdatingLocation()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -41,6 +47,15 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
         
         currentLocation.value = Coordinates(locValues.latitude, locValues.longitude)
+        
+        geoCoder.reverseGeocodeCoordinate(locValues) {[unowned self] (response, error) -> Void in
+            let results = response?.firstResult()
+            if let res = results?.locality {
+                self.cityLocation.value = res
+            } else if let res = results?.subLocality {
+                self.cityLocation.value = res
+            }
+        }
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {

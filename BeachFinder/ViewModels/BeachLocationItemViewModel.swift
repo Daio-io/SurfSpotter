@@ -40,9 +40,9 @@ class BeachLocationItemViewModel : NSObject {
         subscription?.dispose()
     }
     
-    func refresh(start: Int = NSDate().currentHour(), _ fin: Int = NSDate().currentHour() + 3) {
+    func refresh(start: Int = NSDate().currentHour()) {
         
-        subscription = surfService?.getSurfData(locationId, startTime: start, finishTime: fin)
+        subscription = surfService?.getNextSurf(locationId, startTime: start)
             .subscribe(onNext: { [unowned self] (surfReport) -> Void in
                 self.maxSwell.value = surfReport.maxSwell
                 self.minSwell.value = surfReport.minSwell
