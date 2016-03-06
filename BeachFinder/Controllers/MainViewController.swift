@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var distanceSlider: UISlider!
     @IBOutlet private weak var mainMapView: GMSMapView!
     @IBOutlet private weak var currentCityLabel: BeachFinderLabel!
+    @IBOutlet weak var viewBeachesButton: BeachFinderButton!
     
     private lazy var service = SurfQueryService()
     private let disposeBag = DisposeBag()
@@ -54,6 +55,18 @@ class MainViewController: UIViewController {
             self.mainMapView.camera = GMSCameraPosition.cameraWithLatitude(lat,
                 longitude: lon, zoom: 10)
         }.addDisposableTo(disposeBag)
+        
+        viewModel.locations.asObservable()
+            .subscribeNext { [unowned self] (locations) -> Void in
+                self.mainMapView.clear()
+                for location in locations {
+                    
+                    let marker = GMSMarker()
+                    marker.position = CLLocationCoordinate2DMake(location.coords.lat, location.coords.lon)
+                    marker.title = location.location
+                    marker.map = self.mainMapView
+                }
+        }.addDisposableTo(disposeBag)
     }
     
     private func bind() {
@@ -71,6 +84,12 @@ class MainViewController: UIViewController {
             .subscribeNext { [unowned self] (distance, location) -> Void in
                 self.viewModel.scan()
             }.addDisposableTo(disposeBag)
+        
+        viewModel.locations.asObservable()
+            .map { (locations) -> Bool in
+                return  !locations.isEmpty
+            }.bindTo(viewBeachesButton.rx_enabled)
+            .addDisposableTo(disposeBag)
         
     }
     

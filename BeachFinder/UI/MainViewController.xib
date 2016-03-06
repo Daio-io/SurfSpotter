@@ -13,6 +13,7 @@
                 <outlet property="distanceSlider" destination="tlg-P4-9e8" id="1uF-mw-qJA"/>
                 <outlet property="mainMapView" destination="zlZ-lv-qp2" id="GVn-St-874"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewBeachesButton" destination="dMZ-lA-qg9" id="xRP-5H-35e"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
