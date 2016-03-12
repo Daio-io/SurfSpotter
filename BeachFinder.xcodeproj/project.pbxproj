@@ -11,6 +11,8 @@
 		230019A21C8C80280053B047 /* BeachFinderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230019A11C8C80280053B047 /* BeachFinderButton.swift */; };
 		230019A61C8C925A0053B047 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230019A51C8C925A0053B047 /* LaunchScreen.storyboard */; };
 		23BCF31E1C864F6D007AD549 /* NSDate+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCF31D1C864F6D007AD549 /* NSDate+Time.swift */; };
+		23D6C5B11C937D9A00F891A7 /* WeatherReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D6C5B01C937D9A00F891A7 /* WeatherReport.swift */; };
+		23D6C5B51C9381EE00F891A7 /* DistanceConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D6C5B41C9381EE00F891A7 /* DistanceConverter.swift */; };
 		570337231C7D321400DB5BE1 /* BeachLocationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570337221C7D321400DB5BE1 /* BeachLocationsViewController.xib */; };
 		570337251C7D9C9E00DB5BE1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570337241C7D9C9E00DB5BE1 /* HomeViewModel.swift */; };
 		5703372B1C7DA5D900DB5BE1 /* BeachLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5703372A1C7DA5D900DB5BE1 /* BeachLocationService.swift */; };
@@ -56,6 +58,8 @@
 		230019A11C8C80280053B047 /* BeachFinderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachFinderButton.swift; sourceTree = "<group>"; };
 		230019A51C8C925A0053B047 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23BCF31D1C864F6D007AD549 /* NSDate+Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Time.swift"; sourceTree = "<group>"; };
+		23D6C5B01C937D9A00F891A7 /* WeatherReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherReport.swift; sourceTree = "<group>"; };
+		23D6C5B41C9381EE00F891A7 /* DistanceConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceConverter.swift; sourceTree = "<group>"; };
 		26A810F1FCF5604C107D3AB8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		43156B5FD7E971278E18C0C5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570337221C7D321400DB5BE1 /* BeachLocationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeachLocationsViewController.xib; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 				57E04E761C8262DB003DED3D /* UILabel+FontStyle.swift */,
 				57E04E781C826712003DED3D /* UIColor+Material.swift */,
 				23BCF31D1C864F6D007AD549 /* NSDate+Time.swift */,
+				23D6C5B41C9381EE00F891A7 /* DistanceConverter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 			children = (
 				BA88B4D76B55E12ACB8BC748 /* BeachLocation.swift */,
 				57F6AE371C71DC4D009A152B /* BeachSurfReport.swift */,
+				23D6C5B01C937D9A00F891A7 /* WeatherReport.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -370,7 +376,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				57E04E771C8262DB003DED3D /* UILabel+FontStyle.swift in Sources */,
+				23D6C5B51C9381EE00F891A7 /* DistanceConverter.swift in Sources */,
 				5753BECD1C445C0B00304498 /* MainViewController.swift in Sources */,
+				23D6C5B11C937D9A00F891A7 /* WeatherReport.swift in Sources */,
 				570337251C7D9C9E00DB5BE1 /* HomeViewModel.swift in Sources */,
 				5753BEB81C4458D500304498 /* AppDelegate.swift in Sources */,
 				57EF0A931C455F2400695BC0 /* BeachLocatorService.swift in Sources */,

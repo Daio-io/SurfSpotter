@@ -17,6 +17,7 @@ class BeachLocationCell : FoldingCell {
     let loadingText = "Loading"
     // Closed cell
     @IBOutlet private weak var closedTitle: UILabel!
+    @IBOutlet weak var distanceToBeachLabel: BeachFinderLabel!
     
     // Open cell
     @IBOutlet private weak var openDateText: UILabel!
@@ -33,6 +34,7 @@ class BeachLocationCell : FoldingCell {
         mapPlaceholder.myLocationEnabled = true
         foregroundView.layer.masksToBounds = true
         backViewColor = UIColor.BlueGrey50()
+        
         
         super.awakeFromNib()
     }
@@ -79,6 +81,14 @@ class BeachLocationCell : FoldingCell {
             .bindTo(openTimeText.rx_text)
             .addDisposableTo(disposeBag)
         
+        viewModel?.distanceToBeach.asObservable()
+            .map({ (distance) -> String in
+                let miles = DistanceConverter.metersToMiles(Float(distance))
+                return String(format: "%.1f", miles) + " miles"
+            })
+            .bindTo(distanceToBeachLabel.rx_text)
+            .addDisposableTo(disposeBag)
+        
         viewModel?.location.asObservable()
             .startWith(loadingText)
             .bindTo(closedTitle.rx_text)
@@ -96,6 +106,10 @@ class BeachLocationCell : FoldingCell {
                 marker.title = self.viewModel?.location.value
                 marker.map = self.mapPlaceholder
             }.addDisposableTo(disposeBag)
+    }
+    
+    @IBAction func getLaterSurfClicked(sender: AnyObject) {
+            viewModel?.refresh(12)
     }
     
     @IBAction func navigateToBeachClicked(sender: AnyObject) {

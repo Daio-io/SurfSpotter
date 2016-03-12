@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey("_")
         displayMainViewController()
+        
         // Override point for customization after application launch.
         return true
     }

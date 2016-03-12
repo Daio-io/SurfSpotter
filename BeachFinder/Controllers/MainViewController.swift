@@ -11,6 +11,7 @@ import RxSwift
 import GoogleMaps
 
 class MainViewController: UIViewController {
+    
     @IBOutlet private weak var distanceLabel: UILabel!
     @IBOutlet private weak var distanceSlider: UISlider!
     @IBOutlet private weak var mainMapView: GMSMapView!
@@ -18,12 +19,13 @@ class MainViewController: UIViewController {
     @IBOutlet weak var viewBeachesButton: BeachFinderButton!
     
     private lazy var service = SurfQueryService()
+    private let locationService = CurrentLocationService()
     private let disposeBag = DisposeBag()
     
     private var viewModel: HomeViewModel
     
     init() {
-        viewModel = HomeViewModel(BeachLocatorService(), CurrentLocationService())
+        viewModel = HomeViewModel(BeachLocatorService(), locationService)
         super.init(nibName:nil, bundle:nil)
     }
     
@@ -96,7 +98,8 @@ class MainViewController: UIViewController {
                 self.viewModel.distance.value = Int(distance)
                 })
             .map({ (distance) -> String in
-                return String("\(distance) meters")
+                let miles = DistanceConverter.metersToMiles(distance)
+                return String(format: "%.1f", miles) + " miles"
             })
             .bindTo(distanceLabel.rx_text)
             .addDisposableTo(disposeBag)
@@ -110,7 +113,7 @@ class MainViewController: UIViewController {
     
     @IBAction func viewLocations(sender: AnyObject) {
         let viewModels = viewModel.locations.value.map({ [unowned self] (beach) -> BeachLocationItemViewModel in
-            return BeachLocationItemViewModel(self.service, beach)
+            return BeachLocationItemViewModel(self.service, self.locationService, beach)
         })
         let co = BeachLocationsViewController(beaches: viewModels)
         

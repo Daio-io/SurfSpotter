@@ -12,7 +12,8 @@ import RxSwift
 class BeachLocationItemViewModel : NSObject {
     
     private let surfService: SurfReportService?
-    private var subscription: Disposable?
+    private let locationService: CurrentLocationService?
+    private let disposeBag = DisposeBag()
     
     private let locationId: Int
     
@@ -25,24 +26,29 @@ class BeachLocationItemViewModel : NSObject {
     let solidStar = Variable(0)
     let fadedStar = Variable(0)
     let coords = Variable(Coordinates(0, 0))
+    let distanceToBeach = Variable(Double())
     
-    init(_ service: SurfReportService, _ beachLocation: BeachLocation) {
+    init(_ service: SurfReportService, _ locationService: CurrentLocationService, _ beachLocation: BeachLocation) {
         self.surfService = service
+        self.locationService = locationService
         self.locationId = beachLocation.spotId
         self.location.value = beachLocation.location
         self.coords.value = beachLocation.coords
         super.init()
         
         self.refresh()
-    }
-    
-    deinit {
-        subscription?.dispose()
+        
+        coords.asObservable()
+            .subscribeNext {[unowned self] (lat, lon) -> Void in
+                if let distance = self.locationService?.distanceToLocation(Coordinates(lat, lon)) {
+                  self.distanceToBeach.value = distance
+                }
+        }.addDisposableTo(disposeBag)
     }
     
     func refresh(start: Int = NSDate().currentHour()) {
         
-        subscription = surfService?.getNextSurf(locationId, startTime: start)
+       surfService?.getNextSurf(locationId, startTime: start)
             .subscribe(onNext: { [unowned self] (surfReport) -> Void in
                 self.maxSwell.value = surfReport.maxSwell
                 self.minSwell.value = surfReport.minSwell
@@ -51,7 +57,7 @@ class BeachLocationItemViewModel : NSObject {
                 self.solidStar.value = surfReport.solidStar
                 self.fadedStar.value = surfReport.fadedStar
                 self.wind.value = surfReport.wind
-                }, onError: nil, onCompleted: nil, onDisposed: nil)
+                }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
     }
     
 }
