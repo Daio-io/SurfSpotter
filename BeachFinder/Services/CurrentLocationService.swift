@@ -13,11 +13,11 @@ import GoogleMaps
 
 class CurrentLocationService: NSObject, CLLocationManagerDelegate {
     
-    let locationManager = CLLocationManager()
-    let geoCoder = GMSGeocoder()
+    private let locationManager = CLLocationManager()
+    private let geoCoder = GMSGeocoder()
     
-    private var currentLocationObs = Variable(Coordinates(Double(), Double()))
-    private var cityLocation = Variable("")
+    private let currentLocationObs = Variable(Coordinates(Double(), Double()))
+    private let cityLocation = Variable("")
     
     private var currentLocation: Coordinates?
     
