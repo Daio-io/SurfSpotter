@@ -46,7 +46,7 @@ class BeachLocationItemViewModel : NSObject {
         }.addDisposableTo(disposeBag)
     }
     
-    func refresh(start: Int = NSDate().currentHour()) {
+    func refresh(start: Int = NSDate.currentHour()) {
         
        surfService?.getNextSurf(locationId, startTime: start)
             .subscribe(onNext: { [unowned self] (surfReport) -> Void in

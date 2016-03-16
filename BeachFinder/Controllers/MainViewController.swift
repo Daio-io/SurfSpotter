@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var distanceSlider: UISlider!
     @IBOutlet private weak var mainMapView: GMSMapView!
     @IBOutlet private weak var currentCityLabel: BeachFinderLabel!
-    @IBOutlet weak var viewBeachesButton: BeachFinderButton!
+    @IBOutlet private weak var viewBeachesButton: BeachFinderButton!
     
     private lazy var service = SurfQueryService()
     private let locationService = CurrentLocationService()
@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
     
     init() {
         viewModel = HomeViewModel(BeachLocatorService(), locationService)
-        super.init(nibName:nil, bundle:nil)
+        super.init(nibName:"MainViewController", bundle:nil)
     }
     
     required init?(coder aDecoder: NSCoder) {

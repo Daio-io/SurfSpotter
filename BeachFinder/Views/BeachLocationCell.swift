@@ -33,12 +33,12 @@ class BeachLocationCell : FoldingCell {
     override func awakeFromNib() {
         mapPlaceholder.myLocationEnabled = true
         foregroundView.layer.masksToBounds = true
-        backViewColor = UIColor.BlueGrey50()
+        backViewColor = UIColor.Teal500()
         
         
         super.awakeFromNib()
     }
-        
+    
     override func animationDuration(itemIndex:NSInteger, type:AnimationType) -> NSTimeInterval {
         // durations count equal it itemCount
         let durations = [0.26, 0.2, 0.2]// timing animation for each view
@@ -58,42 +58,50 @@ class BeachLocationCell : FoldingCell {
             .bindTo(openSwellText.rx_text)
             .addDisposableTo(disposeBag)
         
-        bindViewModelToViews()
+        bindWind()
+        bindDate()
+        bindTime()
+        bindLocation()
+        bindBeachCoords()
+        bindBeachDistance()
     }
-
     
     // MARK - Internal
-
-    private func bindViewModelToViews() {
+    
+    private func bindWind() {
         viewModel?.wind.asObservable()
             .map { (wind) -> String in
                 return "\(wind)mph"
             }.bindTo(openWindText.rx_text)
             .addDisposableTo(disposeBag)
-        
+    }
+    
+    private func bindDate() {
         viewModel?.date.asObservable()
             .startWith(loadingText)
             .bindTo(openDateText.rx_text)
             .addDisposableTo(disposeBag)
         
+    }
+    
+    private func bindTime() {
         viewModel?.time.asObservable()
             .startWith(loadingText)
             .bindTo(openTimeText.rx_text)
             .addDisposableTo(disposeBag)
-        
+    }
+    
+    private func bindBeachDistance() {
         viewModel?.distanceToBeach.asObservable()
             .map({ (distance) -> String in
                 let miles = DistanceConverter.metersToMiles(Float(distance))
-                return String(format: "%.1f", miles) + " miles"
+                return String(format: "%.1f miles from beach", miles)
             })
             .bindTo(distanceToBeachLabel.rx_text)
             .addDisposableTo(disposeBag)
-        
-        viewModel?.location.asObservable()
-            .startWith(loadingText)
-            .bindTo(closedTitle.rx_text)
-            .addDisposableTo(disposeBag)
-        
+    }
+    
+    private func bindBeachCoords() {
         viewModel?.coords.asObservable()
             .subscribeNext { [unowned self] (coords) -> Void in
                 self.mapPlaceholder.clear()
@@ -108,8 +116,16 @@ class BeachLocationCell : FoldingCell {
             }.addDisposableTo(disposeBag)
     }
     
+    private func bindLocation() {
+        viewModel?.location.asObservable()
+            .startWith(loadingText)
+            .bindTo(closedTitle.rx_text)
+            .addDisposableTo(disposeBag)
+    }
+    
+    
     @IBAction func getLaterSurfClicked(sender: AnyObject) {
-            viewModel?.refresh(12)
+        viewModel?.refresh(NSDate.advanceCurrentTimeBy(3))
     }
     
     @IBAction func navigateToBeachClicked(sender: AnyObject) {

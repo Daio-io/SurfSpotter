@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="667"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cJF-q9-lpC" id="mhr-6W-5Hx">
-                <rect key="frame" x="0.0" y="0.0" width="600" height="666.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="600" height="667"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xea-YT-oDw" customClass="RotatedView" customModule="FoldingCell">
@@ -47,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="LT7-zT-uzu" firstAttribute="top" secondItem="dcX-ZF-gwg" secondAttribute="bottom" constant="3" id="A3X-Aq-doL"/>
                             <constraint firstItem="vSr-VW-hcD" firstAttribute="top" secondItem="dcX-ZF-gwg" secondAttribute="top" id="CfY-XJ-h02"/>
@@ -63,61 +63,39 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40V-zM-Ty4">
                         <rect key="frame" x="16" y="105" width="568" height="400"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-TD-tk6" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="8" y="5" width="35" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCq-gl-7YB" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="46" y="99" width="38" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8P5-6M-CH3" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="150" y="99" width="37" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeq-Ez-6Co" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="46" y="39" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLa-WZ-WXP" userLabel="Sea Level">
-                                <rect key="frame" x="0.0" y="300" width="568" height="100"/>
-                                <color key="backgroundColor" red="0.0" green="0.52156862745098043" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p53-kz-fgd" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="167" width="568" height="233"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="233"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swell-wave" translatesAutoresizingMaskIntoConstraints="NO" id="7f4-86-7S1">
-                                <rect key="frame" x="8" y="99" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="kRV-Tn-EP5"/>
-                                    <constraint firstAttribute="height" constant="30" id="wSg-ZM-SXB"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wind-flag" translatesAutoresizingMaskIntoConstraints="NO" id="0y4-iF-Qai">
-                                <rect key="frame" x="115" y="99" width="27" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="27" id="AGl-tj-fcr"/>
-                                    <constraint firstAttribute="height" constant="30" id="SDI-p9-XaB"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="time-clock" translatesAutoresizingMaskIntoConstraints="NO" id="lkf-gb-hTa">
-                                <rect key="frame" x="8" y="39" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="56F-Mo-Jpz"/>
-                                    <constraint firstAttribute="height" constant="30" id="CJU-I9-1bW"/>
-                                </constraints>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-TD-tk6" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                                <rect key="frame" x="8" y="241" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpc-Ah-Lij" customClass="BeachFinderButton" customModule="BeachFinder" customModuleProvider="target">
+                                <rect key="frame" x="524" y="241" width="36" height="30"/>
+                                <state key="normal" title="Later">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getLaterSurfClicked:" destination="cJF-q9-lpC" eventType="touchUpInside" id="osV-QL-4va"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeq-Ez-6Co" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                                <rect key="frame" x="51" y="241" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8P5-6M-CH3" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                                <rect key="frame" x="8" y="322" width="37" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYs-sx-YA0" userLabel="Navigate to button">
-                                <rect key="frame" x="523" y="96" width="35" height="35"/>
+                                <rect key="frame" x="525" y="357" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="ryI-tn-0e8"/>
                                     <constraint firstAttribute="width" constant="35" id="t1t-JF-XiM"/>
@@ -127,53 +105,31 @@
                                     <action selector="navigateToBeachClicked:" destination="cJF-q9-lpC" eventType="touchUpInside" id="RMS-ou-ECf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpc-Ah-Lij" customClass="BeachFinderButton" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="524" y="8" width="36" height="30"/>
-                                <state key="normal" title="Later">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="getLaterSurfClicked:" destination="cJF-q9-lpC" eventType="touchUpInside" id="osV-QL-4va"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="swell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCq-gl-7YB" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                                <rect key="frame" x="8" y="287" width="38" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0047203559910409861" green="0.56862801239605787" blue="0.48065662475254561" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="sYs-sx-YA0" firstAttribute="top" secondItem="lNS-TD-tk6" secondAttribute="bottom" constant="71" id="10x-nu-ZQP"/>
                             <constraint firstAttribute="height" constant="400" id="1Tg-as-ePI"/>
-                            <constraint firstItem="lNS-TD-tk6" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" constant="8" id="21K-1j-ZQx"/>
-                            <constraint firstItem="0y4-iF-Qai" firstAttribute="top" secondItem="lNS-TD-tk6" secondAttribute="bottom" constant="74" id="8gX-pv-5ec"/>
-                            <constraint firstItem="hLa-WZ-WXP" firstAttribute="width" secondItem="40V-zM-Ty4" secondAttribute="width" id="9QY-HN-wWk"/>
-                            <constraint firstItem="8P5-6M-CH3" firstAttribute="top" secondItem="lNS-TD-tk6" secondAttribute="bottom" constant="74" id="AVQ-6p-nBZ"/>
+                            <constraint firstItem="sYs-sx-YA0" firstAttribute="bottom" secondItem="40V-zM-Ty4" secondAttribute="bottomMargin" id="AKS-XE-Egy"/>
+                            <constraint firstItem="sYs-sx-YA0" firstAttribute="trailing" secondItem="40V-zM-Ty4" secondAttribute="trailingMargin" id="Bxk-B8-NBp"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="JGC-RT-3XT"/>
-                            <constraint firstItem="hLa-WZ-WXP" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="KoY-0u-rBd"/>
-                            <constraint firstAttribute="bottom" secondItem="hLa-WZ-WXP" secondAttribute="bottom" id="Q5M-VK-Ehs"/>
-                            <constraint firstItem="lkf-gb-hTa" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" constant="8" id="QNq-dK-dnh"/>
-                            <constraint firstItem="hLa-WZ-WXP" firstAttribute="centerX" secondItem="p53-kz-fgd" secondAttribute="centerX" id="R78-Uf-apM"/>
-                            <constraint firstItem="aCq-gl-7YB" firstAttribute="leading" secondItem="7f4-86-7S1" secondAttribute="trailing" constant="8" id="S4F-Kg-y9Q"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="TUR-Rc-yXe"/>
-                            <constraint firstItem="Vpc-Ah-Lij" firstAttribute="top" secondItem="40V-zM-Ty4" secondAttribute="top" constant="8" id="XH8-LR-lQG"/>
-                            <constraint firstAttribute="bottom" secondItem="p53-kz-fgd" secondAttribute="bottom" id="XbT-T0-rw7"/>
-                            <constraint firstItem="0y4-iF-Qai" firstAttribute="leading" secondItem="aCq-gl-7YB" secondAttribute="trailing" constant="31" id="Ys3-A6-Q6v"/>
-                            <constraint firstItem="lNS-TD-tk6" firstAttribute="top" secondItem="40V-zM-Ty4" secondAttribute="top" constant="5" id="ZPy-bh-iDp"/>
-                            <constraint firstItem="lkf-gb-hTa" firstAttribute="top" secondItem="lNS-TD-tk6" secondAttribute="bottom" constant="14" id="Zop-rD-6Nx"/>
-                            <constraint firstItem="7f4-86-7S1" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" constant="8" id="bsx-UJ-hHl"/>
-                            <constraint firstAttribute="trailing" secondItem="sYs-sx-YA0" secondAttribute="trailing" constant="10" id="cEh-yq-k7j"/>
+                            <constraint firstAttribute="bottom" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="167" id="XbT-T0-rw7"/>
+                            <constraint firstItem="sYs-sx-YA0" firstAttribute="top" secondItem="Vpc-Ah-Lij" secondAttribute="bottom" constant="86" id="XcY-TU-sYr"/>
+                            <constraint firstItem="jeq-Ez-6Co" firstAttribute="leading" secondItem="lNS-TD-tk6" secondAttribute="trailing" constant="8" id="XiD-dW-mr1"/>
+                            <constraint firstItem="lNS-TD-tk6" firstAttribute="top" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="8" id="cNh-Ym-aGQ"/>
+                            <constraint firstItem="sYs-sx-YA0" firstAttribute="trailing" secondItem="Vpc-Ah-Lij" secondAttribute="trailing" id="cZ2-pM-2ii"/>
                             <constraint firstAttribute="trailing" secondItem="p53-kz-fgd" secondAttribute="trailing" id="d84-9U-H2w"/>
-                            <constraint firstItem="aCq-gl-7YB" firstAttribute="top" secondItem="lNS-TD-tk6" secondAttribute="bottom" constant="74" id="ehe-hB-gwk"/>
-                            <constraint firstItem="lkf-gb-hTa" firstAttribute="top" secondItem="lNS-TD-tk6" secondAttribute="bottom" constant="14" id="ief-2o-G8x"/>
-                            <constraint firstAttribute="bottom" secondItem="hLa-WZ-WXP" secondAttribute="bottom" id="k3n-Bg-ul6"/>
-                            <constraint firstAttribute="trailing" secondItem="hLa-WZ-WXP" secondAttribute="trailing" id="lnh-x2-DOz"/>
                             <constraint firstAttribute="bottom" secondItem="p53-kz-fgd" secondAttribute="bottom" id="nAF-SW-Moc"/>
-                            <constraint firstItem="hLa-WZ-WXP" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="pKF-gN-FW4"/>
-                            <constraint firstItem="8P5-6M-CH3" firstAttribute="leading" secondItem="0y4-iF-Qai" secondAttribute="trailing" constant="8" id="pqy-my-aFx"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="top" secondItem="40V-zM-Ty4" secondAttribute="top" constant="56" id="r3h-d4-7aw"/>
-                            <constraint firstItem="jeq-Ez-6Co" firstAttribute="leading" secondItem="lkf-gb-hTa" secondAttribute="trailing" constant="8" id="rZP-yT-su6"/>
-                            <constraint firstAttribute="trailing" secondItem="Vpc-Ah-Lij" secondAttribute="trailing" constant="8" id="uog-6D-IJD"/>
-                            <constraint firstItem="hLa-WZ-WXP" firstAttribute="top" secondItem="40V-zM-Ty4" secondAttribute="top" constant="300" id="v4O-GG-KkN"/>
-                            <constraint firstItem="p53-kz-fgd" firstAttribute="top" secondItem="40V-zM-Ty4" secondAttribute="top" constant="167" id="wA9-HW-WBm"/>
-                            <constraint firstItem="jeq-Ez-6Co" firstAttribute="top" secondItem="lNS-TD-tk6" secondAttribute="bottom" constant="14" id="wcl-oe-dCK"/>
-                            <constraint firstItem="7f4-86-7S1" firstAttribute="top" secondItem="lNS-TD-tk6" secondAttribute="bottom" constant="74" id="y9h-bl-NZO"/>
+                            <constraint firstItem="jeq-Ez-6Co" firstAttribute="top" secondItem="lNS-TD-tk6" secondAttribute="top" id="udk-NB-Fem"/>
+                            <constraint firstItem="lNS-TD-tk6" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" constant="8" id="vxd-Pe-470"/>
+                            <constraint firstItem="p53-kz-fgd" firstAttribute="top" secondItem="40V-zM-Ty4" secondAttribute="top" id="wA9-HW-WBm"/>
                             <constraint firstAttribute="trailing" secondItem="p53-kz-fgd" secondAttribute="trailing" id="zDS-en-4VK"/>
                         </constraints>
                         <variation key="default">
@@ -182,10 +138,6 @@
                                 <exclude reference="nAF-SW-Moc"/>
                                 <exclude reference="r3h-d4-7aw"/>
                                 <exclude reference="zDS-en-4VK"/>
-                                <exclude reference="9QY-HN-wWk"/>
-                                <exclude reference="Q5M-VK-Ehs"/>
-                                <exclude reference="lnh-x2-DOz"/>
-                                <exclude reference="pKF-gN-FW4"/>
                             </mask>
                         </variation>
                     </view>
@@ -199,7 +151,6 @@
                     <constraint firstAttribute="trailingMargin" secondItem="40V-zM-Ty4" secondAttribute="trailing" constant="8" id="fzK-Xb-biO"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="itemCount">
                     <integer key="value" value="4"/>
@@ -222,8 +173,5 @@
     <resources>
         <image name="ic_place_white_48pt" width="48" height="48"/>
         <image name="nav-map" width="50" height="50"/>
-        <image name="swell-wave" width="50" height="50"/>
-        <image name="time-clock" width="50" height="50"/>
-        <image name="wind-flag" width="50" height="50"/>
     </resources>
 </document>

@@ -22,7 +22,7 @@ class BeachLocationsViewController: UITableViewController {
     
     init(beaches: [BeachLocationItemViewModel]) {
         self.beaches = beaches
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: "BeachLocationsViewController", bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {

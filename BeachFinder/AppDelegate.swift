@@ -48,8 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func displayMainViewController() {
         window = UIWindow(frame:UIScreen.mainScreen().bounds)
         if let window = window {
-            let mainController = MainViewController()
-            let naviController = UINavigationController(rootViewController: mainController)
+            let naviController = UINavigationController(rootViewController: StartUpViewController())
             
             // Make navigationbar transparent
             naviController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -59,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             window.rootViewController = naviController
             window.makeKeyAndVisible()
+            
         }
     }
 

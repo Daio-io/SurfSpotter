@@ -52,10 +52,8 @@ class BeachLocatorService: BeachLocationService {
             }
     }
     
-    private func getRequestString(coords: Coordinates,
-        dist: Int) -> String {
-            
-            return baseUrl + "?lat=\(coords.lat)&long=\(coords.lon)&dist=\(dist)"
+    private func getRequestString(coords: Coordinates, dist: Int) -> String {
+        return baseUrl + "?lat=\(coords.lat)&long=\(coords.lon)&dist=\(dist)"
     }
     
 }

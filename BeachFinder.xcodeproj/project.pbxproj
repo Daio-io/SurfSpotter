@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2300199A1C8C3D4E0053B047 /* beach.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 230019991C8C3D4E0053B047 /* beach.jpg */; };
 		230019A21C8C80280053B047 /* BeachFinderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230019A11C8C80280053B047 /* BeachFinderButton.swift */; };
 		230019A61C8C925A0053B047 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230019A51C8C925A0053B047 /* LaunchScreen.storyboard */; };
 		23BCF31E1C864F6D007AD549 /* NSDate+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCF31D1C864F6D007AD549 /* NSDate+Time.swift */; };
 		23D6C5B11C937D9A00F891A7 /* WeatherReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D6C5B01C937D9A00F891A7 /* WeatherReport.swift */; };
 		23D6C5B51C9381EE00F891A7 /* DistanceConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D6C5B41C9381EE00F891A7 /* DistanceConverter.swift */; };
+		23D6C5B71C97512000F891A7 /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D6C5B61C97512000F891A7 /* StartUpViewController.swift */; };
+		23D6C5B91C97515200F891A7 /* StartUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23D6C5B81C97515200F891A7 /* StartUpViewController.xib */; };
+		23D6C5BB1C9A05AD00F891A7 /* StatusPinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D6C5BA1C9A05AD00F891A7 /* StatusPinger.swift */; };
 		570337231C7D321400DB5BE1 /* BeachLocationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570337221C7D321400DB5BE1 /* BeachLocationsViewController.xib */; };
 		570337251C7D9C9E00DB5BE1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570337241C7D9C9E00DB5BE1 /* HomeViewModel.swift */; };
 		5703372B1C7DA5D900DB5BE1 /* BeachLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5703372A1C7DA5D900DB5BE1 /* BeachLocationService.swift */; };
@@ -54,12 +56,14 @@
 
 /* Begin PBXFileReference section */
 		07050374223A7CBAE10AD995 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		230019991C8C3D4E0053B047 /* beach.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beach.jpg; sourceTree = "<group>"; };
 		230019A11C8C80280053B047 /* BeachFinderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachFinderButton.swift; sourceTree = "<group>"; };
 		230019A51C8C925A0053B047 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23BCF31D1C864F6D007AD549 /* NSDate+Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Time.swift"; sourceTree = "<group>"; };
 		23D6C5B01C937D9A00F891A7 /* WeatherReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherReport.swift; sourceTree = "<group>"; };
 		23D6C5B41C9381EE00F891A7 /* DistanceConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceConverter.swift; sourceTree = "<group>"; };
+		23D6C5B61C97512000F891A7 /* StartUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
+		23D6C5B81C97515200F891A7 /* StartUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartUpViewController.xib; sourceTree = "<group>"; };
+		23D6C5BA1C9A05AD00F891A7 /* StatusPinger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPinger.swift; sourceTree = "<group>"; };
 		26A810F1FCF5604C107D3AB8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		43156B5FD7E971278E18C0C5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570337221C7D321400DB5BE1 /* BeachLocationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeachLocationsViewController.xib; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 				570337221C7D321400DB5BE1 /* BeachLocationsViewController.xib */,
 				570F10081C5E4BDA0038A0B1 /* MainViewController.xib */,
 				57DE5D5F1C6BA429002A74B9 /* BeachLocationCell.xib */,
+				23D6C5B81C97515200F891A7 /* StartUpViewController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 			children = (
 				5753BECB1C445C0B00304498 /* MainViewController.swift */,
 				57DE5D631C6BAB64002A74B9 /* BeachLocationsViewController.swift */,
+				23D6C5B61C97512000F891A7 /* StartUpViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -199,7 +205,6 @@
 				57E04E671C821AD7003DED3D /* Roboto-Bold.ttf */,
 				57E04E681C821AD7003DED3D /* Roboto-Medium.ttf */,
 				57E04E691C821AD7003DED3D /* Roboto-Regular.ttf */,
-				230019991C8C3D4E0053B047 /* beach.jpg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				57E04E781C826712003DED3D /* UIColor+Material.swift */,
 				23BCF31D1C864F6D007AD549 /* NSDate+Time.swift */,
 				23D6C5B41C9381EE00F891A7 /* DistanceConverter.swift */,
+				23D6C5BA1C9A05AD00F891A7 /* StatusPinger.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -308,8 +314,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23D6C5B91C97515200F891A7 /* StartUpViewController.xib in Resources */,
 				230019A61C8C925A0053B047 /* LaunchScreen.storyboard in Resources */,
-				2300199A1C8C3D4E0053B047 /* beach.jpg in Resources */,
 				5753BEBF1C4458D500304498 /* Assets.xcassets in Resources */,
 				57E04E6C1C821AD7003DED3D /* Roboto-Regular.ttf in Resources */,
 				570F10091C5E4BDA0038A0B1 /* MainViewController.xib in Resources */,
@@ -387,6 +393,7 @@
 				578A11741C7A8BBA000F0246 /* SurfQueryService.swift in Sources */,
 				57E04E791C826712003DED3D /* UIColor+Material.swift in Sources */,
 				578A11721C7A8A00000F0246 /* SurfReportService.swift in Sources */,
+				23D6C5BB1C9A05AD00F891A7 /* StatusPinger.swift in Sources */,
 				5703372B1C7DA5D900DB5BE1 /* BeachLocationService.swift in Sources */,
 				57E2CD051C737E7100B212DC /* BeachLocationItemViewModel.swift in Sources */,
 				BA88B3DAF40C4EB38B4F3527 /* BeachLocation.swift in Sources */,
@@ -394,6 +401,7 @@
 				57690CC01C6BA3A700B7361A /* BeachLocationCell.swift in Sources */,
 				230019A21C8C80280053B047 /* BeachFinderButton.swift in Sources */,
 				57E04E751C8260CA003DED3D /* BeachFinderLabel.swift in Sources */,
+				23D6C5B71C97512000F891A7 /* StartUpViewController.swift in Sources */,
 				57F6AE381C71DC4D009A152B /* BeachSurfReport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

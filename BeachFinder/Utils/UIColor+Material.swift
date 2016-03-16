@@ -26,7 +26,7 @@ extension UIColor {
         return UIColor(red:0.00, green:0.74, blue:0.83, alpha:1.0)
     }
     
-    static func Teal900() -> UIColor {
-        return UIColor(red:0.00, green:0.30, blue:0.25, alpha:1.0)
+    static func Teal500() -> UIColor {
+        return UIColor(red:0.00, green:0.59, blue:0.53, alpha:1.0)
     }
 }
