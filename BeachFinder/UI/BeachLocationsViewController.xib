@@ -14,8 +14,10 @@
         <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bouncesZoom="NO" style="plain" separatorStyle="none" rowHeight="40" sectionHeaderHeight="50" sectionFooterHeight="22" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.96078431369999995" green="0.94509803920000002" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
             <inset key="scrollIndicatorInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+            <color key="sectionIndexBackgroundColor" red="0.96078431369999995" green="0.94509803920000002" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="sectionIndexTrackingBackgroundColor" red="0.96078431369999995" green="0.94509803920000002" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
                 <outlet property="delegate" destination="-1" id="9aC-8N-iBw"/>

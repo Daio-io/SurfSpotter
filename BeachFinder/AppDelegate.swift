@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Make navigationbar transparent
             naviController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
             naviController.navigationBar.shadowImage = UIImage()
-            naviController.navigationBar.tintColor = UIColor.blackColor()
+            naviController.navigationBar.tintColor = UIColor.FadedOrange()
             naviController.navigationBar.translucent = true
             
             window.rootViewController = naviController

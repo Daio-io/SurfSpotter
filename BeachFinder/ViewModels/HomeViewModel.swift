@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class HomeViewModel {
+struct HomeViewModel {
     
     private let beachFinderService: BeachLocationService?
     private let locationService: CurrentLocationService?
@@ -27,12 +27,12 @@ class HomeViewModel {
         
         locationService.currentLocationObservable()
             .throttle(0.5, scheduler: MainScheduler.instance)
-            .subscribeNext { [unowned self] (coords) -> Void in
+            .subscribeNext { (coords) -> Void in
                 self.currentLocation.value = coords
             }.addDisposableTo(disposeBag)
         
         locationService.currentCityLocation()
-            .subscribeNext { [unowned self](city) -> Void in
+            .subscribeNext { (city) -> Void in
                 self.currentCity.value = city
         }.addDisposableTo(disposeBag)
     }
@@ -43,9 +43,9 @@ class HomeViewModel {
     
     func scan() {
         beachFinderService?.getNearestBeachesForLocation(currentLocation.value, distance: distance.value)
-            .subscribe(onNext: { [unowned self] (locations) -> Void in
+            .subscribe(onNext: { (locations) -> Void in
                 self.locations.value = locations
-                }, onError: { [unowned self] (error) -> Void in
+                }, onError: { (error) -> Void in
                     self.locations.value = []
                 }, onCompleted: nil, onDisposed: nil)
             .addDisposableTo(disposeBag)

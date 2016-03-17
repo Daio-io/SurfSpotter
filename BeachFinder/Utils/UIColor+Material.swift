@@ -22,8 +22,8 @@ extension UIColor {
         return UIColor(red:0.93, green:0.94, blue:0.95, alpha:1)
     }
     
-    static func Cyan500() -> UIColor {
-        return UIColor(red:0.00, green:0.74, blue:0.83, alpha:1.0)
+    static func FadedOrange() -> UIColor {
+        return UIColor(red:0.86, green:0.46, blue:0.38, alpha:1.0)
     }
     
     static func Teal500() -> UIColor {

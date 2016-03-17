@@ -18,6 +18,7 @@ class BeachLocationCell : FoldingCell {
     // Closed cell
     @IBOutlet private weak var closedTitle: UILabel!
     @IBOutlet weak var distanceToBeachLabel: BeachFinderLabel!
+    @IBOutlet weak var closedSwellText: BeachFinderLabel!
     
     // Open cell
     @IBOutlet private weak var openDateText: UILabel!
@@ -33,6 +34,9 @@ class BeachLocationCell : FoldingCell {
     override func awakeFromNib() {
         mapPlaceholder.myLocationEnabled = true
         foregroundView.layer.masksToBounds = true
+        foregroundView.layer.cornerRadius = 8
+        closedTitle.changeToFont = "Roboto-Medium"
+        
         backViewColor = UIColor.Teal500()
         
         
@@ -54,8 +58,11 @@ class BeachLocationCell : FoldingCell {
         }
         
         swellText.asObservable()
-            .startWith(loadingText)
             .bindTo(openSwellText.rx_text)
+            .addDisposableTo(disposeBag)
+        
+        swellText.asObservable()
+            .bindTo(closedSwellText.rx_text)
             .addDisposableTo(disposeBag)
         
         bindWind()
@@ -95,7 +102,7 @@ class BeachLocationCell : FoldingCell {
         viewModel?.distanceToBeach.asObservable()
             .map({ (distance) -> String in
                 let miles = DistanceConverter.metersToMiles(Float(distance))
-                return String(format: "%.1f miles from beach", miles)
+                return String(format: "%.1f miles away", miles)
             })
             .bindTo(distanceToBeachLabel.rx_text)
             .addDisposableTo(disposeBag)
@@ -123,16 +130,4 @@ class BeachLocationCell : FoldingCell {
             .addDisposableTo(disposeBag)
     }
     
-    
-    @IBAction func getLaterSurfClicked(sender: AnyObject) {
-        viewModel?.refresh(NSDate.advanceCurrentTimeBy(3))
-    }
-    
-    @IBAction func navigateToBeachClicked(sender: AnyObject) {
-        
-        if let model = viewModel {
-            print("lets go \(model.coords.value.lat) \(model.coords.value.lon)")
-        }
-        
-    }
 }

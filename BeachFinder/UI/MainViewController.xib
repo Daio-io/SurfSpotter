@@ -25,14 +25,19 @@
                     <rect key="frame" x="6" y="530" width="588" height="31"/>
                 </slider>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaE-7x-pbp">
-                    <rect key="frame" x="279" y="484" width="42" height="20.5"/>
+                    <rect key="frame" x="279" y="484" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMZ-lA-qg9" customClass="BeachFinderButton" customModule="BeachFinder" customModuleProvider="target">
                     <rect key="frame" x="8" y="359" width="96" height="30"/>
-                    <state key="normal" title="View Beaches"/>
+                    <state key="normal" title="View Beaches">
+                        <color key="titleColor" red="0.93725490196078431" green="0.3843137254901961" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="disabled">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="viewLocations:" destination="-1" eventType="touchUpInside" id="LP1-WB-N7j"/>
                     </connections>
@@ -117,7 +122,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.96078431372549022" green="0.94509803921568625" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="tlg-P4-9e8" secondAttribute="trailing" constant="8" id="2mX-TV-iLk"/>
                 <constraint firstAttribute="trailing" secondItem="VcM-tV-bFS" secondAttribute="trailing" id="2pZ-wv-roG"/>

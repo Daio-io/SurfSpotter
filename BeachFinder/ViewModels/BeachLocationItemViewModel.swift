@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class BeachLocationItemViewModel : NSObject {
+struct BeachLocationItemViewModel {
     
     private let surfService: SurfReportService?
     private let locationService: CurrentLocationService?
@@ -34,12 +34,11 @@ class BeachLocationItemViewModel : NSObject {
         self.locationId = beachLocation.spotId
         self.location.value = beachLocation.location
         self.coords.value = beachLocation.coords
-        super.init()
         
         self.refresh()
         
         coords.asObservable()
-            .subscribeNext {[unowned self] (lat, lon) -> Void in
+            .subscribeNext { (lat, lon) -> Void in
                 if let distance = self.locationService?.distanceToLocation(Coordinates(lat, lon)) {
                   self.distanceToBeach.value = distance
                 }
@@ -47,9 +46,8 @@ class BeachLocationItemViewModel : NSObject {
     }
     
     func refresh(start: Int = NSDate.currentHour()) {
-        
        surfService?.getNextSurf(locationId, startTime: start)
-            .subscribe(onNext: { [unowned self] (surfReport) -> Void in
+            .subscribe(onNext: { (surfReport) -> Void in
                 self.maxSwell.value = surfReport.maxSwell
                 self.minSwell.value = surfReport.minSwell
                 self.date.value = surfReport.date
