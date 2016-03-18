@@ -37,12 +37,12 @@ struct BeachLocationItemViewModel {
         
         self.refresh()
         
-        coords.asObservable()
-            .subscribeNext { (lat, lon) -> Void in
-                if let distance = self.locationService?.distanceToLocation(Coordinates(lat, lon)) {
-                  self.distanceToBeach.value = distance
-                }
-        }.addDisposableTo(disposeBag)
+        self.locationService?.distanceToLocation(beachLocation.coords)
+            .asObservable()
+            .subscribeNext({ (distance) -> Void in
+            self.distanceToBeach.value = distance
+        }).addDisposableTo(disposeBag)
+        
     }
     
     func refresh(start: Int = NSDate.currentHour()) {

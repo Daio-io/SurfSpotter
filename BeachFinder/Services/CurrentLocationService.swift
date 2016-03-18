@@ -10,16 +10,17 @@ import Foundation
 import CoreLocation
 import RxSwift
 import GoogleMaps
+import Alamofire
+import SwiftyJSON
 
 class CurrentLocationService: NSObject, CLLocationManagerDelegate {
     
     private let locationManager = CLLocationManager()
     private let geoCoder = GMSGeocoder()
+    private let apiKey = "_"
     
     private let currentLocationObs = Variable(Coordinates(Double(), Double()))
     private let cityLocation = Variable("")
-    
-    private var currentLocation: Coordinates?
     
     func currentLocationObservable() -> Observable<Coordinates> {
         return currentLocationObs.asObservable()
@@ -38,13 +39,46 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func distanceToLocation(coords: Coordinates) -> Double? {
-        if let cL = currentLocation {
-            let location = CLLocation(latitude: cL.lat, longitude: cL.lon)
-            let toLocation = CLLocation(latitude: coords.lat, longitude: coords.lon)
-            return location.distanceFromLocation(toLocation)
+    func distanceToLocation(coords: Coordinates) -> Observable<Double> {
+        
+        let url = buildDistanceUrl(coords)
+        let request = Alamofire.request(.GET, url)
+        
+        return Observable.create { (observer: AnyObserver<Double>) -> Disposable in
+            
+            request.responseJSON {
+                response in switch response.result {
+                case .Success(let jsonData):
+                    
+                    let json = JSON(jsonData)
+                    if json["status"] == "OK" {
+                        let results = json["rows"].arrayValue.first
+                        let elements = results!["elements"].arrayValue.first
+                        let distance = elements!["distance"]["value"].doubleValue
+                        
+                        observer.onNext(distance)
+                        
+                        observer.onCompleted()
+                        
+                    } else {
+                        observer.onError(NSError(domain: "message", code: 1, userInfo: nil))
+                    }
+                case .Failure(let error):
+                    
+                    observer.onError(error)
+                }
+            }
+            
+            return AnonymousDisposable {
+                request.cancel()
+            }
+            
         }
-        return nil
+    }
+    
+    // Temp solution: TODO: break this out into config
+    private func buildDistanceUrl(coords: Coordinates) -> String {
+        return  "https://maps.googleapis.com/maps/api/distancematrix/json?origins=\(currentLocationObs.value.lat),%20\(currentLocationObs.value.lon)&destinations=\(coords.lat),%20\(coords.lon)&key=\(apiKey)"
     }
     
     
@@ -54,8 +88,6 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
         
         locationManager.stopUpdatingLocation()
         
-        let coords = Coordinates(locValues.latitude, locValues.longitude)
-        currentLocation = coords;
         currentLocationObs.value = Coordinates(locValues.latitude, locValues.longitude)
         
         geoCoder.reverseGeocodeCoordinate(locValues) {[unowned self] (response, error) -> Void in
