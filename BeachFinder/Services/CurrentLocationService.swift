@@ -17,7 +17,7 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
     
     private let locationManager = CLLocationManager()
     private let geoCoder = GMSGeocoder()
-    private let apiKey = "_"
+    private let apiKey = "AIzaSyAIZSWDpqd8sEaGfwBBarzh6QRg4XvuQ-k"
     
     private let currentLocationObs = Variable(Coordinates(Double(), Double()))
     private let cityLocation = Variable("")

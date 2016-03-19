@@ -14,7 +14,7 @@ import SwiftyJSON
 class SurfQueryService : SurfReportService {
     
     // temp
-    let apiKey = "_"
+    let apiKey = "3EC4931A9C"
     
     func getNextSurf(locationId: Int, startTime: Int) -> Observable<BeachSurfReport> {
     
