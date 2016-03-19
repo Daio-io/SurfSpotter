@@ -62,7 +62,8 @@ class BeachLocationCell : FoldingCell {
         viewBinder.bindWind(viewModel, openWindText.rx_text)
             .addDisposableTo(disposeBag)
         
-        viewBinder.bindTime(viewModel, openTimeText.rx_text).addDisposableTo(disposeBag)
+        viewBinder.bindTime(viewModel, openTimeText.rx_text)
+            .addDisposableTo(disposeBag)
         
         bindBeachCoords(viewModel)
         bindSwellText(viewModel)
