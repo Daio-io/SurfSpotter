@@ -15,6 +15,8 @@
 		23D6C5B91C97515200F891A7 /* StartUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23D6C5B81C97515200F891A7 /* StartUpViewController.xib */; };
 		23D6C5BB1C9A05AD00F891A7 /* StatusPinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D6C5BA1C9A05AD00F891A7 /* StatusPinger.swift */; };
 		23EF26061C9CAD9A00CDCC9D /* BeachSwellStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EF26051C9CAD9A00CDCC9D /* BeachSwellStarsView.swift */; };
+		23EF26081C9D7F9700CDCC9D /* LocationCellBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EF26071C9D7F9700CDCC9D /* LocationCellBinder.swift */; };
+		23EF260A1C9D819500CDCC9D /* BeachViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EF26091C9D819500CDCC9D /* BeachViewModelBinder.swift */; };
 		570337231C7D321400DB5BE1 /* BeachLocationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570337221C7D321400DB5BE1 /* BeachLocationsViewController.xib */; };
 		570337251C7D9C9E00DB5BE1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570337241C7D9C9E00DB5BE1 /* HomeViewModel.swift */; };
 		5703372B1C7DA5D900DB5BE1 /* BeachLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5703372A1C7DA5D900DB5BE1 /* BeachLocationService.swift */; };
@@ -64,6 +66,8 @@
 		23D6C5B81C97515200F891A7 /* StartUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartUpViewController.xib; sourceTree = "<group>"; };
 		23D6C5BA1C9A05AD00F891A7 /* StatusPinger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPinger.swift; sourceTree = "<group>"; };
 		23EF26051C9CAD9A00CDCC9D /* BeachSwellStarsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachSwellStarsView.swift; sourceTree = "<group>"; };
+		23EF26071C9D7F9700CDCC9D /* LocationCellBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationCellBinder.swift; path = ../LocationCellBinder.swift; sourceTree = "<group>"; };
+		23EF26091C9D819500CDCC9D /* BeachViewModelBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeachViewModelBinder.swift; path = ../BeachViewModelBinder.swift; sourceTree = "<group>"; };
 		26A810F1FCF5604C107D3AB8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		43156B5FD7E971278E18C0C5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570337221C7D321400DB5BE1 /* BeachLocationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeachLocationsViewController.xib; sourceTree = "<group>"; };
@@ -113,6 +117,15 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		23EF260B1C9D8C1300CDCC9D /* ViewBinders */ = {
+			isa = PBXGroup;
+			children = (
+				23EF26071C9D7F9700CDCC9D /* LocationCellBinder.swift */,
+				23EF26091C9D819500CDCC9D /* BeachViewModelBinder.swift */,
+			);
+			path = ViewBinders;
+			sourceTree = "<group>";
+		};
 		288A8221AE9CD0316641E00F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +149,7 @@
 		5721A0151C6BA1F400B26C8A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				23EF260B1C9D8C1300CDCC9D /* ViewBinders */,
 				57690CBF1C6BA3A700B7361A /* BeachLocationCell.swift */,
 				57E04E741C8260CA003DED3D /* BeachFinderLabel.swift */,
 				230019A11C8C80280053B047 /* BeachFinderButton.swift */,
@@ -387,6 +401,7 @@
 				570337251C7D9C9E00DB5BE1 /* HomeViewModel.swift in Sources */,
 				5753BEB81C4458D500304498 /* AppDelegate.swift in Sources */,
 				57EF0A931C455F2400695BC0 /* BeachLocatorService.swift in Sources */,
+				23EF26081C9D7F9700CDCC9D /* LocationCellBinder.swift in Sources */,
 				57E04E641C805EA5003DED3D /* CurrentLocationService.swift in Sources */,
 				57DE5D651C6BAB64002A74B9 /* BeachLocationsViewController.swift in Sources */,
 				578A11741C7A8BBA000F0246 /* SurfQueryService.swift in Sources */,
@@ -396,6 +411,7 @@
 				5703372B1C7DA5D900DB5BE1 /* BeachLocationService.swift in Sources */,
 				57E2CD051C737E7100B212DC /* BeachLocationItemViewModel.swift in Sources */,
 				BA88B3DAF40C4EB38B4F3527 /* BeachLocation.swift in Sources */,
+				23EF260A1C9D819500CDCC9D /* BeachViewModelBinder.swift in Sources */,
 				23BCF31E1C864F6D007AD549 /* NSDate+Time.swift in Sources */,
 				57690CC01C6BA3A700B7361A /* BeachLocationCell.swift in Sources */,
 				230019A21C8C80280053B047 /* BeachFinderButton.swift in Sources */,

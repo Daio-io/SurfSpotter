@@ -68,7 +68,7 @@ class BeachLocationsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(beachCellIdentifier, forIndexPath: indexPath) as! BeachLocationCell
         
         let currentBeach = beaches[indexPath.row]
-        cell.bind(currentBeach)
+        cell.bind(currentBeach, viewBinder: BeachViewModelBinder())
         
         return cell
         
