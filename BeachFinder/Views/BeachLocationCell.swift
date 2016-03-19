@@ -14,7 +14,6 @@ import RxCocoa
 
 class BeachLocationCell : FoldingCell {
     
-    let loadingText = "Loading"
     // Closed cell
     @IBOutlet private weak var closedTitle: UILabel!
     @IBOutlet private weak var distanceToBeachLabel: BeachFinderLabel!
@@ -37,8 +36,6 @@ class BeachLocationCell : FoldingCell {
         foregroundView.layer.masksToBounds = true
         foregroundView.layer.cornerRadius = 8
         closedTitle.changeToFont = "Roboto-Medium"
-        
-        
         backViewColor = UIColor.Teal500()
         
         super.awakeFromNib()
@@ -52,8 +49,7 @@ class BeachLocationCell : FoldingCell {
     
     func bind(viewModel: BeachLocationItemViewModel) {
         
-        self.viewModel = viewModel
-        
+        self.viewModel = viewModel        
         let swellText = Observable.combineLatest(viewModel.minSwell.asObservable(),
             viewModel.maxSwell.asObservable()) { min, max in
                 return String("\(min)-\(max)ft")
@@ -98,7 +94,6 @@ class BeachLocationCell : FoldingCell {
     
     private func bindDate() {
         viewModel?.date.asObservable()
-            .startWith(loadingText)
             .bindTo(openDateText.rx_text)
             .addDisposableTo(disposeBag)
         
@@ -106,7 +101,6 @@ class BeachLocationCell : FoldingCell {
     
     private func bindTime() {
         viewModel?.time.asObservable()
-            .startWith(loadingText)
             .bindTo(openTimeText.rx_text)
             .addDisposableTo(disposeBag)
     }
@@ -138,7 +132,6 @@ class BeachLocationCell : FoldingCell {
     
     private func bindLocation() {
         viewModel?.location.asObservable()
-            .startWith(loadingText)
             .bindTo(closedTitle.rx_text)
             .addDisposableTo(disposeBag)
     }
