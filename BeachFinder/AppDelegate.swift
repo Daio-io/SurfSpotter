@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        // Temp key I can check in
         GMSServices.provideAPIKey("AIzaSyAIZSWDpqd8sEaGfwBBarzh6QRg4XvuQ-k")
         
         displayMainViewController()
