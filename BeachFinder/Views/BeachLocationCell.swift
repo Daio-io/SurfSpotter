@@ -50,13 +50,10 @@ class BeachLocationCell : FoldingCell {
         return durations[itemIndex]
     }
     
-    func hasViewModelBinding() -> Bool {
-        return viewModel != nil
-    }
-    
     func bind(viewModel: BeachLocationItemViewModel) {
         
         self.viewModel = viewModel
+        
         let swellText = Observable.combineLatest(viewModel.minSwell.asObservable(),
             viewModel.maxSwell.asObservable()) { min, max in
                 return String("\(min)-\(max)ft")
@@ -85,9 +82,8 @@ class BeachLocationCell : FoldingCell {
         if let viewModel = viewModel {
             Observable.combineLatest(viewModel.solidStar.asObservable(), viewModel.fadedStar.asObservable()) {
                 return ($0, $1)
-            }.throttle(0.5, scheduler: MainScheduler.instance)
-                .subscribeNext({ [unowned self] (solid, faded) -> Void in
-                self.openSwellStarsView.addStars(viewModel.location.value, solid, fadedStars:faded)
+            }.subscribeNext({ [unowned self] (solid, faded) -> Void in
+                self.openSwellStarsView.addSolidStars(solid, fadedStars:faded)
                 }).addDisposableTo(disposeBag)
         }
     }
