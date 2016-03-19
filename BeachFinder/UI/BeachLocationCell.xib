@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT7-zT-uzu" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="8" y="38" width="58.5" height="18"/>
+                                <rect key="frame" x="8" y="37.5" width="58.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -67,14 +67,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="568" height="233"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-TD-tk6" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                                <rect key="frame" x="10" y="247" width="40" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeq-Ez-6Co" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="514" y="359" width="39.5" height="24"/>
+                                <rect key="frame" x="514.5" y="345" width="39.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8P5-6M-CH3" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="490" y="241" width="63.5" height="36"/>
+                                <rect key="frame" x="490.5" y="241" width="63.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -86,7 +92,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDa-a7-R0A" customClass="BeachSwellStarsView" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="164.5" y="314" width="122.5" height="21"/>
+                                <rect key="frame" x="164.5" y="314" width="122" height="21"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-star" highlightedImage="star" translatesAutoresizingMaskIntoConstraints="NO" id="2v8-9a-kWM">
                                         <rect key="frame" x="5" y="0.0" width="20" height="20"/>
@@ -158,23 +164,36 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-TD-tk6" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="10" y="247" width="40" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magic-sea" translatesAutoresizingMaskIntoConstraints="NO" id="Bw5-rw-vGe">
+                                <rect key="frame" x="473" y="377" width="95" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="3oF-cC-s5r"/>
+                                    <constraint firstAttribute="height" constant="23" id="DLx-4Q-SKA"/>
+                                    <constraint firstAttribute="width" constant="95" id="Ua9-kD-coS"/>
+                                    <constraint firstAttribute="height" constant="44" id="WQA-3v-Zso"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3oF-cC-s5r"/>
+                                        <exclude reference="WQA-3v-Zso"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0047203559910409861" green="0.56862801239605787" blue="0.48065662475254561" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="400" id="1Tg-as-ePI"/>
+                            <constraint firstAttribute="trailing" secondItem="Bw5-rw-vGe" secondAttribute="trailing" id="2Qv-iz-DYn"/>
+                            <constraint firstAttribute="bottom" secondItem="Bw5-rw-vGe" secondAttribute="bottom" id="AFl-KF-uEI"/>
+                            <constraint firstAttribute="bottom" secondItem="Bw5-rw-vGe" secondAttribute="bottom" constant="-10" id="EqT-nn-mM1"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="JGC-RT-3XT"/>
                             <constraint firstItem="lNS-TD-tk6" firstAttribute="top" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="14" id="LeA-hU-JR5"/>
                             <constraint firstItem="WDa-a7-R0A" firstAttribute="top" secondItem="aCq-gl-7YB" secondAttribute="top" constant="16" id="TH9-Gu-SYK"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="TUR-Rc-yXe"/>
+                            <constraint firstAttribute="trailing" secondItem="Bw5-rw-vGe" secondAttribute="trailing" id="WhV-nC-dw4"/>
                             <constraint firstAttribute="trailing" secondItem="8P5-6M-CH3" secondAttribute="trailing" constant="14.5" id="WzX-S6-oso"/>
                             <constraint firstAttribute="bottom" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="167" id="XbT-T0-rw7"/>
-                            <constraint firstAttribute="bottom" secondItem="jeq-Ez-6Co" secondAttribute="bottom" constant="17" id="Yni-FA-vKM"/>
+                            <constraint firstAttribute="bottom" secondItem="jeq-Ez-6Co" secondAttribute="bottom" constant="31" id="Yni-FA-vKM"/>
                             <constraint firstItem="8P5-6M-CH3" firstAttribute="top" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="8" id="ZJM-HH-k1b"/>
                             <constraint firstItem="aCq-gl-7YB" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" constant="10" id="cBQ-rj-opk"/>
                             <constraint firstItem="WDa-a7-R0A" firstAttribute="leading" secondItem="aCq-gl-7YB" secondAttribute="trailing" constant="2" id="cOO-am-ySs"/>
@@ -193,6 +212,8 @@
                                 <exclude reference="nAF-SW-Moc"/>
                                 <exclude reference="r3h-d4-7aw"/>
                                 <exclude reference="zDS-en-4VK"/>
+                                <exclude reference="2Qv-iz-DYn"/>
+                                <exclude reference="EqT-nn-mM1"/>
                             </mask>
                         </variation>
                     </view>
@@ -229,6 +250,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="magic-sea" width="200" height="47"/>
         <image name="no-star" width="100" height="100"/>
         <image name="star" width="100" height="100"/>
     </resources>
