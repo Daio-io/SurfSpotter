@@ -12,7 +12,7 @@ class BeachSwellStarsView: UIView {
     
     func addSolidStars(solidStars: Int, fadedStars: Int) {
         
-        guard solidStars < 5 else {
+        guard solidStars <= 5 else {
             return
         }
         
