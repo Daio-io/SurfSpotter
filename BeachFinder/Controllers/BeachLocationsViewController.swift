@@ -38,6 +38,8 @@ class BeachLocationsViewController: UITableViewController {
         for _ in 0...beaches.count {
             cellHeights.append(kCloseCellHeight)
         }
+        // Navigation controller needed in this view so show it again
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

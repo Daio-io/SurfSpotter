@@ -39,6 +39,11 @@ class MainViewController: UIViewController {
         bind()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        // Hide the NavBar because its not needed - Custom Nav Bar created using UIView
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         viewModel.locateMe()
     }
@@ -118,5 +123,9 @@ class MainViewController: UIViewController {
         let co = BeachLocationsViewController(beaches: viewModels)
         
         navigationController?.pushViewController(co, animated: true)
+    }
+    
+    @IBAction func settingsClicked(sender: AnyObject) {
+        navigationController?.pushViewController(AboutViewController(), animated: true)
     }
 }
