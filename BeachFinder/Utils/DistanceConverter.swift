@@ -11,9 +11,13 @@ import Foundation
 class DistanceConverter {
     
     private static let metersInAMile: Float = 1609.3
+    private static let milesInAMeter: Float = 0.000621371192
     
     static func metersToMiles(meters: Float) -> Float {
         return meters / metersInAMile
     }
     
+    static func milesToMeters(miles: Float) -> Float {
+        return miles / milesInAMeter
+    }
 }

@@ -95,11 +95,11 @@ class MainViewController: UIViewController {
         distanceSlider.rx_value.asObservable()
             .startWith(distanceSlider.value)
             .doOnNext({[unowned self] (distance) -> Void in
-                self.viewModel.distance.value = Int(distance)
+                let meters = DistanceConverter.milesToMeters(distance)
+                self.viewModel.distance.value = Int(meters)
                 })
             .map({ (distance) -> String in
-                let miles = DistanceConverter.metersToMiles(distance)
-                return String(format: "%.1f", miles) + " miles"
+                return String(format: "%.1f mile radius", distance)
             })
             .bindTo(distanceLabel.rx_text)
             .addDisposableTo(disposeBag)
