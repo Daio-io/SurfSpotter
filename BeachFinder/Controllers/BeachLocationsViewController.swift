@@ -66,9 +66,11 @@ class BeachLocationsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(beachCellIdentifier, forIndexPath: indexPath) as! BeachLocationCell
-        let currentBeach = beaches[indexPath.row]
-        
-        cell.bind(currentBeach)
+        if (!cell.hasViewModelBinding()) {
+            let currentBeach = beaches[indexPath.row]
+            cell.bind(currentBeach)
+        }
+
         return cell
     }
     

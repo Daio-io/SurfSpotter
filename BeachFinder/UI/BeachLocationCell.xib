@@ -19,13 +19,13 @@
                         <rect key="frame" x="16" y="23" width="568" height="75"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcX-ZF-gwg" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="8" y="8" width="33.5" height="20.5"/>
+                                <rect key="frame" x="8" y="8" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0039215686269999999" green="0.52549019610000003" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT7-zT-uzu" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="8" y="37" width="58.5" height="18"/>
+                                <rect key="frame" x="8" y="38" width="59" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -74,7 +74,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeq-Ez-6Co" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="514" y="359" width="40" height="24"/>
+                                <rect key="frame" x="515" y="359" width="39" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -86,24 +86,81 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCq-gl-7YB" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="454" y="268" width="100" height="54"/>
+                                <rect key="frame" x="455" y="268" width="99" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDa-a7-R0A" customClass="BeachSwellStarsView" customModule="BeachFinder" customModuleProvider="target">
+                                <rect key="frame" x="8" y="273" width="439" height="31"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="fYV-uM-aLF">
+                                        <rect key="frame" x="419" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="qvo-gI-jhh"/>
+                                            <constraint firstAttribute="height" constant="20" id="y5Y-7U-Jpo"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="5Hr-rQ-P0N">
+                                        <rect key="frame" x="398" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="4Wk-i6-uV5"/>
+                                            <constraint firstAttribute="height" constant="20" id="C1j-GO-7SY"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="GfM-AA-dft">
+                                        <rect key="frame" x="375" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="G0J-WL-yG2"/>
+                                            <constraint firstAttribute="width" constant="20" id="f0R-el-Zjc"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="Sib-H1-WR6">
+                                        <rect key="frame" x="352" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="YVs-dZ-7HD"/>
+                                            <constraint firstAttribute="height" constant="20" id="jUN-n1-JRf"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="2v8-9a-kWM">
+                                        <rect key="frame" x="330" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="SYV-ey-X4s"/>
+                                            <constraint firstAttribute="width" constant="20" id="f7e-AT-XZR"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0047203559909999998" green="0.56862801240000005" blue="0.48065662479999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GfM-AA-dft" secondAttribute="trailing" constant="44" id="HSw-kg-3NS"/>
+                                    <constraint firstItem="GfM-AA-dft" firstAttribute="top" secondItem="WDa-a7-R0A" secondAttribute="top" id="Llf-oZ-bGv"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Hr-rQ-P0N" secondAttribute="trailing" constant="21" id="Rd0-DL-EGE"/>
+                                    <constraint firstItem="fYV-uM-aLF" firstAttribute="top" secondItem="WDa-a7-R0A" secondAttribute="top" id="S3b-Df-Bp0"/>
+                                    <constraint firstAttribute="height" constant="31" id="Xfc-G4-kkN"/>
+                                    <constraint firstAttribute="trailing" secondItem="fYV-uM-aLF" secondAttribute="trailing" id="YwP-Y0-ONb"/>
+                                    <constraint firstItem="Sib-H1-WR6" firstAttribute="top" secondItem="WDa-a7-R0A" secondAttribute="top" id="beX-BR-mEs"/>
+                                    <constraint firstAttribute="trailing" secondItem="2v8-9a-kWM" secondAttribute="trailing" constant="89" id="htu-Tc-dAQ"/>
+                                    <constraint firstItem="2v8-9a-kWM" firstAttribute="top" secondItem="WDa-a7-R0A" secondAttribute="top" id="mYV-Pi-Bh0"/>
+                                    <constraint firstItem="5Hr-rQ-P0N" firstAttribute="top" secondItem="WDa-a7-R0A" secondAttribute="top" id="q3l-1J-Hd7"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sib-H1-WR6" secondAttribute="trailing" constant="67" id="tEN-fk-kdZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0047203559910409861" green="0.56862801239605787" blue="0.48065662475254561" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="400" id="1Tg-as-ePI"/>
                             <constraint firstAttribute="bottom" secondItem="8P5-6M-CH3" secondAttribute="bottom" constant="17" id="6aE-4H-6kT"/>
+                            <constraint firstItem="WDa-a7-R0A" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" constant="8" id="9UE-Ia-wKL"/>
                             <constraint firstItem="8P5-6M-CH3" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" constant="14" id="CjQ-Un-ayR"/>
                             <constraint firstAttribute="trailing" secondItem="aCq-gl-7YB" secondAttribute="trailing" constant="14" id="IFN-yC-cjr"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="JGC-RT-3XT"/>
+                            <constraint firstItem="WDa-a7-R0A" firstAttribute="top" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="40" id="Llc-OZ-WUl"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="TUR-Rc-yXe"/>
                             <constraint firstAttribute="bottom" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="167" id="XbT-T0-rw7"/>
                             <constraint firstAttribute="bottom" secondItem="jeq-Ez-6Co" secondAttribute="bottom" constant="17" id="Yni-FA-vKM"/>
                             <constraint firstItem="lNS-TD-tk6" firstAttribute="top" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="8" id="cNh-Ym-aGQ"/>
                             <constraint firstAttribute="trailing" secondItem="p53-kz-fgd" secondAttribute="trailing" id="d84-9U-H2w"/>
+                            <constraint firstItem="aCq-gl-7YB" firstAttribute="leading" secondItem="WDa-a7-R0A" secondAttribute="trailing" constant="8" id="kQB-Y1-QUK"/>
                             <constraint firstAttribute="bottom" secondItem="p53-kz-fgd" secondAttribute="bottom" id="nAF-SW-Moc"/>
                             <constraint firstAttribute="trailing" secondItem="jeq-Ez-6Co" secondAttribute="trailing" constant="14" id="plj-Cu-Xhg"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="top" secondItem="40V-zM-Ty4" secondAttribute="top" constant="56" id="r3h-d4-7aw"/>
@@ -145,6 +202,7 @@
                 <outlet property="foregroundView" destination="xea-YT-oDw" id="gHo-kN-f5l"/>
                 <outlet property="mapPlaceholder" destination="p53-kz-fgd" id="kTp-LT-NVx"/>
                 <outlet property="openDateText" destination="lNS-TD-tk6" id="3Py-de-pyF"/>
+                <outlet property="openSwellStarsView" destination="WDa-a7-R0A" id="Sae-CQ-I11"/>
                 <outlet property="openSwellText" destination="aCq-gl-7YB" id="ku2-Ii-5B5"/>
                 <outlet property="openTimeText" destination="jeq-Ez-6Co" id="ffJ-Gh-Mbk"/>
                 <outlet property="openWindText" destination="8P5-6M-CH3" id="vr2-ZP-64W"/>
@@ -152,4 +210,7 @@
             <point key="canvasLocation" x="117" y="3.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="star" width="100" height="100"/>
+    </resources>
 </document>

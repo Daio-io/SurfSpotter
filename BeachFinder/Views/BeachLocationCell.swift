@@ -17,8 +17,8 @@ class BeachLocationCell : FoldingCell {
     let loadingText = "Loading"
     // Closed cell
     @IBOutlet private weak var closedTitle: UILabel!
-    @IBOutlet weak var distanceToBeachLabel: BeachFinderLabel!
-    @IBOutlet weak var closedSwellText: BeachFinderLabel!
+    @IBOutlet private weak var distanceToBeachLabel: BeachFinderLabel!
+    @IBOutlet private weak var closedSwellText: BeachFinderLabel!
     
     // Open cell
     @IBOutlet private weak var openDateText: UILabel!
@@ -26,6 +26,7 @@ class BeachLocationCell : FoldingCell {
     @IBOutlet private weak var openSwellText: UILabel!
     @IBOutlet private weak var openWindText: UILabel!
     @IBOutlet private weak var mapPlaceholder: GMSMapView!
+    @IBOutlet private weak var openSwellStarsView: BeachSwellStarsView!
     
     let disposeBag = DisposeBag()
     
@@ -37,8 +38,8 @@ class BeachLocationCell : FoldingCell {
         foregroundView.layer.cornerRadius = 8
         closedTitle.changeToFont = "Roboto-Medium"
         
-        backViewColor = UIColor.Teal500()
         
+        backViewColor = UIColor.Teal500()
         
         super.awakeFromNib()
     }
@@ -47,6 +48,10 @@ class BeachLocationCell : FoldingCell {
         // durations count equal it itemCount
         let durations = [0.26, 0.2, 0.2]// timing animation for each view
         return durations[itemIndex]
+    }
+    
+    func hasViewModelBinding() -> Bool {
+        return viewModel != nil
     }
     
     func bind(viewModel: BeachLocationItemViewModel) {
@@ -71,9 +76,21 @@ class BeachLocationCell : FoldingCell {
         bindLocation()
         bindBeachCoords()
         bindBeachDistance()
+        bindStars()
     }
     
     // MARK - Internal
+    
+    private func bindStars() {
+        if let viewModel = viewModel {
+            Observable.combineLatest(viewModel.solidStar.asObservable(), viewModel.fadedStar.asObservable()) {
+                return ($0, $1)
+            }.throttle(0.5, scheduler: MainScheduler.instance)
+                .subscribeNext({ [unowned self] (solid, faded) -> Void in
+                self.openSwellStarsView.addStars(viewModel.location.value, solid, fadedStars:faded)
+                }).addDisposableTo(disposeBag)
+        }
+    }
     
     private func bindWind() {
         viewModel?.wind.asObservable()
