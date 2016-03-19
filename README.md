@@ -11,7 +11,6 @@ So, TODO:
 - Scan range seek bar styling
 - Refactor services
 - Create Config
-- Create view binder interfaces to pass to views and tidy up Observable binding logic
 - Icon assets
 - Create about page
 - Create settings page
