@@ -23,7 +23,7 @@ class StatusPinger {
                 if let statusCode = response.response?.statusCode {
                     observer.onNext(statusCode)
                 } else {
-                    observer.onError(NSError(domain: "Endpoint did not response", code: 1, userInfo: nil))
+                    observer.onError(NSError(domain: "Endpoint did not respond", code: 1, userInfo: nil))
                 }
                 observer.onCompleted();
             }
