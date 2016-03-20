@@ -31,13 +31,7 @@ class AboutViewController: UIViewController, UIWebViewDelegate, UIScrollViewDele
     override func viewWillAppear(animated: Bool) {
         // Hide the NavBar because its not needed - Custom Nav Bar created using UIView
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        navigationController?.navigationBar.tintColor = UIColor.blackColor()
-        
         navigationItem.title = "About"
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        navigationController?.navigationBar.tintColor = UIColor.FadedOrange()
     }
     
     func loadLicense() {
