@@ -133,7 +133,7 @@
                                 <constraint firstAttribute="height" constant="25" id="gBo-us-o5l"/>
                                 <constraint firstAttribute="width" constant="30" id="pFa-xw-TG3"/>
                             </constraints>
-                            <state key="normal" image="settings"/>
+                            <state key="normal" image="beach-info"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="XLR-UT-H8a"/>
@@ -204,7 +204,7 @@
         </view>
     </objects>
     <resources>
-        <image name="settings" width="96" height="96"/>
+        <image name="beach-info" width="96" height="96"/>
         <image name="signpost-icon" width="50" height="50"/>
     </resources>
 </document>

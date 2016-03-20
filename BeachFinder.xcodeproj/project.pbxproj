@@ -205,10 +205,10 @@
 		5753BEC91C445BBF00304498 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				23EF26181C9DE2A400CDCC9D /* AboutViewController.swift */,
 				5753BECB1C445C0B00304498 /* MainViewController.swift */,
 				57DE5D631C6BAB64002A74B9 /* BeachLocationsViewController.swift */,
 				23D6C5B61C97512000F891A7 /* StartUpViewController.swift */,
-				23EF26181C9DE2A400CDCC9D /* AboutViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

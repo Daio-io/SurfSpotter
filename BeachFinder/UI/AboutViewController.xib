@@ -18,15 +18,15 @@
             <subviews>
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IcG-Ab-QRq">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <color key="backgroundColor" red="0.96078431369999995" green="0.94509803920000002" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0047203559909999998" green="0.56862801240000005" blue="0.48065662479999999" alpha="1" colorSpace="calibratedRGB"/>
                 </webView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="IcG-Ab-QRq" secondAttribute="bottom" id="I54-pw-JyT"/>
-                <constraint firstAttribute="trailing" secondItem="IcG-Ab-QRq" secondAttribute="trailing" id="InG-ZN-Te4"/>
-                <constraint firstItem="IcG-Ab-QRq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LU7-yV-kNL"/>
-                <constraint firstItem="IcG-Ab-QRq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uid-gE-b6h"/>
+                <constraint firstItem="IcG-Ab-QRq" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="7cO-b6-v9l"/>
+                <constraint firstItem="IcG-Ab-QRq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Pyn-fs-wyR"/>
+                <constraint firstItem="IcG-Ab-QRq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="RMD-mm-GjO"/>
+                <constraint firstItem="IcG-Ab-QRq" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="XdI-cg-VAc"/>
             </constraints>
         </view>
     </objects>

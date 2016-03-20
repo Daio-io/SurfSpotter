@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AboutViewController: UIViewController {
+class AboutViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate {
 
     @IBOutlet private weak var webView: UIWebView!
     
@@ -22,16 +22,22 @@ class AboutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        webView.delegate = self
+        webView.scrollView.delegate = self
+        webView.scalesPageToFit = true
         loadLicense()
     }
     
     override func viewWillAppear(animated: Bool) {
         // Hide the NavBar because its not needed - Custom Nav Bar created using UIView
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.navigationBar.tintColor = UIColor.blackColor()
+        
+        navigationItem.title = "About"
     }
     
-    override func viewDidAppear(animated: Bool) {
-        
+    override func viewWillDisappear(animated: Bool) {
+        navigationController?.navigationBar.tintColor = UIColor.FadedOrange()
     }
     
     func loadLicense() {
@@ -42,5 +48,30 @@ class AboutViewController: UIViewController {
         }
     }
     
+    // MARK - UIWebViewDelegate
+    
+    // Ensure links in the webview are opened in Safari
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if navigationType == UIWebViewNavigationType.LinkClicked {
+            UIApplication.sharedApplication().openURL(request.URL!)
+            return false
+        }
+        return true
+    }
+    
+    // MARK - UIScrollViewDelegate
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        let transition = webView.scrollView.panGestureRecognizer.translationInView(webView)
+        
+        // Hiding nav bar when dragging down
+        if (transition.y > 0) {
+            navigationController?.setNavigationBarHidden(false, animated: true)
+        }
+        // Show again when starting to drag up
+        else {
+            navigationController?.setNavigationBarHidden(true, animated: true)
+        }
+    }
     
 }
