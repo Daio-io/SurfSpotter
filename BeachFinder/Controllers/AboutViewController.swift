@@ -9,7 +9,7 @@
 import UIKit
 
 class AboutViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate {
-
+    
     @IBOutlet private weak var webView: UIWebView!
     
     init() {
@@ -62,7 +62,7 @@ class AboutViewController: UIViewController, UIWebViewDelegate, UIScrollViewDele
         if (transition.y > 0) {
             navigationController?.setNavigationBarHidden(false, animated: true)
         }
-        // Show again when starting to drag up
+            // Show again when starting to drag up
         else {
             navigationController?.setNavigationBarHidden(true, animated: true)
         }

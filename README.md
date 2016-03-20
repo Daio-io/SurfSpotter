@@ -8,15 +8,14 @@ What started out as a little hack around with RXSwift I am now turning into an a
 
 So, TODO:
 
+- Display errors to user
 - Scan range seek bar styling
-- Refactor services
-- Create Config
 - Icon assets
-- Create about page
-- Create settings page
 
 Long game:
 
+- Create settings page for custom setup
+- Switch to a remote config solution if needed
 - Add my beaches section
 - Ability to search for beach by name
 - Show data over few days
