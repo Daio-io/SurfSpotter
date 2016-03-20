@@ -15,7 +15,7 @@ struct HomeViewModel {
     private let locationService: CurrentLocationService?
     
     private let disposeBag = DisposeBag()
-    
+
     let locations = Variable(Array<BeachLocation>())
     let currentLocation = Variable(Coordinates(0, 0))
     let currentCity = Variable("")
@@ -27,9 +27,14 @@ struct HomeViewModel {
         
         locationService.currentLocationObservable()
             .throttle(0.5, scheduler: MainScheduler.instance)
-            .subscribeNext { (coords) -> Void in
+            .subscribe(onNext: { coords -> Void in
                 self.currentLocation.value = coords
-            }.addDisposableTo(disposeBag)
+                }, onError: { (error) -> Void in
+                    if let obs = self.currentLocation.asObservable() as? BehaviorSubject<Coordinates> {
+                        obs.onError(error)
+                    }
+                }, onCompleted: nil, onDisposed: nil)
+            .addDisposableTo(disposeBag)
         
         locationService.currentCityLocation()
             .subscribeNext { (city) -> Void in

@@ -19,13 +19,13 @@
                         <rect key="frame" x="16" y="23" width="568" height="75"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcX-ZF-gwg" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="8" y="8" width="34" height="21"/>
+                                <rect key="frame" x="8" y="8" width="33.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0039215686269999999" green="0.52549019610000003" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT7-zT-uzu" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="8" y="38" width="59" height="18"/>
+                                <rect key="frame" x="8" y="37.5" width="58.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-TD-tk6" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="10" y="247" width="40" height="24"/>
+                                <rect key="frame" x="10" y="238" width="40" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -80,7 +80,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8P5-6M-CH3" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="491" y="241" width="63" height="36"/>
+                                <rect key="frame" x="491" y="248" width="63" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -187,14 +187,14 @@
                             <constraint firstAttribute="bottom" secondItem="Bw5-rw-vGe" secondAttribute="bottom" id="AFl-KF-uEI"/>
                             <constraint firstAttribute="bottom" secondItem="Bw5-rw-vGe" secondAttribute="bottom" constant="-10" id="EqT-nn-mM1"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="JGC-RT-3XT"/>
-                            <constraint firstItem="lNS-TD-tk6" firstAttribute="top" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="14" id="LeA-hU-JR5"/>
+                            <constraint firstItem="lNS-TD-tk6" firstAttribute="top" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="5" id="LeA-hU-JR5"/>
                             <constraint firstItem="WDa-a7-R0A" firstAttribute="top" secondItem="aCq-gl-7YB" secondAttribute="top" constant="16" id="TH9-Gu-SYK"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="TUR-Rc-yXe"/>
                             <constraint firstAttribute="trailing" secondItem="Bw5-rw-vGe" secondAttribute="trailing" id="WhV-nC-dw4"/>
                             <constraint firstAttribute="trailing" secondItem="8P5-6M-CH3" secondAttribute="trailing" constant="14.5" id="WzX-S6-oso"/>
                             <constraint firstAttribute="bottom" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="167" id="XbT-T0-rw7"/>
                             <constraint firstAttribute="bottom" secondItem="jeq-Ez-6Co" secondAttribute="bottom" constant="31" id="Yni-FA-vKM"/>
-                            <constraint firstItem="8P5-6M-CH3" firstAttribute="top" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="8" id="ZJM-HH-k1b"/>
+                            <constraint firstItem="8P5-6M-CH3" firstAttribute="top" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="15" id="ZJM-HH-k1b"/>
                             <constraint firstItem="aCq-gl-7YB" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" constant="10" id="cBQ-rj-opk"/>
                             <constraint firstItem="WDa-a7-R0A" firstAttribute="leading" secondItem="aCq-gl-7YB" secondAttribute="trailing" constant="2" id="cOO-am-ySs"/>
                             <constraint firstAttribute="trailing" secondItem="p53-kz-fgd" secondAttribute="trailing" id="d84-9U-H2w"/>

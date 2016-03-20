@@ -31,7 +31,7 @@
                     <color key="textColor" red="0.0078431372550000003" green="0.45882352939999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMZ-lA-qg9" customClass="BeachFinderButton" customModule="BeachFinder" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMZ-lA-qg9" customClass="BeachFinderButton" customModule="BeachFinder" customModuleProvider="target">
                     <rect key="frame" x="8" y="359" width="96" height="30"/>
                     <state key="normal" title="View Beaches">
                         <color key="titleColor" red="0.93725490196078431" green="0.3843137254901961" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>

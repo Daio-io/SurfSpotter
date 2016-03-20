@@ -35,87 +35,45 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpMap()
-        bind()
+        bindViewsToViewModel()
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         // Hide the NavBar because its not needed - Custom Nav Bar created using UIView
         navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
         viewModel.locateMe()
     }
     
     // MARK - Internal
     
-    private func setUpMap() {
+    private func bindViewsToViewModel() {
         mainMapView.myLocationEnabled = true
+        let binder = HomeViewModelBinder()
+        
+        binder.bindToBeachScan(viewModel)
+            .addDisposableTo(disposeBag)
+        
+        binder.bindToCurrentCity(viewModel, observer: currentCityLabel.rx_text)
+            .addDisposableTo(disposeBag)
+        
+        binder.bindToLocationFound(viewModel, observer: viewBeachesButton.rx_enabled)
+            .addDisposableTo(disposeBag)
+        
+        binder.bindToScanDistanceChange(viewModel, slider: distanceSlider, observer: distanceLabel.rx_text)
+            .addDisposableTo(disposeBag)
+        
+        binder.bindLocationToMap(viewModel, mapView: mainMapView)
+            .addDisposableTo(disposeBag)
+        
+        binder.bindLocationsFoundToMap(viewModel, mapView: mainMapView)
+            .addDisposableTo(disposeBag)
+        
         viewModel.currentLocation.asObservable()
-        .subscribeNext { [unowned self] (lat, lon) -> Void in
-            self.mainMapView.camera = GMSCameraPosition.cameraWithLatitude(lat,
-                longitude: lon, zoom: 8
-            )
-        }.addDisposableTo(disposeBag)
-        
-        viewModel.locations.asObservable()
-            .subscribeNext { [unowned self] (locations) -> Void in
-                self.mainMapView.clear()
-                for location in locations {
-                    
-                    let marker = GMSMarker()
-                    marker.position = CLLocationCoordinate2DMake(location.coords.lat, location.coords.lon)
-                    marker.title = location.location
-                    marker.map = self.mainMapView
-                }
-        }.addDisposableTo(disposeBag)
-    }
-    
-    private func bind() {
-        bindViewModel()
-        bindSliderToTextView()
-        bindCityAddressToLabel()
-    }
-    
-    private func bindViewModel() {
-        
-        Observable.combineLatest(viewModel.distance.asObservable(),
-            viewModel.currentLocation.asObservable()) { (distance, location) -> (Int, Coordinates)in
-                return (distance, location)
-            }.throttle(0.5, scheduler: MainScheduler.instance)
-            .subscribeNext { [unowned self] (distance, location) -> Void in
-                self.viewModel.scan()
+            .subscribeError { (error) -> Void in
+                print("Todo - handle error here when location unavialble")
             }.addDisposableTo(disposeBag)
-        
-        viewModel.locations.asObservable()
-            .map { (locations) -> Bool in
-                return  !locations.isEmpty
-            }.bindTo(viewBeachesButton.rx_enabled)
-            .addDisposableTo(disposeBag)
-        
     }
-    
-    private func bindSliderToTextView() {
-        distanceSlider.rx_value.asObservable()
-            .startWith(distanceSlider.value)
-            .doOnNext({[unowned self] (distance) -> Void in
-                let meters = DistanceConverter.milesToMeters(distance)
-                self.viewModel.distance.value = Int(meters)
-                })
-            .map({ (distance) -> String in
-                return String(format: "%.1f mile radius", distance)
-            })
-            .bindTo(distanceLabel.rx_text)
-            .addDisposableTo(disposeBag)
-    }
-    
-    private func bindCityAddressToLabel() {
-        viewModel.currentCity.asObservable()
-            .bindTo(currentCityLabel.rx_text)
-            .addDisposableTo(disposeBag)
-    }
-    
+
     @IBAction func viewLocations(sender: AnyObject) {
         let viewModels = viewModel.locations.value.map({ [unowned self] (beach) -> BeachLocationItemViewModel in
             return BeachLocationItemViewModel(self.service, self.locationService, beach)

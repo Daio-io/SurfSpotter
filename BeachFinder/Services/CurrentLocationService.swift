@@ -13,11 +13,18 @@ import GoogleMaps
 import Alamofire
 import SwiftyJSON
 
+enum BeachLocationError: ErrorType {
+    case Failed(message: String)
+    case Unavailable(message: String)
+    case Unknown(message: String)
+}
+
 class CurrentLocationService: NSObject, CLLocationManagerDelegate {
     
     private let locationManager = CLLocationManager()
     private let geoCoder = GMSGeocoder()
     private let apiKey = "AIzaSyAIZSWDpqd8sEaGfwBBarzh6QRg4XvuQ-k"
+    private let googleDistanceUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="
     
     private let currentLocationObs = Variable(Coordinates(Double(), Double()))
     private let cityLocation = Variable("")
@@ -36,6 +43,9 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
+        } else {
+            informLocationError(.Unavailable(message: "Location services turned off"))
+            cityLocation.value = "Location off"
         }
     }
     
@@ -78,11 +88,30 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
     
     // Temp solution: TODO: break this out into config
     private func buildDistanceUrl(coords: Coordinates) -> String {
-        return  "https://maps.googleapis.com/maps/api/distancematrix/json?origins=\(currentLocationObs.value.lat),%20\(currentLocationObs.value.lon)&destinations=\(coords.lat),%20\(coords.lon)&key=\(apiKey)"
+        return  googleDistanceUrl + "\(currentLocationObs.value.lat),%20\(currentLocationObs.value.lon)&destinations=\(coords.lat),%20\(coords.lon)&key=\(apiKey)"
     }
     
+    private func informLocationError(error: BeachLocationError) {
+        if let subject = currentLocationObs.asObservable() as? BehaviorSubject<Coordinates> {
+            subject.onError(error)
+        }
+    }
+    
+    private func locateCityLocation(loc: CLLocationCoordinate2D) {
+        geoCoder.reverseGeocodeCoordinate(loc) {[unowned self] (response, error) -> Void in
+            let results = response?.firstResult()
+            if let res = results?.locality {
+                self.cityLocation.value = res
+            } else if let res = results?.subLocality {
+                self.cityLocation.value = res
+            } else {
+                self.cityLocation.value = "Unknown"
+            }
+        }
+    }
     
     // MARK - CLLocationManagerDelegate
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValues:CLLocationCoordinate2D = (manager.location?.coordinate)!
         
@@ -90,18 +119,11 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
         
         currentLocationObs.value = Coordinates(locValues.latitude, locValues.longitude)
         
-        geoCoder.reverseGeocodeCoordinate(locValues) {[unowned self] (response, error) -> Void in
-            let results = response?.firstResult()
-            if let res = results?.locality {
-                self.cityLocation.value = res
-            } else if let res = results?.subLocality {
-                self.cityLocation.value = res
-            }
-        }
+        locateCityLocation(locValues)
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("Location error: \(error.localizedDescription)")
+        informLocationError(.Unavailable(message: "Location update failed"))
     }
     
 }
