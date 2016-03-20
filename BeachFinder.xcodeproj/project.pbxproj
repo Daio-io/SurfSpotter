@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10B6C981375FA3186DD44719 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6CC31FBBDB5AD8E10BF56 /* Config.swift */; };
 		230019A21C8C80280053B047 /* BeachFinderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230019A11C8C80280053B047 /* BeachFinderButton.swift */; };
 		230019A61C8C925A0053B047 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230019A51C8C925A0053B047 /* LaunchScreen.storyboard */; };
 		23BCF31E1C864F6D007AD549 /* NSDate+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCF31D1C864F6D007AD549 /* NSDate+Time.swift */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		07050374223A7CBAE10AD995 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		10B6CC31FBBDB5AD8E10BF56 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		230019A11C8C80280053B047 /* BeachFinderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachFinderButton.swift; sourceTree = "<group>"; };
 		230019A51C8C925A0053B047 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23BCF31D1C864F6D007AD549 /* NSDate+Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Time.swift"; sourceTree = "<group>"; };
@@ -121,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10B6C9278A9465A6062CF2F1 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				10B6CC31FBBDB5AD8E10BF56 /* Config.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		230019A41C8C924E0053B047 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +216,7 @@
 				5753BEBE1C4458D500304498 /* Assets.xcassets */,
 				5753BEC31C4458D500304498 /* Info.plist */,
 				BA88B183CF261F1501B58AEB /* Model */,
+				10B6C9278A9465A6062CF2F1 /* Config */,
 			);
 			path = BeachFinder;
 			sourceTree = "<group>";
@@ -443,6 +454,7 @@
 				23D6C5B71C97512000F891A7 /* StartUpViewController.swift in Sources */,
 				23EF261F1C9EEEC300CDCC9D /* HomeViewModelBinder.swift in Sources */,
 				57F6AE381C71DC4D009A152B /* BeachSurfReport.swift in Sources */,
+				10B6C981375FA3186DD44719 /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

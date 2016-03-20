@@ -13,14 +13,19 @@ import SwiftyJSON
 
 class SurfQueryService : SurfReportService {
     
-    // temp
-    let apiKey = "3EC4931A9C"
+    private var apiKey: String
+    private var baseUrl: String
+    
+    init(apiKey: String, baseUrl: String) {
+        self.apiKey = apiKey
+        self.baseUrl = baseUrl
+    }
     
     func getNextSurf(locationId: Int, startTime: Int) -> Observable<BeachSurfReport> {
     
-        let baseUrl = "https://surf-query.herokuapp.com/next?apikey=\(apiKey)&spotid=\(locationId)&start=\(startTime)"
+        let url = "\(baseUrl)\(apiKey)&spotid=\(locationId)&start=\(startTime)"
         
-        let request = Alamofire.request(.GET, baseUrl)
+        let request = Alamofire.request(.GET, url)
         
         return Observable.create {(observer: AnyObserver<BeachSurfReport>) -> Disposable in
             request.responseJSON {

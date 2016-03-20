@@ -20,15 +20,20 @@ enum BeachLocationError: ErrorType {
 }
 
 class CurrentLocationService: NSObject, CLLocationManagerDelegate {
-    
+
     private let locationManager = CLLocationManager()
     private let geoCoder = GMSGeocoder()
-    private let apiKey = "AIzaSyAIZSWDpqd8sEaGfwBBarzh6QRg4XvuQ-k"
-    private let googleDistanceUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="
-    
+    private var apiKey: String
+    private var googleDistanceUrl: String
+
     private let currentLocationObs = Variable(Coordinates(Double(), Double()))
     private let cityLocation = Variable("")
-    
+
+    init(apiKey: String, googleDistanceUrl: String) {
+        self.apiKey = apiKey
+        self.googleDistanceUrl = googleDistanceUrl
+    }
+
     func currentLocationObservable() -> Observable<Coordinates> {
         return currentLocationObs.asObservable()
     }
@@ -86,7 +91,6 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    // Temp solution: TODO: break this out into config
     private func buildDistanceUrl(coords: Coordinates) -> String {
         return  googleDistanceUrl + "\(currentLocationObs.value.lat),%20\(currentLocationObs.value.lon)&destinations=\(coords.lat),%20\(coords.lon)&key=\(apiKey)"
     }

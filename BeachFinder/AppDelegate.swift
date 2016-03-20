@@ -16,12 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        // Temp key I can check in
-        GMSServices.provideAPIKey("AIzaSyAIZSWDpqd8sEaGfwBBarzh6QRg4XvuQ-k")
+        GMSServices.provideAPIKey(Config.GoogleMapsApiKey)
+        displayStartViewController()
         
-        displayMainViewController()
-        
-        // Override point for customization after application launch.
         return true
     }
 
@@ -47,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func displayMainViewController() {
+    func displayStartViewController() {
         window = UIWindow(frame:UIScreen.mainScreen().bounds)
         if let window = window {
             let naviController = UINavigationController(rootViewController: StartUpViewController())

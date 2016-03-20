@@ -13,7 +13,11 @@ import RxSwift
 
 class BeachLocatorService: BeachLocationService {
     
-    let baseUrl = "https://beach-locator.herokuapp.com/location"
+    private var baseUrl: String
+    
+    init(baseUrl: String) {
+        self.baseUrl = baseUrl
+    }
     
     func getNearestBeachesForLocation(coords: (lat:Double, lon:Double),
         distance: Int) -> Observable<[BeachLocation]> {
@@ -53,7 +57,7 @@ class BeachLocatorService: BeachLocationService {
     }
     
     private func getRequestString(coords: Coordinates, dist: Int) -> String {
-        return baseUrl + "?lat=\(coords.lat)&long=\(coords.lon)&dist=\(dist)"
+        return "\(baseUrl)?lat=\(coords.lat)&long=\(coords.lon)&dist=\(dist)"
     }
     
 }
