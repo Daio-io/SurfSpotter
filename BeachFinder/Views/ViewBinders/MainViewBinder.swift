@@ -17,4 +17,5 @@ protocol MainViewBinder {
     func bindToLocationFound(viewModel: HomeViewModel, observer: AnyObserver<Bool>) -> Disposable
     func bindLocationToMap(viewModel: HomeViewModel, mapView: GMSMapView) -> Disposable
     func bindLocationsFoundToMap(viewModel: HomeViewModel, mapView: GMSMapView) -> Disposable
+    func bindShowingErrorForLocation(viewModel: HomeViewModel, observer: AnyObserver<Bool>) -> Disposable
 }

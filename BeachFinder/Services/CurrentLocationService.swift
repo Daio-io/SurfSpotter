@@ -50,7 +50,6 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         } else {
             informLocationError(.Unavailable(message: "Location services turned off"))
-            cityLocation.value = "Location off"
         }
     }
     

@@ -51,6 +51,7 @@ struct HomeViewModel {
             .subscribe(onNext: { coords -> Void in
                 self.currentLocation.value = coords
                 }, onError: { (error) -> Void in
+                    self.currentCity.value = "Failed to load"
                     if let obs = self.currentLocation.asObservable() as? BehaviorSubject<Coordinates> {
                         obs.onError(error)
                     }

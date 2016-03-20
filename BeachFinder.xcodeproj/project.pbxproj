@@ -24,12 +24,12 @@
 		23EF261D1C9EEB7D00CDCC9D /* MainViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EF261C1C9EEB7D00CDCC9D /* MainViewBinder.swift */; };
 		23EF261F1C9EEEC300CDCC9D /* HomeViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EF261E1C9EEEC300CDCC9D /* HomeViewModelBinder.swift */; };
 		23EF26211C9EFB5B00CDCC9D /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EF26201C9EFB5B00CDCC9D /* ViewModelFactory.swift */; };
+		23EF26231C9F1D4700CDCC9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23EF26221C9F1D4700CDCC9D /* Assets.xcassets */; };
 		570337231C7D321400DB5BE1 /* BeachLocationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570337221C7D321400DB5BE1 /* BeachLocationsViewController.xib */; };
 		570337251C7D9C9E00DB5BE1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570337241C7D9C9E00DB5BE1 /* HomeViewModel.swift */; };
 		5703372B1C7DA5D900DB5BE1 /* BeachLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5703372A1C7DA5D900DB5BE1 /* BeachLocationService.swift */; };
 		570F10091C5E4BDA0038A0B1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570F10081C5E4BDA0038A0B1 /* MainViewController.xib */; };
 		5753BEB81C4458D500304498 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5753BEB71C4458D500304498 /* AppDelegate.swift */; };
-		5753BEBF1C4458D500304498 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5753BEBE1C4458D500304498 /* Assets.xcassets */; };
 		5753BECD1C445C0B00304498 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5753BECB1C445C0B00304498 /* MainViewController.swift */; };
 		57690CC01C6BA3A700B7361A /* BeachLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57690CBF1C6BA3A700B7361A /* BeachLocationCell.swift */; };
 		578A11721C7A8A00000F0246 /* SurfReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578A11711C7A8A00000F0246 /* SurfReportService.swift */; };
@@ -82,6 +82,7 @@
 		23EF261C1C9EEB7D00CDCC9D /* MainViewBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewBinder.swift; sourceTree = "<group>"; };
 		23EF261E1C9EEEC300CDCC9D /* HomeViewModelBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModelBinder.swift; sourceTree = "<group>"; };
 		23EF26201C9EFB5B00CDCC9D /* ViewModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
+		23EF26221C9F1D4700CDCC9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26A810F1FCF5604C107D3AB8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		43156B5FD7E971278E18C0C5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570337221C7D321400DB5BE1 /* BeachLocationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeachLocationsViewController.xib; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		570F10081C5E4BDA0038A0B1 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		5753BEB41C4458D500304498 /* BeachFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeachFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5753BEB71C4458D500304498 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5753BEBE1C4458D500304498 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5753BEC31C4458D500304498 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5753BECB1C445C0B00304498 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		57690CBF1C6BA3A700B7361A /* BeachLocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachLocationCell.swift; sourceTree = "<group>"; };
@@ -205,6 +205,7 @@
 		5753BEB61C4458D500304498 /* BeachFinder */ = {
 			isa = PBXGroup;
 			children = (
+				23EF26221C9F1D4700CDCC9D /* Assets.xcassets */,
 				230019A41C8C924E0053B047 /* Support */,
 				57E04E711C825CDE003DED3D /* Utils */,
 				576690C21C70FF19000CCB83 /* ViewModels */,
@@ -213,7 +214,6 @@
 				57EF0A911C455F0300695BC0 /* Services */,
 				5753BEC91C445BBF00304498 /* Controllers */,
 				5753BEB71C4458D500304498 /* AppDelegate.swift */,
-				5753BEBE1C4458D500304498 /* Assets.xcassets */,
 				5753BEC31C4458D500304498 /* Info.plist */,
 				BA88B183CF261F1501B58AEB /* Model */,
 				10B6C9278A9465A6062CF2F1 /* Config */,
@@ -359,7 +359,7 @@
 			files = (
 				23D6C5B91C97515200F891A7 /* StartUpViewController.xib in Resources */,
 				230019A61C8C925A0053B047 /* LaunchScreen.storyboard in Resources */,
-				5753BEBF1C4458D500304498 /* Assets.xcassets in Resources */,
+				23EF26231C9F1D4700CDCC9D /* Assets.xcassets in Resources */,
 				57E04E6C1C821AD7003DED3D /* Roboto-Regular.ttf in Resources */,
 				23EF26171C9DE1F800CDCC9D /* AboutViewController.xib in Resources */,
 				570F10091C5E4BDA0038A0B1 /* MainViewController.xib in Resources */,

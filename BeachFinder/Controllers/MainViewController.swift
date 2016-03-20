@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var mainMapView: GMSMapView!
     @IBOutlet private weak var currentCityLabel: BeachFinderLabel!
     @IBOutlet private weak var viewBeachesButton: BeachFinderButton!
+    @IBOutlet private weak var errorButton: UIButton!
     
     private let disposeBag = DisposeBag()
     
@@ -67,10 +68,9 @@ class MainViewController: UIViewController {
         viewBinder.bindLocationsFoundToMap(viewModel, mapView: mainMapView)
             .addDisposableTo(disposeBag)
         
-        viewModel.currentLocation.asObservable()
-            .subscribeError { (error) -> Void in
-                print("Todo - handle error here when location unavialble")
-            }.addDisposableTo(disposeBag)
+        viewBinder.bindShowingErrorForLocation(viewModel, observer: errorButton.rx_hidden)
+            .addDisposableTo(disposeBag)
+        
     }
 
     @IBAction func viewLocations(sender: AnyObject) {
@@ -84,5 +84,16 @@ class MainViewController: UIViewController {
     
     @IBAction func settingsClicked(sender: AnyObject) {
         navigationController?.pushViewController(AboutViewController(), animated: true)
+    }
+    
+    @IBAction func errorButtonClicked(sender: AnyObject) {
+        let alertController = UIAlertController(title: "Location Error", message:
+            "There seems to be a problem locating you. Check your location services is turned on and try again.", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Retry", style: UIAlertActionStyle.Default, handler: {[unowned self] (_) in
+            self.viewModel.locateMe()
+        }))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 }

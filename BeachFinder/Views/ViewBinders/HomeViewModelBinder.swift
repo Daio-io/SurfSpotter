@@ -69,4 +69,11 @@ class HomeViewModelBinder: MainViewBinder {
                 }
         }
     }
+    
+    func bindShowingErrorForLocation(viewModel: HomeViewModel, observer: AnyObserver<Bool>) -> Disposable {
+        return viewModel.currentLocation.asObservable()
+            .map({ (lat, lon) -> Bool in
+                return lat != 0 && lon != 0
+            }).bindTo(observer)
+    }
 }
