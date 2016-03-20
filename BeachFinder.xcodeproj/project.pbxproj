@@ -22,6 +22,7 @@
 		23EF261B1C9DEB6700CDCC9D /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = 23EF261A1C9DEB6700CDCC9D /* license.html */; };
 		23EF261D1C9EEB7D00CDCC9D /* MainViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EF261C1C9EEB7D00CDCC9D /* MainViewBinder.swift */; };
 		23EF261F1C9EEEC300CDCC9D /* HomeViewModelBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EF261E1C9EEEC300CDCC9D /* HomeViewModelBinder.swift */; };
+		23EF26211C9EFB5B00CDCC9D /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EF26201C9EFB5B00CDCC9D /* ViewModelFactory.swift */; };
 		570337231C7D321400DB5BE1 /* BeachLocationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570337221C7D321400DB5BE1 /* BeachLocationsViewController.xib */; };
 		570337251C7D9C9E00DB5BE1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570337241C7D9C9E00DB5BE1 /* HomeViewModel.swift */; };
 		5703372B1C7DA5D900DB5BE1 /* BeachLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5703372A1C7DA5D900DB5BE1 /* BeachLocationService.swift */; };
@@ -78,6 +79,7 @@
 		23EF261A1C9DEB6700CDCC9D /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
 		23EF261C1C9EEB7D00CDCC9D /* MainViewBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewBinder.swift; sourceTree = "<group>"; };
 		23EF261E1C9EEEC300CDCC9D /* HomeViewModelBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModelBinder.swift; sourceTree = "<group>"; };
+		23EF26201C9EFB5B00CDCC9D /* ViewModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 		26A810F1FCF5604C107D3AB8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		43156B5FD7E971278E18C0C5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570337221C7D321400DB5BE1 /* BeachLocationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeachLocationsViewController.xib; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				57E2CD041C737E7100B212DC /* BeachLocationItemViewModel.swift */,
 				570337241C7D9C9E00DB5BE1 /* HomeViewModel.swift */,
+				23EF26201C9EFB5B00CDCC9D /* ViewModelFactory.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				23EF260E1C9D8CFA00CDCC9D /* BeachViewModelBinder.swift in Sources */,
 				57E04E791C826712003DED3D /* UIColor+Material.swift in Sources */,
 				578A11721C7A8A00000F0246 /* SurfReportService.swift in Sources */,
+				23EF26211C9EFB5B00CDCC9D /* ViewModelFactory.swift in Sources */,
 				23D6C5BB1C9A05AD00F891A7 /* StatusPinger.swift in Sources */,
 				5703372B1C7DA5D900DB5BE1 /* BeachLocationService.swift in Sources */,
 				57E2CD051C737E7100B212DC /* BeachLocationItemViewModel.swift in Sources */,

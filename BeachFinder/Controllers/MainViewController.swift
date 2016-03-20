@@ -18,14 +18,14 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var currentCityLabel: BeachFinderLabel!
     @IBOutlet private weak var viewBeachesButton: BeachFinderButton!
     
-    private lazy var service = SurfQueryService()
-    private let locationService = CurrentLocationService()
     private let disposeBag = DisposeBag()
     
     private var viewModel: HomeViewModel
+    private var viewBinder: MainViewBinder
     
-    init() {
-        viewModel = HomeViewModel(BeachLocatorService(), locationService)
+    init(viewModel: HomeViewModel, viewBinder: MainViewBinder) {
+        self.viewModel = viewModel
+        self.viewBinder = viewBinder
         super.init(nibName:"MainViewController", bundle:nil)
     }
     
@@ -48,24 +48,23 @@ class MainViewController: UIViewController {
     
     private func bindViewsToViewModel() {
         mainMapView.myLocationEnabled = true
-        let binder = HomeViewModelBinder()
         
-        binder.bindToBeachScan(viewModel)
+        viewBinder.bindToBeachScan(viewModel)
             .addDisposableTo(disposeBag)
         
-        binder.bindToCurrentCity(viewModel, observer: currentCityLabel.rx_text)
+        viewBinder.bindToCurrentCity(viewModel, observer: currentCityLabel.rx_text)
             .addDisposableTo(disposeBag)
         
-        binder.bindToLocationFound(viewModel, observer: viewBeachesButton.rx_enabled)
+        viewBinder.bindToLocationFound(viewModel, observer: viewBeachesButton.rx_enabled)
             .addDisposableTo(disposeBag)
         
-        binder.bindToScanDistanceChange(viewModel, slider: distanceSlider, observer: distanceLabel.rx_text)
+        viewBinder.bindToScanDistanceChange(viewModel, slider: distanceSlider, observer: distanceLabel.rx_text)
             .addDisposableTo(disposeBag)
         
-        binder.bindLocationToMap(viewModel, mapView: mainMapView)
+        viewBinder.bindLocationToMap(viewModel, mapView: mainMapView)
             .addDisposableTo(disposeBag)
         
-        binder.bindLocationsFoundToMap(viewModel, mapView: mainMapView)
+        viewBinder.bindLocationsFoundToMap(viewModel, mapView: mainMapView)
             .addDisposableTo(disposeBag)
         
         viewModel.currentLocation.asObservable()
@@ -75,8 +74,8 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func viewLocations(sender: AnyObject) {
-        let viewModels = viewModel.locations.value.map({ [unowned self] (beach) -> BeachLocationItemViewModel in
-            return BeachLocationItemViewModel(self.service, self.locationService, beach)
+        let viewModels = viewModel.locations.value.map({ (beach) -> BeachLocationItemViewModel in
+            return ViewModelFactory.beachLocationItemViewModel(beach)
         })
         let co = BeachLocationsViewController(beaches: viewModels)
         

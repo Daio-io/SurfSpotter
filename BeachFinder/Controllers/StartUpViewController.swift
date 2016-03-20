@@ -44,7 +44,9 @@ class StartUpViewController: UIViewController {
             if surf == 200 && location == 200 {
                 self.displayMainViewController()
                 let navController = self.navigationController
-                navController?.setViewControllers([MainViewController()], animated: true)
+                let viewModel = ViewModelFactory.homeViewModel()
+                let mainController = MainViewController(viewModel: viewModel, viewBinder: HomeViewModelBinder())
+                navController?.setViewControllers([mainController], animated: true)
             }
             }.subscribe().addDisposableTo(disposeBag)
     }
