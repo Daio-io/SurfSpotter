@@ -8,14 +8,13 @@
 
 import Foundation
 import RxSwift
-import GoogleMaps
 
 protocol MainViewBinder {
     func bindToBeachScan(viewModel: HomeViewModel) -> Disposable
     func bindToScanDistanceChange(viewModel: HomeViewModel, slider: UISlider, observer: AnyObserver<String>) -> Disposable
     func bindToCurrentCity(viewModel: HomeViewModel, observer: AnyObserver<String>) -> Disposable
     func bindToLocationFound(viewModel: HomeViewModel, observer: AnyObserver<Bool>) -> Disposable
-    func bindLocationToMap(viewModel: HomeViewModel, mapView: GMSMapView) -> Disposable
-    func bindLocationsFoundToMap(viewModel: HomeViewModel, mapView: GMSMapView) -> Disposable
+    func bindLocationToMap(viewModel: HomeViewModel, mapView: UIView) -> Disposable
+    func bindLocationsFoundToMap(viewModel: HomeViewModel, mapView: UIView) -> Disposable
     func bindShowingErrorForLocation(viewModel: HomeViewModel, observer: AnyObserver<Bool>) -> Disposable
 }

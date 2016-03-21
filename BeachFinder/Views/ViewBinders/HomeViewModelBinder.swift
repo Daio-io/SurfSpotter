@@ -48,24 +48,31 @@ class HomeViewModelBinder: MainViewBinder {
             }.bindTo(observer)
     }
     
-    func bindLocationToMap(viewModel: HomeViewModel, mapView: GMSMapView) -> Disposable {
+    func bindLocationToMap(viewModel: HomeViewModel, mapView: UIView) -> Disposable {
+        
         return viewModel.currentLocation.asObservable()
             .subscribeNext {(lat, lon) -> Void in
-                mapView.camera = GMSCameraPosition.cameraWithLatitude(lat, longitude: lon, zoom: 8)
+                if let mapView = mapView as? GMSMapView {
+                    mapView.camera = GMSCameraPosition.cameraWithLatitude(lat, longitude: lon, zoom: 8)
+                }
         }
         
     }
     
-    func bindLocationsFoundToMap(viewModel: HomeViewModel, mapView: GMSMapView) -> Disposable {
+    func bindLocationsFoundToMap(viewModel: HomeViewModel, mapView: UIView) -> Disposable {
         return viewModel.locations.asObservable()
             .subscribeNext { (locations) -> Void in
-                mapView.clear()
-                for location in locations {
+                
+                if let map = mapView as? GMSMapView {
+                    map.clear()
+                    for location in locations {
+                        
+                        let marker = GMSMarker()
+                        marker.position = CLLocationCoordinate2DMake(location.coords.lat, location.coords.lon)
+                        marker.title = location.location
+                        marker.map = map
+                    }
                     
-                    let marker = GMSMarker()
-                    marker.position = CLLocationCoordinate2DMake(location.coords.lat, location.coords.lon)
-                    marker.title = location.location
-                    marker.map = mapView
                 }
         }
     }
@@ -73,7 +80,7 @@ class HomeViewModelBinder: MainViewBinder {
     func bindShowingErrorForLocation(viewModel: HomeViewModel, observer: AnyObserver<Bool>) -> Disposable {
         return viewModel.currentLocation.asObservable()
             .map({ (lat, lon) -> Bool in
-                return lat != 0 && lon != 0
+                return lat != viewModel.ErrorCoords && lon != viewModel.ErrorCoords
             }).bindTo(observer)
     }
 }

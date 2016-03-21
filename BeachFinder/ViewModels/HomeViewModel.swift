@@ -11,6 +11,8 @@ import RxSwift
 
 struct HomeViewModel {
     
+    internal let ErrorCoords = 999.999
+    
     private let beachFinderService: BeachLocationService?
     private let locationService: CurrentLocationService?
     
@@ -53,6 +55,7 @@ struct HomeViewModel {
                 }, onError: { (error) -> Void in
                     self.currentCity.value = "Failed to load"
                     if let obs = self.currentLocation.asObservable() as? BehaviorSubject<Coordinates> {
+                        obs.onNext(Coordinates(self.ErrorCoords, self.ErrorCoords))
                         obs.onError(error)
                     }
                 }, onCompleted: nil, onDisposed: nil)
