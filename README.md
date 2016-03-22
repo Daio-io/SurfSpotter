@@ -8,7 +8,6 @@ What started out as a little hack around with RXSwift I am now turning into an a
 
 So, TODO:
 
-- Display errors to user
 - Scan range seek bar styling
 - Icon assets
 
