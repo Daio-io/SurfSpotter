@@ -52,11 +52,15 @@ class BeachLocationsViewController: UITableViewController {
         var duration = 0.0
         if cellHeights[indexPath.row] == kCloseCellHeight { // open cell
             cellHeights[indexPath.row] = kOpenCellHeight
-            cell.selectedAnimation(true, animated: true, completion: nil)
+            cell.selectedAnimation(true, animated: true, completion: {
+                cell.showMap()
+            })
             duration = 0.5
         } else {// close cell
             cellHeights[indexPath.row] = kCloseCellHeight
-            cell.selectedAnimation(false, animated: true, completion: nil)
+            cell.selectedAnimation(false, animated: true, completion: {
+                cell.removeMap()
+            })
             duration = 1.1
         }
         

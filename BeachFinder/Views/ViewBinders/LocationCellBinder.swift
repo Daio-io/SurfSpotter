@@ -16,4 +16,5 @@ protocol LocationCellBinder {
     func bindTime(viewModel: BeachLocationItemViewModel, _ observer: AnyObserver<String>) -> Disposable
     func bindLocation(viewModel: BeachLocationItemViewModel, _ observer: AnyObserver<String>) -> Disposable
     func bindBeachDistance(viewModel: BeachLocationItemViewModel, _ observer: AnyObserver<String>) -> Disposable
+    func bindSwell(viewModel: BeachLocationItemViewModel, _ observer: AnyObserver<String>) -> Disposable
 }

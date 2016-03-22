@@ -50,6 +50,18 @@ class BeachViewModelBinder: LocationCellBinder {
             .bindTo(observer)
     }
     
+    func bindSwell(viewModel: BeachLocationItemViewModel, _ observer: AnyObserver<String>) -> Disposable {
+        
+        let swellText = Observable.combineLatest(viewModel.minSwell.asObservable(),
+                                                 viewModel.maxSwell.asObservable()) { min, max in
+                                                    return String("\(min)-\(max)ft")
+        }
+        
+        return swellText.asObservable()
+            .bindTo(observer)
+        
+    }
+    
 }
 
 

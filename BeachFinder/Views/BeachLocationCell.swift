@@ -20,17 +20,20 @@ class BeachLocationCell : FoldingCell {
     @IBOutlet private weak var closedSwellText: BeachFinderLabel!
     
     // Open cell
+    @IBOutlet private weak var mapPlaceholder: UIView!
     @IBOutlet private weak var openDateText: UILabel!
     @IBOutlet private weak var openTimeText: UILabel!
     @IBOutlet private weak var openSwellText: UILabel!
     @IBOutlet private weak var openWindText: UILabel!
-    @IBOutlet private weak var mapPlaceholder: GMSMapView!
     @IBOutlet private weak var openSwellStarsView: BeachSwellStarsView!
+    private var map: GMSMapView?
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
+    
+    private var mapSubscription: Disposable?
+    private var viewModel: BeachLocationItemViewModel?
     
     override func awakeFromNib() {
-        mapPlaceholder.myLocationEnabled = true
         foregroundView.layer.masksToBounds = true
         foregroundView.layer.cornerRadius = 8
         closedTitle.changeToFont = "Roboto-Medium"
@@ -46,7 +49,9 @@ class BeachLocationCell : FoldingCell {
     }
     
     func bind(viewModel: BeachLocationItemViewModel, viewBinder: LocationCellBinder) {
-    
+        
+        self.viewModel = viewModel
+        
         viewBinder.bindBeachDistance(viewModel, distanceToBeachLabel.rx_text)
             .addDisposableTo(disposeBag)
         
@@ -65,40 +70,46 @@ class BeachLocationCell : FoldingCell {
         viewBinder.bindTime(viewModel, openTimeText.rx_text)
             .addDisposableTo(disposeBag)
         
-        bindBeachCoords(viewModel)
-        bindSwellText(viewModel)
+        viewBinder.bindSwell(viewModel, openSwellText.rx_text)
+            .addDisposableTo(disposeBag)
+        
+        viewBinder.bindSwell(viewModel, closedSwellText.rx_text)
+            .addDisposableTo(disposeBag)
     }
     
-    // MARK - Internal
-   
-    private func bindSwellText(viewModel: BeachLocationItemViewModel) {
-        let swellText = Observable.combineLatest(viewModel.minSwell.asObservable(),
-            viewModel.maxSwell.asObservable()) { min, max in
-                return String("\(min)-\(max)ft")
+    func removeMap(){
+        map?.removeFromSuperview()
+        mapSubscription?.dispose()
+    }
+    
+    func showMap() {
+        bindBeachCoords(viewModel)
+        map = GMSMapView(frame: mapPlaceholder.bounds)
+        map!.alpha = 0
+        map!.myLocationEnabled = true
+        bindBeachCoords(viewModel)
+        mapPlaceholder.addSubview(map!)
+        UIView.animateWithDuration(0.5) {
+           self.map!.alpha = 1
         }
         
-        swellText.asObservable()
-            .bindTo(openSwellText.rx_text)
-            .addDisposableTo(disposeBag)
-        
-        swellText.asObservable()
-            .bindTo(closedSwellText.rx_text)
-            .addDisposableTo(disposeBag)
-        
     }
     
-    private func bindBeachCoords(viewModel: BeachLocationItemViewModel) {
-        viewModel.coords.asObservable()
+    private func bindBeachCoords(viewModel: BeachLocationItemViewModel?) {
+        mapSubscription = viewModel?.coords.asObservable()
             .subscribeNext { [unowned self] (coords) -> Void in
-                self.mapPlaceholder.clear()
-                let camera = GMSCameraPosition.cameraWithLatitude(coords.lat,
-                    longitude: coords.lon, zoom: 10)
-                self.mapPlaceholder.camera = camera
+                if let map = self.map {
+                    map.clear()
+                    let camera = GMSCameraPosition.cameraWithLatitude(coords.lat,
+                        longitude: coords.lon, zoom: 10)
+                    self.map?.camera = camera
+                    
+                    let marker = GMSMarker()
+                    marker.position = CLLocationCoordinate2DMake(coords.lat, coords.lon)
+                    marker.title = viewModel?.location.value
+                    marker.map = map
+                }
                 
-                let marker = GMSMarker()
-                marker.position = CLLocationCoordinate2DMake(coords.lat, coords.lon)
-                marker.title = viewModel.location.value
-                marker.map = self.mapPlaceholder
-            }.addDisposableTo(disposeBag)
+        }
     }
 }
