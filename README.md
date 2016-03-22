@@ -8,7 +8,6 @@ What started out as a little hack around with RXSwift I am now turning into an a
 
 So, TODO:
 
-- Scan range seek bar styling
 - Icon assets
 
 Long game:
@@ -18,6 +17,7 @@ Long game:
 - Add my beaches section
 - Ability to search for beach by name
 - Show data over few days
+- Scan range seek bar styling - maybe do something further with this?
 
 Server side:
 
