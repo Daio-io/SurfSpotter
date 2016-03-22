@@ -6,4 +6,6 @@ pod 'RxSwift', '~> 2.1'
 pod 'FoldingCell', '~> 0.7.3'
 pod 'RxCocoa',    '~> 2.1'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+pod 'Fabric'
+pod 'Crashlytics'
 use_frameworks!
