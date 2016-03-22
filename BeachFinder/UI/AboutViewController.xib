@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutViewController" customModule="BeachFinder" customModuleProvider="target">
@@ -20,6 +20,26 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.94509803920000002" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                 </webView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMZ-nh-0tC">
+                    <rect key="frame" x="550" y="0.0" width="50" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrX-6g-wTV">
+                            <rect key="frame" x="10" y="20" width="30" height="30"/>
+                            <state key="normal" title="X">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="dismissClicked:" destination="-1" eventType="touchUpInside" id="alN-a0-j0z"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="XWw-HC-4Gf"/>
+                        <constraint firstItem="hrX-6g-wTV" firstAttribute="top" secondItem="HMZ-nh-0tC" secondAttribute="top" constant="20" id="ekV-Ox-fkZ"/>
+                        <constraint firstAttribute="trailing" secondItem="hrX-6g-wTV" secondAttribute="trailing" constant="10" id="nQC-Pd-mH9"/>
+                        <constraint firstAttribute="width" constant="50" id="qnR-YB-Saj"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -27,6 +47,8 @@
                 <constraint firstItem="IcG-Ab-QRq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Pyn-fs-wyR"/>
                 <constraint firstItem="IcG-Ab-QRq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="RMD-mm-GjO"/>
                 <constraint firstItem="IcG-Ab-QRq" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="XdI-cg-VAc"/>
+                <constraint firstAttribute="trailing" secondItem="HMZ-nh-0tC" secondAttribute="trailing" id="hfW-Vr-Z4Y"/>
+                <constraint firstItem="HMZ-nh-0tC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uQV-Aw-vA6"/>
             </constraints>
         </view>
     </objects>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AboutViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate {
+class AboutViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet private weak var webView: UIWebView!
     
@@ -23,15 +23,12 @@ class AboutViewController: UIViewController, UIWebViewDelegate, UIScrollViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.delegate = self
-        webView.scrollView.delegate = self
         webView.scalesPageToFit = true
         loadLicense()
     }
     
     override func viewWillAppear(animated: Bool) {
-        // Hide the NavBar because its not needed - Custom Nav Bar created using UIView
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-        navigationItem.title = "About"
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func loadLicense() {
@@ -40,6 +37,10 @@ class AboutViewController: UIViewController, UIWebViewDelegate, UIScrollViewDele
             let request = NSURLRequest(URL: url!)
             webView.loadRequest(request)
         }
+    }
+    
+    @IBAction func dismissClicked(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK - UIWebViewDelegate
@@ -51,21 +52,6 @@ class AboutViewController: UIViewController, UIWebViewDelegate, UIScrollViewDele
             return false
         }
         return true
-    }
-    
-    // MARK - UIScrollViewDelegate
-    
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        let transition = webView.scrollView.panGestureRecognizer.translationInView(webView)
-        
-        // Hiding nav bar when dragging down
-        if (transition.y > 0) {
-            navigationController?.setNavigationBarHidden(false, animated: true)
-        }
-            // Show again when starting to drag up
-        else {
-            navigationController?.setNavigationBarHidden(true, animated: true)
-        }
     }
     
 }
