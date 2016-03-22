@@ -96,7 +96,12 @@ class BeachLocationCell : FoldingCell {
     }
     
     private func bindBeachCoords(viewModel: BeachLocationItemViewModel?) {
-        mapSubscription = viewModel?.coords.asObservable()
+        
+        guard let viewModel = viewModel else {
+            return
+        }
+        
+        mapSubscription = viewModel.coords.asObservable()
             .subscribeNext { [unowned self] (coords) -> Void in
                 if let map = self.map {
                     map.clear()
@@ -106,7 +111,7 @@ class BeachLocationCell : FoldingCell {
                     
                     let marker = GMSMarker()
                     marker.position = CLLocationCoordinate2DMake(coords.lat, coords.lon)
-                    marker.title = viewModel?.location.value
+                    marker.title = viewModel.location.value
                     marker.map = map
                 }
                 
