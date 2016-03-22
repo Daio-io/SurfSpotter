@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartUpViewController" customModule="BeachFinder" customModuleProvider="target">
             <connections>
-                <outlet property="spinner" destination="vrX-Hr-LAw" id="q2w-24-po2"/>
                 <outlet property="view" destination="iN0-l3-epB" id="xdB-k3-cB8"/>
             </connections>
         </placeholder>
@@ -16,17 +15,17 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signpost-icon" translatesAutoresizingMaskIntoConstraints="NO" id="1tt-ex-Gp2">
-                    <rect key="frame" x="275" y="275" width="50" height="50"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beach-info" translatesAutoresizingMaskIntoConstraints="NO" id="1tt-ex-Gp2">
+                    <rect key="frame" x="252" y="252" width="96" height="96"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting up.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMR-TF-xeq" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                    <rect key="frame" x="253" y="345" width="94" height="21"/>
+                    <rect key="frame" x="253" y="368" width="94" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="vrX-Hr-LAw">
-                    <rect key="frame" x="290" y="373" width="20" height="20"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="vrX-Hr-LAw">
+                    <rect key="frame" x="290" y="397" width="20" height="20"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="0.0047203559909999998" green="0.56862801240000005" blue="0.48065662479999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -51,6 +50,6 @@
         </view>
     </objects>
     <resources>
-        <image name="signpost-icon" width="50" height="50"/>
+        <image name="beach-info" width="96" height="96"/>
     </resources>
 </document>

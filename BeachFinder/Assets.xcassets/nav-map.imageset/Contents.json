@@ -2,16 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Near Me-50.png",
+      "filename" : "Route-48 (2).png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Near Me-51.png",
+      "filename" : "Route-96 (2).png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Route-96 (2)-1.png",
       "scale" : "3x"
     }
   ],

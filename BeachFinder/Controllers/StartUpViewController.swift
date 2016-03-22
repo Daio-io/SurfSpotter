@@ -11,8 +11,6 @@ import RxSwift
 
 class StartUpViewController: UIViewController {
     
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
     private let disposeBag = DisposeBag()
     
     private let locatorEndpoint = "https://beach-locator.herokuapp.com/status"
@@ -24,11 +22,6 @@ class StartUpViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        spinner.startAnimating()
     }
     
     override func viewDidAppear(animated: Bool) {

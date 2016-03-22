@@ -11,6 +11,7 @@ import FoldingCell
 import GoogleMaps
 import RxSwift
 import RxCocoa
+import MapKit
 
 class BeachLocationCell : FoldingCell {
     
@@ -90,9 +91,8 @@ class BeachLocationCell : FoldingCell {
         bindBeachCoords(viewModel)
         mapPlaceholder.addSubview(map!)
         UIView.animateWithDuration(0.5) {
-           self.map!.alpha = 1
+            self.map!.alpha = 1
         }
-        
     }
     
     private func bindBeachCoords(viewModel: BeachLocationItemViewModel?) {
@@ -112,4 +112,23 @@ class BeachLocationCell : FoldingCell {
                 
         }
     }
+    
+    private func openInMaps() {
+        
+        guard let viewModel = viewModel  else {
+            return
+        }
+        
+        let coords = CLLocationCoordinate2D(latitude: viewModel.coords.value.lat, longitude: viewModel.coords.value.lon)
+        
+        let placemark = MKPlacemark(coordinate: coords, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = viewModel.location.value
+        mapItem.openInMapsWithLaunchOptions(nil)
+    }
+    
+    @IBAction func navigateClicked(sender: AnyObject) {
+        openInMaps()
+    }
+    
 }

@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="667"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cJF-q9-lpC" id="mhr-6W-5Hx">
-                <rect key="frame" x="0.0" y="0.0" width="600" height="667"/>
+                <rect key="frame" x="0.0" y="0.0" width="600" height="666.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xea-YT-oDw" customClass="RotatedView" customModule="FoldingCell">
@@ -63,6 +63,10 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40V-zM-Ty4">
                         <rect key="frame" x="16" y="105" width="568" height="400"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p53-kz-fgd">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="233"/>
+                                <color key="backgroundColor" red="0.55686274509803924" green="0.69803921568627447" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-TD-tk6" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
                                 <rect key="frame" x="10" y="238" width="40" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -76,7 +80,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8P5-6M-CH3" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="491" y="248" width="63" height="36"/>
+                                <rect key="frame" x="491" y="273" width="63" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -175,26 +179,35 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p53-kz-fgd">
-                                <rect key="frame" x="0.0" y="0.0" width="568" height="233"/>
-                                <color key="backgroundColor" red="0.55686274509803924" green="0.69803921568627447" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yr1-Ye-aLV" userLabel="Navigate Button">
+                                <rect key="frame" x="524" y="238" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BXB-3j-IK2"/>
+                                    <constraint firstAttribute="width" constant="30" id="jIG-5Y-N55"/>
+                                </constraints>
+                                <state key="normal" image="nav-map"/>
+                                <connections>
+                                    <action selector="navigateClicked:" destination="cJF-q9-lpC" eventType="touchUpInside" id="MfM-uo-Q9F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0047203559910409861" green="0.56862801239605787" blue="0.48065662475254561" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="400" id="1Tg-as-ePI"/>
                             <constraint firstAttribute="trailing" secondItem="Bw5-rw-vGe" secondAttribute="trailing" id="2Qv-iz-DYn"/>
+                            <constraint firstItem="Yr1-Ye-aLV" firstAttribute="top" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="5" id="4ek-67-dZH"/>
                             <constraint firstAttribute="bottom" secondItem="Bw5-rw-vGe" secondAttribute="bottom" id="AFl-KF-uEI"/>
                             <constraint firstAttribute="bottom" secondItem="Bw5-rw-vGe" secondAttribute="bottom" constant="-10" id="EqT-nn-mM1"/>
+                            <constraint firstAttribute="trailing" secondItem="Yr1-Ye-aLV" secondAttribute="trailing" constant="14" id="Gqa-FL-vqk"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="JGC-RT-3XT"/>
                             <constraint firstItem="lNS-TD-tk6" firstAttribute="top" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="5" id="LeA-hU-JR5"/>
                             <constraint firstItem="WDa-a7-R0A" firstAttribute="top" secondItem="aCq-gl-7YB" secondAttribute="top" constant="16" id="TH9-Gu-SYK"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="TUR-Rc-yXe"/>
+                            <constraint firstItem="WDa-a7-R0A" firstAttribute="top" secondItem="8P5-6M-CH3" secondAttribute="bottom" constant="5" id="UbX-B4-8lH"/>
                             <constraint firstAttribute="trailing" secondItem="Bw5-rw-vGe" secondAttribute="trailing" id="WhV-nC-dw4"/>
                             <constraint firstAttribute="trailing" secondItem="8P5-6M-CH3" secondAttribute="trailing" constant="14.5" id="WzX-S6-oso"/>
                             <constraint firstAttribute="bottom" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="167" id="XbT-T0-rw7"/>
                             <constraint firstAttribute="bottom" secondItem="jeq-Ez-6Co" secondAttribute="bottom" constant="31" id="Yni-FA-vKM"/>
-                            <constraint firstItem="8P5-6M-CH3" firstAttribute="top" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="15" id="ZJM-HH-k1b"/>
                             <constraint firstItem="aCq-gl-7YB" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" constant="10" id="cBQ-rj-opk"/>
                             <constraint firstItem="WDa-a7-R0A" firstAttribute="leading" secondItem="aCq-gl-7YB" secondAttribute="trailing" constant="2" id="cOO-am-ySs"/>
                             <constraint firstAttribute="trailing" secondItem="p53-kz-fgd" secondAttribute="trailing" id="d84-9U-H2w"/>
@@ -251,6 +264,7 @@
     </objects>
     <resources>
         <image name="magic-sea" width="200" height="47"/>
+        <image name="nav-map" width="48" height="48"/>
         <image name="no-star" width="100" height="100"/>
         <image name="star" width="100" height="100"/>
     </resources>
