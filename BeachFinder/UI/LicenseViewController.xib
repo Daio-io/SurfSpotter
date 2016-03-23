@@ -29,6 +29,7 @@
                                 <constraint firstAttribute="width" constant="30" id="F2N-dW-aPF"/>
                                 <constraint firstAttribute="height" constant="30" id="hm6-ys-0bu"/>
                             </constraints>
+                            <inset key="contentEdgeInsets" minX="2" minY="2" maxX="0.0" maxY="0.0"/>
                             <state key="normal" image="close">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
