@@ -67,9 +67,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="568" height="233"/>
                                 <color key="backgroundColor" red="0.55686274509803924" green="0.69803921568627447" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-TD-tk6" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="10" y="238" width="40" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-TD-tk6" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                                <rect key="frame" x="10" y="241" width="41" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -200,7 +200,7 @@
                             <constraint firstAttribute="bottom" secondItem="Bw5-rw-vGe" secondAttribute="bottom" constant="-10" id="EqT-nn-mM1"/>
                             <constraint firstAttribute="trailing" secondItem="Yr1-Ye-aLV" secondAttribute="trailing" constant="14" id="Gqa-FL-vqk"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="JGC-RT-3XT"/>
-                            <constraint firstItem="lNS-TD-tk6" firstAttribute="top" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="5" id="LeA-hU-JR5"/>
+                            <constraint firstItem="lNS-TD-tk6" firstAttribute="top" secondItem="p53-kz-fgd" secondAttribute="bottom" constant="8" id="LeA-hU-JR5"/>
                             <constraint firstItem="WDa-a7-R0A" firstAttribute="top" secondItem="aCq-gl-7YB" secondAttribute="top" constant="16" id="TH9-Gu-SYK"/>
                             <constraint firstItem="p53-kz-fgd" firstAttribute="leading" secondItem="40V-zM-Ty4" secondAttribute="leading" id="TUR-Rc-yXe"/>
                             <constraint firstItem="WDa-a7-R0A" firstAttribute="top" secondItem="8P5-6M-CH3" secondAttribute="bottom" constant="5" id="UbX-B4-8lH"/>
@@ -253,10 +253,10 @@
                 <outlet property="distanceToBeachLabel" destination="LT7-zT-uzu" id="6iH-8o-075"/>
                 <outlet property="foregroundView" destination="xea-YT-oDw" id="gHo-kN-f5l"/>
                 <outlet property="mapPlaceholder" destination="p53-kz-fgd" id="gcr-we-nN9"/>
-                <outlet property="openDateText" destination="lNS-TD-tk6" id="3Py-de-pyF"/>
                 <outlet property="openSwellStarsView" destination="WDa-a7-R0A" id="Sae-CQ-I11"/>
                 <outlet property="openSwellText" destination="aCq-gl-7YB" id="ku2-Ii-5B5"/>
                 <outlet property="openTimeText" destination="jeq-Ez-6Co" id="ffJ-Gh-Mbk"/>
+                <outlet property="openTitle" destination="lNS-TD-tk6" id="gYh-G6-2g1"/>
                 <outlet property="openWindText" destination="8P5-6M-CH3" id="vr2-ZP-64W"/>
             </connections>
             <point key="canvasLocation" x="117" y="3.5"/>

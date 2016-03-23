@@ -8,7 +8,6 @@
 
 import UIKit
 import FoldingCell
-import GoogleMaps
 import RxSwift
 import RxCocoa
 import MapKit
@@ -22,12 +21,12 @@ class BeachLocationCell : FoldingCell {
     
     // Open cell
     @IBOutlet private weak var mapPlaceholder: UIView!
-    @IBOutlet private weak var openDateText: UILabel!
+    @IBOutlet private weak var openTitle: UILabel!
     @IBOutlet private weak var openTimeText: UILabel!
     @IBOutlet private weak var openSwellText: UILabel!
     @IBOutlet private weak var openWindText: UILabel!
     @IBOutlet private weak var openSwellStarsView: BeachSwellStarsView!
-    private var map: GMSMapView?
+    private var map: BeachFinderMap?
     
     private let disposeBag = DisposeBag()
     
@@ -38,6 +37,7 @@ class BeachLocationCell : FoldingCell {
         foregroundView.layer.masksToBounds = true
         foregroundView.layer.cornerRadius = 8
         closedTitle.changeToFont = "Roboto-Medium"
+        openTitle.changeToFont = "Roboto-Medium"
         backViewColor = UIColor.Teal500()
         
         super.awakeFromNib()
@@ -56,10 +56,10 @@ class BeachLocationCell : FoldingCell {
         viewBinder.bindBeachDistance(viewModel, distanceToBeachLabel.rx_text)
             .addDisposableTo(disposeBag)
         
-        viewBinder.bindDate(viewModel, openDateText.rx_text)
+        viewBinder.bindLocation(viewModel, closedTitle.rx_text)
             .addDisposableTo(disposeBag)
         
-        viewBinder.bindLocation(viewModel, closedTitle.rx_text)
+        viewBinder.bindLocation(viewModel, openTitle.rx_text)
             .addDisposableTo(disposeBag)
         
         viewBinder.bindStars(viewModel, openSwellStarsView)
@@ -84,14 +84,11 @@ class BeachLocationCell : FoldingCell {
     }
     
     func showMap() {
-        bindBeachCoords(viewModel)
-        map = GMSMapView(frame: mapPlaceholder.bounds)
-        map!.alpha = 0
-        map!.myLocationEnabled = true
+        map = BeachFinderMap(frame: mapPlaceholder.bounds)
         bindBeachCoords(viewModel)
         mapPlaceholder.addSubview(map!)
         UIView.animateWithDuration(0.5) {
-            self.map!.alpha = 1
+            self.map?.alpha = 1
         }
     }
     
@@ -104,15 +101,7 @@ class BeachLocationCell : FoldingCell {
         mapSubscription = viewModel.coords.asObservable()
             .subscribeNext { [unowned self] (coords) -> Void in
                 if let map = self.map {
-                    map.clear()
-                    let camera = GMSCameraPosition.cameraWithLatitude(coords.lat,
-                        longitude: coords.lon, zoom: 10)
-                    self.map?.camera = camera
-                    
-                    let marker = GMSMarker()
-                    marker.position = CLLocationCoordinate2DMake(coords.lat, coords.lon)
-                    marker.title = viewModel.location.value
-                    marker.map = map
+                    map.addPin(viewModel.location.value, coords: coords)
                 }
                 
         }

@@ -80,6 +80,13 @@ class BeachLocationsViewController: UITableViewController {
         
     }
     
+    override func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if let cell = self.tableView.cellForRowAtIndexPath(indexPath) as? BeachLocationCell where cellHeights[indexPath.row] > kCloseCellHeight {
+            cell.removeMap()
+        }
+        
+    }
+
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return cellHeights[indexPath.row]
     }
@@ -93,6 +100,7 @@ class BeachLocationsViewController: UITableViewController {
                 foldingCell.selectedAnimation(false, animated: false, completion:nil)
             } else {
                 foldingCell.selectedAnimation(true, animated: false, completion: nil)
+                foldingCell.showMap()
             }
         }
     }

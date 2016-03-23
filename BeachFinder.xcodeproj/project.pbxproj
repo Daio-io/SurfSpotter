@@ -12,6 +12,7 @@
 		230019A61C8C925A0053B047 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230019A51C8C925A0053B047 /* LaunchScreen.storyboard */; };
 		23209C751CA2060F00978FC9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23209C741CA2060F00978FC9 /* AboutViewController.swift */; };
 		23209C771CA206CC00978FC9 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23209C761CA206CC00978FC9 /* AboutViewController.xib */; };
+		23209C791CA3203400978FC9 /* BeachFinderMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23209C781CA3203400978FC9 /* BeachFinderMap.swift */; };
 		23BCF31E1C864F6D007AD549 /* NSDate+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCF31D1C864F6D007AD549 /* NSDate+Time.swift */; };
 		23D6C5B51C9381EE00F891A7 /* DistanceConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D6C5B41C9381EE00F891A7 /* DistanceConverter.swift */; };
 		23D6C5B71C97512000F891A7 /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D6C5B61C97512000F891A7 /* StartUpViewController.swift */; };
@@ -72,6 +73,7 @@
 		230019A51C8C925A0053B047 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23209C741CA2060F00978FC9 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		23209C761CA206CC00978FC9 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		23209C781CA3203400978FC9 /* BeachFinderMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachFinderMap.swift; sourceTree = "<group>"; };
 		23BCF31D1C864F6D007AD549 /* NSDate+Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Time.swift"; sourceTree = "<group>"; };
 		23D6C5B41C9381EE00F891A7 /* DistanceConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceConverter.swift; sourceTree = "<group>"; };
 		23D6C5B61C97512000F891A7 /* StartUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				57E04E741C8260CA003DED3D /* BeachFinderLabel.swift */,
 				230019A11C8C80280053B047 /* BeachFinderButton.swift */,
 				23EF26051C9CAD9A00CDCC9D /* BeachSwellStarsView.swift */,
+				23209C781CA3203400978FC9 /* BeachFinderMap.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				23EF26211C9EFB5B00CDCC9D /* ViewModelFactory.swift in Sources */,
 				23D6C5BB1C9A05AD00F891A7 /* StatusPinger.swift in Sources */,
 				5703372B1C7DA5D900DB5BE1 /* BeachLocationService.swift in Sources */,
+				23209C791CA3203400978FC9 /* BeachFinderMap.swift in Sources */,
 				57E2CD051C737E7100B212DC /* BeachLocationItemViewModel.swift in Sources */,
 				BA88B3DAF40C4EB38B4F3527 /* BeachLocation.swift in Sources */,
 				23EF260F1C9D8CFA00CDCC9D /* LocationCellBinder.swift in Sources */,
