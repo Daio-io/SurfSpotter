@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet private weak var distanceLabel: UILabel!
     @IBOutlet private weak var distanceSlider: UISlider!
-    @IBOutlet private weak var mainMapView: GMSMapView!
+    @IBOutlet private weak var mainMapView: BeachFinderMap!
     @IBOutlet private weak var currentCityLabel: BeachFinderLabel!
     @IBOutlet private weak var viewBeachesButton: BeachFinderButton!
     @IBOutlet private weak var errorButton: UIButton!

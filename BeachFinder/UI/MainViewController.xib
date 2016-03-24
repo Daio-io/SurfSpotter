@@ -12,7 +12,7 @@
                 <outlet property="distanceLabel" destination="HaE-7x-pbp" id="kcb-Cx-Yoh"/>
                 <outlet property="distanceSlider" destination="tlg-P4-9e8" id="1uF-mw-qJA"/>
                 <outlet property="errorButton" destination="gVL-eZ-a43" id="N6b-6h-HFc"/>
-                <outlet property="mainMapView" destination="zlZ-lv-qp2" id="GVn-St-874"/>
+                <outlet property="mainMapView" destination="zlZ-lv-qp2" id="ey5-5b-Xuz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewBeachesButton" destination="dMZ-lA-qg9" id="xRP-5H-35e"/>
             </connections>
@@ -47,7 +47,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uki-Mi-pAz" userLabel="Jumbotron Container">
                     <rect key="frame" x="-2" y="0.0" width="602" height="351"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zlZ-lv-qp2" customClass="GMSMapView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zlZ-lv-qp2" customClass="BeachFinderMap" customModule="BeachFinder" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="602" height="291"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>

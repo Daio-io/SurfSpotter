@@ -15,8 +15,8 @@ class HomeViewModelBinder: MainViewBinder {
     
     func bindToBeachScan(viewModel: HomeViewModel) -> Disposable {
         return Observable.combineLatest(viewModel.distance.asObservable(),
-            viewModel.currentLocation.asObservable()) { (distance, location) -> (Int, Coordinates)in
-                return (distance, location)
+        viewModel.currentLocation.asObservable()) { (distance, location) -> (Int, Coordinates)in
+            return (distance, location)
             }.throttle(0.5, scheduler: MainScheduler.instance)
             .subscribeNext {(distance, location) -> Void in
                 viewModel.scan()
@@ -63,14 +63,10 @@ class HomeViewModelBinder: MainViewBinder {
         return viewModel.locations.asObservable()
             .subscribeNext { (locations) -> Void in
                 
-                if let map = mapView as? GMSMapView {
+                if let map = mapView as? BeachFinderMap {
                     map.clear()
                     for location in locations {
-                        
-                        let marker = GMSMarker()
-                        marker.position = CLLocationCoordinate2DMake(location.coords.lat, location.coords.lon)
-                        marker.title = location.location
-                        marker.map = map
+                        map.addAnotherPin(location.location, coords: location.coords)
                     }
                     
                 }

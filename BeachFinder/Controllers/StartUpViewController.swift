@@ -12,6 +12,7 @@ import RxSwift
 class StartUpViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
+    @IBOutlet weak var startingText: BeachFinderLabel!
     
     private let locatorEndpoint = "https://beach-locator.herokuapp.com/status"
     private let surfQueryEndpoint = "https://surf-query.herokuapp.com/status"
@@ -21,31 +22,28 @@ class StartUpViewController: UIViewController {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     override func viewDidAppear(animated: Bool) {
-        
-        delay(1) { [unowned self] () -> () in
+        delay(0.5) { [unowned self] () -> () in
             self.loadServices()
         }
-        
     }
     
     func loadServices() {
         Observable.combineLatest(StatusPinger.ping(surfQueryEndpoint), StatusPinger.ping(locatorEndpoint)) { [unowned self] (surf, location) -> Void in
             if surf == 200 && location == 200 {
                 self.displayMainViewController()
-                let navController = self.navigationController
-                let viewModel = ViewModelFactory.homeViewModel()
-                let mainController = MainViewController(viewModel: viewModel, viewBinder: HomeViewModelBinder())
-                navController?.setViewControllers([mainController], animated: true)
             }
-            }.subscribe().addDisposableTo(disposeBag)
+            }.retry().subscribe().addDisposableTo(disposeBag)
     }
 
     func displayMainViewController() {
-        dismissViewControllerAnimated(true, completion: nil)
+        let navController = self.navigationController
+        let viewModel = ViewModelFactory.homeViewModel()
+        let mainController = MainViewController(viewModel: viewModel, viewBinder: HomeViewModelBinder())
+        navController?.setViewControllers([mainController], animated: true)
     }
     
     func delay(delay:Double, closure:()->()) {

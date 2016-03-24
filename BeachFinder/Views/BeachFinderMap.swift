@@ -20,19 +20,21 @@ class BeachFinderMap: GMSMapView {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
-    func addPin(title: String, coords: Coordinates) {
-        clear()
-        let camera = GMSCameraPosition.cameraWithLatitude(coords.lat,
-                                                          longitude: coords.lon, zoom: 10)
-        self.camera = camera
-        
+    func addAnotherPin(title: String, coords: Coordinates) {
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(coords.lat, coords.lon)
         marker.title = title
         marker.map = self
+    }
+    
+    func addPin(title: String, coords: Coordinates) {
+        clear()
+        camera = GMSCameraPosition.cameraWithLatitude(coords.lat,
+                                                          longitude: coords.lon, zoom: 10)
+        addAnotherPin(title, coords: coords)
     }
 
 }
