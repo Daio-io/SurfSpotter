@@ -34,9 +34,9 @@
                 <constraint firstItem="oMR-TF-xeq" firstAttribute="centerX" secondItem="1tt-ex-Gp2" secondAttribute="centerX" id="8wM-kE-kNk"/>
                 <constraint firstItem="1tt-ex-Gp2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="9RL-7C-7j6"/>
                 <constraint firstItem="1tt-ex-Gp2" firstAttribute="leading" secondItem="oMR-TF-xeq" secondAttribute="trailing" constant="-92" id="COh-xc-cnr"/>
+                <constraint firstItem="vrX-Hr-LAw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DHz-AH-iI3"/>
                 <constraint firstItem="1tt-ex-Gp2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="GU1-9L-Zgl"/>
                 <constraint firstItem="vrX-Hr-LAw" firstAttribute="top" secondItem="oMR-TF-xeq" secondAttribute="bottom" constant="7.5" id="JJ9-R8-gSH"/>
-                <constraint firstItem="vrX-Hr-LAw" firstAttribute="leading" secondItem="oMR-TF-xeq" secondAttribute="trailing" constant="-57" id="S6B-SH-g45"/>
                 <constraint firstItem="oMR-TF-xeq" firstAttribute="top" secondItem="1tt-ex-Gp2" secondAttribute="bottom" constant="20" id="SdM-em-4OQ"/>
                 <constraint firstItem="1tt-ex-Gp2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nw7-6L-RLV"/>
                 <constraint firstItem="1tt-ex-Gp2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yKx-R3-fU6"/>

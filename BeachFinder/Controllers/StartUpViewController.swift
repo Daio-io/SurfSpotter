@@ -36,7 +36,9 @@ class StartUpViewController: UIViewController {
             if surf == 200 && location == 200 {
                 self.displayMainViewController()
             }
-            }.retry().subscribe().addDisposableTo(disposeBag)
+            }.doOnError({ [unowned self] (_) in
+                self.startingText.text = "Something is up. Check your network"
+            }) .retry().subscribe().addDisposableTo(disposeBag)
     }
 
     func displayMainViewController() {
