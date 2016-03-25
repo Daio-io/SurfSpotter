@@ -5,9 +5,9 @@
 
 import SwiftyJSON
 
-public typealias Coordinates = (lat: Double, lon: Double)
+internal typealias Coordinates = (lat: Double, lon: Double)
 
-public struct BeachLocation {
+internal struct BeachLocation {
     let location: String
     let spotId: Int
     let country: String
