@@ -35,8 +35,6 @@ struct BeachLocationItemViewModel {
         self.location.value = beachLocation.location
         self.coords.value = beachLocation.coords
         
-        self.refresh()
-        
         self.locationService?.distanceToLocation(beachLocation.coords)
             .asObservable()
             .subscribeNext({ (distance) -> Void in

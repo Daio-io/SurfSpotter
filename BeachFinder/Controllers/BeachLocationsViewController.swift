@@ -24,9 +24,14 @@ class BeachLocationsViewController: UITableViewController {
         self.beaches = beaches
         super.init(nibName: "BeachLocationsViewController", bundle: nil)
     }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.beaches = []
+        super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
@@ -40,7 +45,22 @@ class BeachLocationsViewController: UITableViewController {
         }
         // Navigation controller needed in this view so show it again
         navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        // Register for foreground event to refresh data
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(refreshData), name:
+            UIApplicationWillEnterForegroundNotification, object: nil)
+        refreshData()
     }
+    
+    // MARK - Internal
+    
+    func refreshData() {
+        for beach in beaches {
+            beach.refresh()
+        }
+    }
+    
+    // MARK - UITableViewDelegate
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return beaches.count
