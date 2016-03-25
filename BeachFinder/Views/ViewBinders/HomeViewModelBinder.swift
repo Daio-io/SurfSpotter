@@ -53,7 +53,7 @@ class HomeViewModelBinder: MainViewBinder {
         return viewModel.currentLocation.asObservable()
             .subscribeNext {(lat, lon) -> Void in
                 if let mapView = mapView as? GMSMapView {
-                    mapView.camera = GMSCameraPosition.cameraWithLatitude(lat, longitude: lon, zoom: 8)
+                    mapView.camera = GMSCameraPosition.cameraWithLatitude(lat, longitude: lon, zoom: 7)
                 }
         }
         

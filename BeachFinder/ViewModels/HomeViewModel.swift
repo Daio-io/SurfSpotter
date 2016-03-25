@@ -49,7 +49,6 @@ struct HomeViewModel {
     private func setUpLocationObservables() {
         
         locationService?.currentLocationObservable()
-            .throttle(0.5, scheduler: MainScheduler.instance)
             .subscribe(onNext: { coords -> Void in
                 self.currentLocation.value = coords
                 }, onError: { (error) -> Void in
