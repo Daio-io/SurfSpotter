@@ -11,15 +11,13 @@ import RxSwift
 
 struct HomeViewModel {
     
-    internal let ErrorCoords = 999.999
-    
     private let beachFinderService: BeachLocationService?
     private let locationService: CurrentLocationService?
     
     private let disposeBag = DisposeBag()
     
     let locations = Variable(Array<BeachLocation>())
-    let currentLocation = Variable(Coordinates(0, 0))
+    let currentLocation = Variable(CurrentLocationResult.Failed(message: "Loading"))
     let currentCity = Variable("")
     let distance = Variable(0)
     
@@ -35,13 +33,16 @@ struct HomeViewModel {
     }
     
     func scan() {
-        beachFinderService?.getNearestBeachesForLocation(currentLocation.value, distance: distance.value)
-            .subscribe(onNext: { (locations) -> Void in
-                self.locations.value = locations
-                }, onError: { (error) -> Void in
-                    self.locations.value = []
-                }, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+        if case .Success(let coords) = currentLocation.value {
+            beachFinderService?.getNearestBeachesForLocation(coords, distance: distance.value)
+                .subscribe(onNext: { (locations) -> Void in
+                    self.locations.value = locations
+                    }, onError: { (error) -> Void in
+                        self.locations.value = []
+                    }, onCompleted: nil, onDisposed: nil)
+                .addDisposableTo(disposeBag)
+        }
+        
     }
     
     // Mark - Internal
@@ -49,16 +50,16 @@ struct HomeViewModel {
     private func setUpLocationObservables() {
         
         locationService?.currentLocationObservable()
-            .subscribe(onNext: { coords -> Void in
-                self.currentLocation.value = coords
-                }, onError: { (error) -> Void in
-                    self.currentCity.value = "Failed to load"
-                    if let obs = self.currentLocation.asObservable() as? BehaviorSubject<Coordinates> {
-                        obs.onNext(Coordinates(self.ErrorCoords, self.ErrorCoords))
-                        obs.onError(error)
-                    }
-                }, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .subscribeNext({ (result) in switch result {
+            case .Success(let coords):
+                self.currentLocation.value = CurrentLocationResult.Success(coords: coords)
+            case .Failed(let message):
+                self.currentLocation.value = CurrentLocationResult.Failed(message: message)
+                self.currentCity.value = message
+                }
+            }).addDisposableTo(disposeBag)
+        
+        locationService?.currentLocationObservable()
         
         locationService?.currentCityLocation()
             .subscribeNext { (city) -> Void in

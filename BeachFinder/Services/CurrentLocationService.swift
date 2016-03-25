@@ -13,12 +13,6 @@ import GoogleMaps
 import Alamofire
 import SwiftyJSON
 
-enum BeachLocationError: ErrorType {
-    case Failed(message: String)
-    case Unavailable(message: String)
-    case Unknown(message: String)
-}
-
 class CurrentLocationService: NSObject, CLLocationManagerDelegate {
 
     private let locationManager = CLLocationManager()
@@ -26,7 +20,7 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
     private var apiKey: String
     private var googleDistanceUrl: String
 
-    private let currentLocationObs = Variable(Coordinates(Double(), Double()))
+    private let currentLocationObs = Variable(CurrentLocationResult.Failed(message: "Failed"))
     private let cityLocation = Variable("")
 
     init(apiKey: String, googleDistanceUrl: String) {
@@ -34,7 +28,7 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
         self.googleDistanceUrl = googleDistanceUrl
     }
 
-    func currentLocationObservable() -> Observable<Coordinates> {
+    func currentLocationObservable() -> Observable<CurrentLocationResult> {
         return currentLocationObs.asObservable()
     }
     
@@ -49,13 +43,17 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         } else {
-            informLocationError(.Unavailable(message: "Location services turned off"))
+            currentLocationObs.value = .Failed(message: "Failed")
+            cityLocation.value = "Failed"
         }
     }
     
     func distanceToLocation(coords: Coordinates) -> Observable<Double> {
         
-        let url = buildDistanceUrl(coords)
+        guard let url = buildDistanceUrl(coords) else {
+            return Variable(0.0).asObservable()
+        }
+        
         let request = Alamofire.request(.GET, url)
         
         return Observable.create { (observer: AnyObserver<Double>) -> Disposable in
@@ -90,14 +88,11 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    private func buildDistanceUrl(coords: Coordinates) -> String {
-        return  googleDistanceUrl + "\(currentLocationObs.value.lat),%20\(currentLocationObs.value.lon)&destinations=\(coords.lat),%20\(coords.lon)&key=\(apiKey)"
-    }
-    
-    private func informLocationError(error: BeachLocationError) {
-        if let subject = currentLocationObs.asObservable() as? BehaviorSubject<Coordinates> {
-            subject.onError(error)
+    private func buildDistanceUrl(coords: Coordinates) -> String? {
+        if case .Success(let current) = currentLocationObs.value {
+            return  googleDistanceUrl + "\(current.lat),%20\(current.lon)&destinations=\(coords.lat),%20\(coords.lon)&key=\(apiKey)"
         }
+        return nil
     }
     
     private func locateCityLocation(loc: CLLocationCoordinate2D) {
@@ -120,13 +115,9 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
         
         locationManager.stopUpdatingLocation()
         
-        currentLocationObs.value = Coordinates(locValues.latitude, locValues.longitude)
+        currentLocationObs.value = CurrentLocationResult.Success(coords: Coordinates(locValues.latitude, locValues.longitude))
         
         locateCityLocation(locValues)
-    }
-    
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        informLocationError(.Unavailable(message: "Location update failed"))
     }
     
 }

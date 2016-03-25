@@ -15,7 +15,7 @@ class HomeViewModelBinder: MainViewBinder {
     
     func bindToBeachScan(viewModel: HomeViewModel) -> Disposable {
         return Observable.combineLatest(viewModel.distance.asObservable(),
-        viewModel.currentLocation.asObservable()) { (distance, location) -> (Int, Coordinates)in
+        viewModel.currentLocation.asObservable()) { (distance, location) -> (Int, CurrentLocationResult)in
             return (distance, location)
             }.throttle(0.5, scheduler: MainScheduler.instance)
             .subscribeNext {(distance, location) -> Void in
@@ -51,9 +51,13 @@ class HomeViewModelBinder: MainViewBinder {
     func bindLocationToMap(viewModel: HomeViewModel, mapView: UIView) -> Disposable {
         
         return viewModel.currentLocation.asObservable()
-            .subscribeNext {(lat, lon) -> Void in
+            .subscribeNext {(current) -> Void in
+                
+                guard case .Success(let coords) = current else {
+                    return
+                }
                 if let mapView = mapView as? GMSMapView {
-                    mapView.camera = GMSCameraPosition.cameraWithLatitude(lat, longitude: lon, zoom: 7)
+                    mapView.camera = GMSCameraPosition.cameraWithLatitude(coords.lat, longitude: coords.lon, zoom: 7)
                 }
         }
         
@@ -75,8 +79,11 @@ class HomeViewModelBinder: MainViewBinder {
     
     func bindShowingErrorForLocation(viewModel: HomeViewModel, observer: AnyObserver<Bool>) -> Disposable {
         return viewModel.currentLocation.asObservable()
-            .map({ (lat, lon) -> Bool in
-                return lat != viewModel.ErrorCoords && lon != viewModel.ErrorCoords
+            .map({ (current) -> Bool in
+                if case .Failed(_) = current {
+                    return false
+                }
+                return true
             }).bindTo(observer)
     }
 }
