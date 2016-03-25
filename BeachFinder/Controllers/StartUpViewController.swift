@@ -42,10 +42,9 @@ class StartUpViewController: UIViewController {
     }
 
     func displayMainViewController() {
-        let navController = self.navigationController
         let viewModel = ViewModelFactory.homeViewModel()
         let mainController = MainViewController(viewModel: viewModel, viewBinder: HomeViewModelBinder())
-        navController?.setViewControllers([mainController], animated: true)
+        navigationController?.setViewControllers([mainController], animated: true)
     }
     
     func delay(delay:Double, closure:()->()) {
