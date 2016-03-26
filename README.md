@@ -1,8 +1,8 @@
-# BeachFinder
+# Surf Finder
 
 What started out as a little hack around with RXSwift I am now turning into an app
 
-![Gif](https://raw.githubusercontent.com/Daio-io/BeachFinder/master/Screens/finder0.2.gif)
+![Gif](https://raw.githubusercontent.com/Daio-io/SurfFinder/master/Screens/finder0.2.gif)
 
 #### You can leave at this point... this is for me
 
