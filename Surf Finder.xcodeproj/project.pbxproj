@@ -97,7 +97,7 @@
 		570337241C7D9C9E00DB5BE1 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5703372A1C7DA5D900DB5BE1 /* BeachLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachLocationService.swift; sourceTree = "<group>"; };
 		570F10081C5E4BDA0038A0B1 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		5753BEB41C4458D500304498 /* SurfFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5753BEB41C4458D500304498 /* Surf Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Surf Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5753BEB71C4458D500304498 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5753BEC31C4458D500304498 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5753BECB1C445C0B00304498 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 		5753BEB51C4458D500304498 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5753BEB41C4458D500304498 /* SurfFinder.app */,
+				5753BEB41C4458D500304498 /* Surf Finder.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -309,9 +309,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5753BEB31C4458D500304498 /* SurfFinder */ = {
+		5753BEB31C4458D500304498 /* Surf Finder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5753BEC61C4458D500304498 /* Build configuration list for PBXNativeTarget "SurfFinder" */;
+			buildConfigurationList = 5753BEC61C4458D500304498 /* Build configuration list for PBXNativeTarget "Surf Finder" */;
 			buildPhases = (
 				8ED2F56DE469D8C5F4EF2543 /* Check Pods Manifest.lock */,
 				5753BEB01C4458D500304498 /* Sources */,
@@ -325,9 +325,9 @@
 			);
 			dependencies = (
 			);
-			name = SurfFinder;
+			name = "Surf Finder";
 			productName = BeachFinder;
-			productReference = 5753BEB41C4458D500304498 /* SurfFinder.app */;
+			productReference = 5753BEB41C4458D500304498 /* Surf Finder.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -346,7 +346,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5753BEAF1C4458D500304498 /* Build configuration list for PBXProject "SurfFinder" */;
+			buildConfigurationList = 5753BEAF1C4458D500304498 /* Build configuration list for PBXProject "Surf Finder" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -359,7 +359,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5753BEB31C4458D500304498 /* SurfFinder */,
+				5753BEB31C4458D500304498 /* Surf Finder */,
 			);
 		};
 /* End PBXProject section */
@@ -570,7 +570,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/Frameworks/Echo";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.daio.SurfFinder;
-				PRODUCT_NAME = SurfFinder;
+				PRODUCT_NAME = "Surf Finder";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -588,7 +588,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/Frameworks/Echo";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.daio.SurfFinder;
-				PRODUCT_NAME = SurfFinder;
+				PRODUCT_NAME = "Surf Finder";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -597,7 +597,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5753BEAF1C4458D500304498 /* Build configuration list for PBXProject "SurfFinder" */ = {
+		5753BEAF1C4458D500304498 /* Build configuration list for PBXProject "Surf Finder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5753BEC41C4458D500304498 /* Debug */,
@@ -606,7 +606,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5753BEC61C4458D500304498 /* Build configuration list for PBXNativeTarget "SurfFinder" */ = {
+		5753BEC61C4458D500304498 /* Build configuration list for PBXNativeTarget "Surf Finder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5753BEC71C4458D500304498 /* Debug */,
