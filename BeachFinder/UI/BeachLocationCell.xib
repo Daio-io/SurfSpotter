@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="667"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cJF-q9-lpC" id="mhr-6W-5Hx">
-                <rect key="frame" x="0.0" y="0.0" width="600" height="667"/>
+                <rect key="frame" x="0.0" y="0.0" width="600" height="666.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xea-YT-oDw" customClass="RotatedView" customModule="FoldingCell">
@@ -54,7 +54,6 @@
                             <constraint firstItem="LT7-zT-uzu" firstAttribute="leading" secondItem="dcX-ZF-gwg" secondAttribute="leading" id="UOE-Ud-YXh"/>
                             <constraint firstItem="dcX-ZF-gwg" firstAttribute="leading" secondItem="xea-YT-oDw" secondAttribute="leading" constant="8" id="dWz-7A-Deh"/>
                             <constraint firstItem="hjl-f4-M2t" firstAttribute="leading" secondItem="bwy-Ur-abZ" secondAttribute="trailing" constant="17" id="e83-6m-DfP"/>
-                            <constraint firstAttribute="trailing" secondItem="hjl-f4-M2t" secondAttribute="trailing" constant="18" id="s3r-WB-wpO"/>
                             <constraint firstItem="dcX-ZF-gwg" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" constant="8" id="u6Y-Yr-M1A"/>
                             <constraint firstItem="bwy-Ur-abZ" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" constant="5" id="vph-hH-vP2"/>
                             <constraint firstAttribute="trailing" secondItem="bwy-Ur-abZ" secondAttribute="trailing" constant="77" id="wZE-Oq-5Pl"/>
