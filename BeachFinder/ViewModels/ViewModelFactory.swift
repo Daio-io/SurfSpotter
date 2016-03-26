@@ -10,7 +10,7 @@ import Foundation
 
 class ViewModelFactory {
     
-    private static let currentLocationService = CurrentLocationService(apiKey: Config.GoogleMapsApiKey, googleDistanceUrl: Config.GoogleMapsDistanceBaseUrl)
+    private static let currentLocationService = CurrentLocationService(distanceFinder: DistanceFinder())
     private static let surfReportService = SurfQueryService(apiKey: Config.SurfQueryApiKey, baseUrl: Config.SurfQueryBaseUrl)
     private static let beachLocationService = BeachLocatorService(baseUrl: Config.BeachLocatorBaseUrl)
     

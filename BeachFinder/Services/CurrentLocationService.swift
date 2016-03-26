@@ -17,15 +17,13 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
 
     private let locationManager = CLLocationManager()
     private let geoCoder = GMSGeocoder()
-    private var apiKey: String
-    private var googleDistanceUrl: String
+    private var distanceFinder: DistanceFinder
 
     private let currentLocationObs = Variable(CurrentLocationResult.Failed(message: "Failed"))
     private let cityLocation = Variable("")
 
-    init(apiKey: String, googleDistanceUrl: String) {
-        self.apiKey = apiKey
-        self.googleDistanceUrl = googleDistanceUrl
+    init(distanceFinder: DistanceFinder) {
+        self.distanceFinder = distanceFinder
     }
 
     func currentLocationObservable() -> Observable<CurrentLocationResult> {
@@ -50,49 +48,12 @@ class CurrentLocationService: NSObject, CLLocationManagerDelegate {
     
     func distanceToLocation(coords: Coordinates) -> Observable<Double> {
         
-        guard let url = buildDistanceUrl(coords) else {
+        guard case .Success(let current) = currentLocationObs.value else {
             return Variable(0.0).asObservable()
         }
+     
+        return distanceFinder.distanceToLocation(coords, from: current)
         
-        let request = Alamofire.request(.GET, url)
-        
-        return Observable.create { (observer: AnyObserver<Double>) -> Disposable in
-            
-            request.responseJSON {
-                response in switch response.result {
-                case .Success(let jsonData):
-                    
-                    let json = JSON(jsonData)
-                    if json["status"] == "OK" {
-                        let results = json["rows"].arrayValue.first
-                        let elements = results!["elements"].arrayValue.first
-                        let distance = elements!["distance"]["value"].doubleValue
-                        
-                        observer.onNext(distance)
-                        
-                        observer.onCompleted()
-                        
-                    } else {
-                        observer.onError(NSError(domain: "message", code: 1, userInfo: nil))
-                    }
-                case .Failure(let error):
-                    
-                    observer.onError(error)
-                }
-            }
-            
-            return AnonymousDisposable {
-                request.cancel()
-            }
-            
-        }
-    }
-    
-    private func buildDistanceUrl(coords: Coordinates) -> String? {
-        if case .Success(let current) = currentLocationObs.value {
-            return  googleDistanceUrl + "\(current.lat),%20\(current.lon)&destinations=\(coords.lat),%20\(coords.lon)&key=\(apiKey)"
-        }
-        return nil
     }
     
     private func locateCityLocation(loc: CLLocationCoordinate2D) {
