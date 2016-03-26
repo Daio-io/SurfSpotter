@@ -24,9 +24,7 @@ class BeachFinderMap: GMSMapView {
     }
     
     func addAnotherPin(title: String, coords: Coordinates) {
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2DMake(coords.lat, coords.lon)
-        marker.title = title
+        let marker = BeachMarker(title: title, coords: coords)
         marker.map = self
     }
     
@@ -35,6 +33,18 @@ class BeachFinderMap: GMSMapView {
         camera = GMSCameraPosition.cameraWithLatitude(coords.lat,
                                                           longitude: coords.lon, zoom: 10)
         addAnotherPin(title, coords: coords)
+    }
+    
+    // Beach Marker Class
+    private class BeachMarker: GMSMarker {
+        
+        init(title: String, coords: Coordinates){
+            super.init()
+            icon = UIImage(named: "beach-marker")
+            position = CLLocationCoordinate2DMake(coords.lat, coords.lon)
+            self.title = title
+        }
+        
     }
 
 }
