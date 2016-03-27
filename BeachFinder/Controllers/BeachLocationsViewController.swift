@@ -16,12 +16,17 @@ class BeachLocationsViewController: UITableViewController {
     private let kOpenCellHeight: CGFloat = 420
     internal var beaches : [BeachLocationItemViewModel]
     
+    private var cellViewBinder: LocationCellBinder
+    
     private let beachCellIdentifier = "BeachLocationCell"
     
     private var cellHeights = [CGFloat]()
     
-    init(beaches: [BeachLocationItemViewModel] = [], title: String = "Beaches") {
+    init(beaches: [BeachLocationItemViewModel] = [],
+         cellViewBinder: LocationCellBinder = BeachViewModelBinder(),
+         title: String = "Beaches") {
         self.beaches = beaches
+        self.cellViewBinder = cellViewBinder
         super.init(nibName: "BeachLocationsViewController", bundle: nil)
         self.title = title
     }
@@ -32,6 +37,7 @@ class BeachLocationsViewController: UITableViewController {
 
     required init?(coder aDecoder: NSCoder) {
         self.beaches = []
+        self.cellViewBinder = BeachViewModelBinder()
         super.init(coder: aDecoder)
     }
     
@@ -94,9 +100,6 @@ class BeachLocationsViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(beachCellIdentifier, forIndexPath: indexPath) as! BeachLocationCell
         
-        let currentBeach = beaches[indexPath.row]
-        cell.bind(currentBeach, viewBinder: BeachViewModelBinder())
-        
         return cell
         
     }
@@ -114,14 +117,15 @@ class BeachLocationsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        if cell is BeachLocationCell {
-            let foldingCell = cell as! BeachLocationCell
+        if let beachCell = cell as? BeachLocationCell {
+            let currentBeach = beaches[indexPath.row]
+            beachCell.bind(currentBeach, viewBinder: cellViewBinder)
             
             if cellHeights[indexPath.row] == kCloseCellHeight {
-                foldingCell.selectedAnimation(false, animated: false, completion:nil)
+                beachCell.selectedAnimation(false, animated: false, completion:nil)
             } else {
-                foldingCell.selectedAnimation(true, animated: false, completion: nil)
-                foldingCell.showMap()
+                beachCell.selectedAnimation(true, animated: false, completion: nil)
+                beachCell.showMap()
             }
         }
     }

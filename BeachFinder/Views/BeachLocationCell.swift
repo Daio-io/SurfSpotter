@@ -28,7 +28,7 @@ class BeachLocationCell : FoldingCell {
     @IBOutlet private weak var openSwellStarsView: BeachSwellStarsView!
     private var map: BeachFinderMap?
     
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     
     private var mapSubscription: Disposable?
     private var viewModel: BeachLocationItemViewModel?
@@ -51,6 +51,7 @@ class BeachLocationCell : FoldingCell {
     
     func bind(viewModel: BeachLocationItemViewModel, viewBinder: LocationCellBinder) {
         
+        disposeBag = DisposeBag()
         self.viewModel = viewModel
         
         viewBinder.bindBeachDistance(viewModel, distanceToBeachLabel.rx_text)
@@ -75,7 +76,7 @@ class BeachLocationCell : FoldingCell {
             .addDisposableTo(disposeBag)
         
         viewModel.isFavourited.asObservable()
-            .doOnNext { [unowned self] (fav) in
+            .doOnNext { (fav) in
             self.favouriteButton.favourite = fav
         }.subscribe().addDisposableTo(disposeBag)
         

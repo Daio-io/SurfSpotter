@@ -38,12 +38,19 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJD-Hh-Tal" customClass="FavouriteButton" customModule="Surf_Finder" customModuleProvider="target">
-                                <rect key="frame" x="516" y="25" width="25" height="25"/>
+                                <rect key="frame" x="494" y="0.0" width="70" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="VqA-Mu-y43"/>
-                                    <constraint firstAttribute="height" constant="25" id="jON-FQ-FKW"/>
+                                    <constraint firstAttribute="height" constant="75" id="FPr-v0-yyz"/>
+                                    <constraint firstAttribute="width" constant="70" id="VqA-Mu-y43"/>
+                                    <constraint firstAttribute="height" constant="50" id="jON-FQ-FKW"/>
                                 </constraints>
+                                <inset key="contentEdgeInsets" minX="20" minY="22" maxX="20" maxY="22"/>
                                 <state key="normal" image="not-fav"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="jON-FQ-FKW"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="favClicked:" destination="cJF-q9-lpC" eventType="touchUpInside" id="esH-Gd-Ssa"/>
                                 </connections>
@@ -54,14 +61,28 @@
                             <constraint firstAttribute="bottom" secondItem="bwy-Ur-abZ" secondAttribute="bottom" constant="5" id="0Xm-Fu-emu"/>
                             <constraint firstItem="LT7-zT-uzu" firstAttribute="top" secondItem="dcX-ZF-gwg" secondAttribute="bottom" constant="9" id="A3X-Aq-doL"/>
                             <constraint firstAttribute="height" constant="75" id="JBt-rb-yAj"/>
+                            <constraint firstItem="MJD-Hh-Tal" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" constant="13" id="Oai-Ty-fbr"/>
+                            <constraint firstItem="MJD-Hh-Tal" firstAttribute="height" secondItem="xea-YT-oDw" secondAttribute="height" id="PYv-f4-Uit"/>
                             <constraint firstItem="LT7-zT-uzu" firstAttribute="leading" secondItem="dcX-ZF-gwg" secondAttribute="leading" id="UOE-Ud-YXh"/>
                             <constraint firstItem="MJD-Hh-Tal" firstAttribute="leading" secondItem="bwy-Ur-abZ" secondAttribute="trailing" constant="25" id="UtT-0e-3Sp"/>
-                            <constraint firstItem="MJD-Hh-Tal" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" constant="25" id="ctu-lV-8zv"/>
+                            <constraint firstItem="MJD-Hh-Tal" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" constant="10" id="ctu-lV-8zv"/>
                             <constraint firstItem="dcX-ZF-gwg" firstAttribute="leading" secondItem="xea-YT-oDw" secondAttribute="leading" constant="8" id="dWz-7A-Deh"/>
+                            <constraint firstItem="MJD-Hh-Tal" firstAttribute="leading" secondItem="bwy-Ur-abZ" secondAttribute="trailing" constant="13" id="fta-7p-55M"/>
+                            <constraint firstItem="MJD-Hh-Tal" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" id="mY7-58-cuh"/>
                             <constraint firstItem="dcX-ZF-gwg" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" constant="8" id="u6Y-Yr-M1A"/>
+                            <constraint firstItem="MJD-Hh-Tal" firstAttribute="leading" secondItem="bwy-Ur-abZ" secondAttribute="trailing" constant="3" id="ugm-wx-RdT"/>
                             <constraint firstItem="bwy-Ur-abZ" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" constant="5" id="vph-hH-vP2"/>
                             <constraint firstAttribute="trailing" secondItem="bwy-Ur-abZ" secondAttribute="trailing" constant="77" id="wZE-Oq-5Pl"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Oai-Ty-fbr"/>
+                                <exclude reference="PYv-f4-Uit"/>
+                                <exclude reference="UtT-0e-3Sp"/>
+                                <exclude reference="ctu-lV-8zv"/>
+                                <exclude reference="fta-7p-55M"/>
+                            </mask>
+                        </variation>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40V-zM-Ty4">
                         <rect key="frame" x="16" y="105" width="568" height="400"/>
@@ -269,7 +290,7 @@
         <image name="magic-sea" width="200" height="47"/>
         <image name="nav-map" width="48" height="48"/>
         <image name="no-star" width="100" height="100"/>
-        <image name="not-fav" width="50" height="50"/>
+        <image name="not-fav" width="48" height="48"/>
         <image name="star" width="100" height="100"/>
     </resources>
 </document>

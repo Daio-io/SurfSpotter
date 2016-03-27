@@ -10,11 +10,14 @@ import UIKit
 import RxSwift
 
 class MyBeachesViewController: BeachLocationsViewController {
-
+    
     private let disposeBag = DisposeBag()
     
-    override init(beaches: [BeachLocationItemViewModel] = [], title: String = "My Beaches") {
-        super.init(beaches: beaches, title: title)
+    override init(beaches: [BeachLocationItemViewModel] = [],
+                  cellViewBinder: LocationCellBinder = BeachViewModelBinder(),
+                  title: String = "My Beaches") {
+        
+        super.init(beaches: beaches, cellViewBinder: cellViewBinder, title: title)
         bindFavouriteChanges()
     }
     
@@ -28,7 +31,7 @@ class MyBeachesViewController: BeachLocationsViewController {
                 if isFav == false {
                     self.updateBeachesInTable()
                 }
-            }).subscribe().addDisposableTo(disposeBag)
+                }).subscribe().addDisposableTo(disposeBag)
         }
     }
     
