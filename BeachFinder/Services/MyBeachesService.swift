@@ -13,11 +13,17 @@ class MyBeachesService {
     private var userDefaults: NSUserDefaults
     private let BeachesKey = "beaches"
     
+    static let sharedInstance = MyBeachesService(userDefaults: NSUserDefaults.standardUserDefaults())
+    
     init(userDefaults: NSUserDefaults) {
         self.userDefaults = userDefaults
     }
     
     func saveBeach(location: BeachLocation) {
+        
+        guard !beachAlreadySaved(location.location) else {
+            return
+        }
         
         let data =  ["location": location.location, "lat": location.coords.lat, "lon": location.coords.lon, "id": location.spotId, "country": location.country]
         
@@ -44,6 +50,25 @@ class MyBeachesService {
             
         }
         return nil
+    }
+    
+    func removeAllBeaches() {
+        userDefaults.setObject(nil, forKey: BeachesKey)
+    }
+    
+    // MARK - internal
+    
+    private func beachAlreadySaved(location: String) -> Bool {
+        guard let beaches = userDefaults.arrayForKey(BeachesKey) else {
+            return false
+        }
+        
+        for beach in beaches {
+            if beach["location"] as! String == location {
+                return true
+            }
+        }
+        return false
     }
     
     

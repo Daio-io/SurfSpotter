@@ -93,6 +93,21 @@ class MainViewController: UIViewController {
         navigationController?.pushViewController(AboutViewController(), animated: true)
     }
     
+    @IBAction func myBeachesClicked(sender: AnyObject) {
+        let myBeachesService = MyBeachesService.sharedInstance
+        
+        guard let beaches = myBeachesService.getBeaches() else {
+            navigationController?.pushViewController(BeachLocationsViewController(title: "My Beaches"), animated: true)
+            return
+        }
+        
+        let viewModels = beaches.map({ (beach) -> BeachLocationItemViewModel in
+            return ViewModelFactory.beachLocationItemViewModel(beach)
+        })
+        
+        navigationController?.pushViewController(BeachLocationsViewController(beaches: viewModels, title: "My Beaches"), animated: true)
+    }
+    
     @IBAction func errorButtonClicked(sender: AnyObject) {
         let alertController = UIAlertController(title: "Location Error", message:
             "There seems to be a problem locating you. Check your location services is turned on and try again.", preferredStyle: UIAlertControllerStyle.Alert)

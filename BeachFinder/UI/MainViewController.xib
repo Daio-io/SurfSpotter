@@ -147,8 +147,8 @@
                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILB-Qa-nRf" userLabel="nav">
                     <rect key="frame" x="0.0" y="0.0" width="602" height="55"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLJ-d1-QHN" userLabel="Settings Button">
-                            <rect key="frame" x="564" y="22" width="30" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLJ-d1-QHN" userLabel="My Beaches Button">
+                            <rect key="frame" x="515" y="25" width="30" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="NtQ-vC-NJJ"/>
                                 <constraint firstAttribute="height" constant="30" id="XLR-UT-H8a"/>
@@ -164,7 +164,7 @@
                                 </mask>
                             </variation>
                             <connections>
-                                <action selector="settingsClicked:" destination="-1" eventType="touchUpInside" id="JBL-6W-ZRc"/>
+                                <action selector="myBeachesClicked:" destination="-1" eventType="touchUpInside" id="dHa-b5-IKn"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qo-Kp-pR9" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
@@ -173,21 +173,37 @@
                             <color key="textColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7N-2N-NHe" userLabel="Settings Button">
+                            <rect key="frame" x="557" y="25" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="2pj-32-jbW"/>
+                                <constraint firstAttribute="height" constant="30" id="Afz-ZA-1bQ"/>
+                            </constraints>
+                            <inset key="contentEdgeInsets" minX="2" minY="2" maxX="0.0" maxY="1"/>
+                            <state key="normal" image="settings"/>
+                            <connections>
+                                <action selector="settingsClicked:" destination="-1" eventType="touchUpInside" id="13b-Ym-Yl3"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="GLJ-d1-QHN" secondAttribute="trailing" constant="13" id="D7D-1d-r0k"/>
-                        <constraint firstItem="GLJ-d1-QHN" firstAttribute="top" secondItem="ILB-Qa-nRf" secondAttribute="top" constant="22" id="Q0b-Ib-Ijc"/>
+                        <constraint firstItem="w7N-2N-NHe" firstAttribute="leading" secondItem="GLJ-d1-QHN" secondAttribute="trailing" constant="12" id="MdC-fb-pHn"/>
+                        <constraint firstItem="GLJ-d1-QHN" firstAttribute="top" secondItem="ILB-Qa-nRf" secondAttribute="top" constant="25" id="Q0b-Ib-Ijc"/>
                         <constraint firstItem="7qo-Kp-pR9" firstAttribute="leading" secondItem="ILB-Qa-nRf" secondAttribute="leading" constant="12" id="Th0-bU-eqi"/>
                         <constraint firstAttribute="height" constant="55" id="WjA-Hw-RQA"/>
-                        <constraint firstAttribute="trailing" secondItem="GLJ-d1-QHN" secondAttribute="trailing" constant="8" id="aFw-a9-NKu"/>
+                        <constraint firstAttribute="trailing" secondItem="GLJ-d1-QHN" secondAttribute="trailing" constant="50" id="aFw-a9-NKu"/>
                         <constraint firstItem="GLJ-d1-QHN" firstAttribute="top" secondItem="ILB-Qa-nRf" secondAttribute="top" constant="17" id="du5-Yu-FTM"/>
                         <constraint firstItem="7qo-Kp-pR9" firstAttribute="top" secondItem="ILB-Qa-nRf" secondAttribute="top" constant="30" id="ghl-KM-5Qf"/>
+                        <constraint firstItem="w7N-2N-NHe" firstAttribute="top" secondItem="ILB-Qa-nRf" secondAttribute="top" constant="25" id="kHq-22-gNU"/>
+                        <constraint firstAttribute="trailing" secondItem="w7N-2N-NHe" secondAttribute="trailing" constant="15" id="v6s-yo-7h7"/>
                         <constraint firstAttribute="trailing" secondItem="GLJ-d1-QHN" secondAttribute="trailing" constant="37" id="zLk-hi-xhW"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="D7D-1d-r0k"/>
+                            <exclude reference="aFw-a9-NKu"/>
                             <exclude reference="du5-Yu-FTM"/>
                             <exclude reference="zLk-hi-xhW"/>
                         </mask>
@@ -261,6 +277,7 @@
     <resources>
         <image name="beach-info" width="96" height="96"/>
         <image name="error" width="48" height="48"/>
+        <image name="settings" width="96" height="96"/>
         <image name="signpost-icon" width="50" height="50"/>
     </resources>
 </document>

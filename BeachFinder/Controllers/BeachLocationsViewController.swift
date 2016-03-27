@@ -20,9 +20,10 @@ class BeachLocationsViewController: UITableViewController {
     
     var cellHeights = [CGFloat]()
     
-    init(beaches: [BeachLocationItemViewModel]) {
+    init(beaches: [BeachLocationItemViewModel] = [], title: String = "Beaches") {
         self.beaches = beaches
         super.init(nibName: "BeachLocationsViewController", bundle: nil)
+        self.title = title
     }
     
     deinit {
