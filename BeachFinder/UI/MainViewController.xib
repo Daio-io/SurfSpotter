@@ -6,7 +6,7 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="BeachFinder" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="Surf_Finder" customModuleProvider="target">
             <connections>
                 <outlet property="currentCityLabel" destination="Gvg-mv-kgh" id="Hx0-Yk-MSY"/>
                 <outlet property="distanceLabel" destination="HaE-7x-pbp" id="kcb-Cx-Yoh"/>
@@ -22,17 +22,13 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="tlg-P4-9e8">
-                    <rect key="frame" x="14" y="540" width="572" height="31"/>
-                    <color key="tintColor" red="0.93725490199999995" green="0.38431372549999998" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
-                </slider>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaE-7x-pbp">
                     <rect key="frame" x="550" y="363" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0078431372550000003" green="0.45882352939999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMZ-lA-qg9" customClass="BeachFinderButton" customModule="BeachFinder" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMZ-lA-qg9" customClass="BeachFinderButton" customModule="Surf_Finder" customModuleProvider="target">
                     <rect key="frame" x="8" y="359" width="96" height="30"/>
                     <state key="normal" title="View Beaches">
                         <color key="titleColor" red="0.93725490196078431" green="0.3843137254901961" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
@@ -47,7 +43,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uki-Mi-pAz" userLabel="Jumbotron Container">
                     <rect key="frame" x="-2" y="0.0" width="602" height="351"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zlZ-lv-qp2" customClass="BeachFinderMap" customModule="BeachFinder" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zlZ-lv-qp2" customClass="BeachFinderMap" customModule="Surf_Finder" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="602" height="291"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -62,7 +58,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szN-Qt-zY1" userLabel="Banner">
                             <rect key="frame" x="2" y="291" width="600" height="60"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gvg-mv-kgh" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gvg-mv-kgh" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
                                     <rect key="frame" x="8" y="24" width="128" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -75,7 +71,7 @@
                                         <constraint firstAttribute="height" constant="30" id="i8z-XS-4bB"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jh3-ve-dWB" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jh3-ve-dWB" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
                                     <rect key="frame" x="8" y="8" width="92" height="14"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -178,32 +174,60 @@
                         </mask>
                     </variation>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="120-Dy-Pjn" userLabel="Min Distance" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
+                    <rect key="frame" x="15" y="554" width="25" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.93725490199999995" green="0.38431372549999998" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJB-R0-aSQ" userLabel="Max Distance" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
+                    <rect key="frame" x="542" y="554" width="43" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.066666666669999999" green="0.50588235290000005" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan Range" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Us-7m-Xnz" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
+                    <rect key="frame" x="266.5" y="535.5" width="67.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="tlg-P4-9e8">
+                    <rect key="frame" x="53" y="550" width="476" height="31"/>
+                    <color key="tintColor" red="1" green="0.82352941180000006" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                </slider>
             </subviews>
             <color key="backgroundColor" red="0.96078431372549022" green="0.94509803921568625" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="tlg-P4-9e8" secondAttribute="trailing" constant="16" id="2mX-TV-iLk"/>
+                <constraint firstAttribute="trailing" secondItem="xJB-R0-aSQ" secondAttribute="trailing" constant="15" id="1QO-RF-G6T"/>
                 <constraint firstAttribute="trailing" secondItem="VcM-tV-bFS" secondAttribute="trailing" id="2pZ-wv-roG"/>
                 <constraint firstAttribute="trailing" secondItem="ILB-Qa-nRf" secondAttribute="trailing" id="3g0-9P-fH2"/>
                 <constraint firstAttribute="trailing" secondItem="HaE-7x-pbp" secondAttribute="trailing" constant="8" id="43N-sY-kK1"/>
                 <constraint firstItem="ILB-Qa-nRf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7LQ-D0-bMn"/>
+                <constraint firstAttribute="bottom" secondItem="120-Dy-Pjn" secondAttribute="bottom" constant="25" id="7Q4-yE-E7P"/>
                 <constraint firstItem="ILB-Qa-nRf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8an-0J-urd"/>
                 <constraint firstItem="ILB-Qa-nRf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CDD-w8-aNe"/>
+                <constraint firstItem="tlg-P4-9e8" firstAttribute="leading" secondItem="120-Dy-Pjn" secondAttribute="trailing" constant="15" id="EAF-Zg-5Kg"/>
                 <constraint firstItem="dMZ-lA-qg9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="FmZ-EZ-BCZ"/>
                 <constraint firstItem="VcM-tV-bFS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Gal-wS-V2H"/>
                 <constraint firstItem="ILB-Qa-nRf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ih8-pg-nP1"/>
                 <constraint firstAttribute="trailing" secondItem="Uki-Mi-pAz" secondAttribute="trailing" id="Jp2-03-KwC"/>
+                <constraint firstItem="7Us-7m-Xnz" firstAttribute="centerX" secondItem="tlg-P4-9e8" secondAttribute="centerX" constant="9" id="Kzc-wE-YTD"/>
                 <constraint firstItem="tlg-P4-9e8" firstAttribute="top" secondItem="HaE-7x-pbp" secondAttribute="bottom" constant="25" id="P8e-4f-wLk"/>
+                <constraint firstAttribute="bottom" secondItem="xJB-R0-aSQ" secondAttribute="bottom" constant="25" id="RTk-SS-Jb6"/>
                 <constraint firstItem="HaE-7x-pbp" firstAttribute="centerY" secondItem="tlg-P4-9e8" secondAttribute="centerY" id="X3W-6G-KTO"/>
                 <constraint firstItem="ILB-Qa-nRf" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="XCY-af-3Jb"/>
                 <constraint firstItem="HaE-7x-pbp" firstAttribute="top" secondItem="Uki-Mi-pAz" secondAttribute="bottom" constant="12" id="bMx-0T-WnG"/>
                 <constraint firstItem="VcM-tV-bFS" firstAttribute="top" secondItem="dMZ-lA-qg9" secondAttribute="bottom" constant="8" id="bZ6-Rd-wR9"/>
                 <constraint firstItem="dMZ-lA-qg9" firstAttribute="top" secondItem="Uki-Mi-pAz" secondAttribute="bottom" constant="8" id="c2y-EG-F9g"/>
+                <constraint firstItem="xJB-R0-aSQ" firstAttribute="leading" secondItem="tlg-P4-9e8" secondAttribute="trailing" constant="15" id="dFi-N7-y4j"/>
                 <constraint firstItem="Uki-Mi-pAz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-2" id="eqV-FJ-R4m"/>
-                <constraint firstAttribute="bottom" secondItem="tlg-P4-9e8" secondAttribute="bottom" constant="30" id="fgx-2p-jws"/>
+                <constraint firstItem="tlg-P4-9e8" firstAttribute="top" secondItem="7Us-7m-Xnz" secondAttribute="bottom" id="eyF-Sb-Ggt"/>
+                <constraint firstAttribute="bottom" secondItem="tlg-P4-9e8" secondAttribute="bottom" constant="20" id="fgx-2p-jws"/>
                 <constraint firstItem="VcM-tV-bFS" firstAttribute="top" secondItem="HaE-7x-pbp" secondAttribute="bottom" constant="13" id="iVJ-k2-CTY"/>
                 <constraint firstItem="Uki-Mi-pAz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="j9R-Ua-R3l"/>
                 <constraint firstItem="Uki-Mi-pAz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ply-gQ-ZyH"/>
-                <constraint firstItem="tlg-P4-9e8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="pyo-eO-yTf"/>
+                <constraint firstItem="120-Dy-Pjn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="r54-Xg-Uey"/>
                 <constraint firstAttribute="trailing" secondItem="ILB-Qa-nRf" secondAttribute="trailing" constant="-2" id="vSH-V4-UqC"/>
             </constraints>
             <variation key="default">
