@@ -14,6 +14,17 @@ class BeachFinderButton: UIButton {
         super.init(coder: aDecoder)
         if let title = titleLabel {
             title.font = UIFont(name: "Roboto-Medium", size: title.font!.pointSize)
+            enabled = false
+        }
+    }
+    
+    override var enabled: Bool {
+        didSet {
+            if enabled {
+                alpha = 1
+            } else {
+                alpha = 0.5
+            }
         }
     }
     
