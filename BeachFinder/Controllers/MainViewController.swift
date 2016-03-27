@@ -97,7 +97,7 @@ class MainViewController: UIViewController {
         let myBeachesService = MyBeachesService.sharedInstance
         
         guard let beaches = myBeachesService.getBeaches() else {
-            navigationController?.pushViewController(BeachLocationsViewController(title: "My Beaches"), animated: true)
+            navigationController?.pushViewController(MyBeachesViewController(), animated: true)
             return
         }
         
@@ -105,7 +105,7 @@ class MainViewController: UIViewController {
             return ViewModelFactory.beachLocationItemViewModel(beach)
         })
         
-        navigationController?.pushViewController(BeachLocationsViewController(beaches: viewModels, title: "My Beaches"), animated: true)
+        navigationController?.pushViewController(MyBeachesViewController(beaches: viewModels), animated: true)
     }
     
     @IBAction func errorButtonClicked(sender: AnyObject) {
@@ -116,6 +116,6 @@ class MainViewController: UIViewController {
             self.viewModel.locateMe()
         }))
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        presentViewController(alertController, animated: true, completion: nil)
     }
 }

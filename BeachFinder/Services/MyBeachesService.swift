@@ -21,7 +21,7 @@ class MyBeachesService {
     
     func saveBeach(location: BeachLocation) {
         
-        guard !beachAlreadySaved(location.location) else {
+        guard !isFavourited(location.spotId) else {
             return
         }
         
@@ -35,6 +35,7 @@ class MyBeachesService {
             userDefaults.setObject(beaches, forKey: BeachesKey)
         }
     }
+    
     
     func getBeaches() -> [BeachLocation]? {
         
@@ -52,19 +53,29 @@ class MyBeachesService {
         return nil
     }
     
+    
+    func removeBeach(id: Int) {
+        guard let beaches = userDefaults.arrayForKey(BeachesKey) else {
+            return
+        }
+        let newBeaches = beaches.filter { (beach) -> Bool in
+            return beach["id"] as! Int != id
+        }
+        userDefaults.setObject(newBeaches, forKey: BeachesKey)
+    }
+    
     func removeAllBeaches() {
         userDefaults.setObject(nil, forKey: BeachesKey)
     }
     
-    // MARK - internal
     
-    private func beachAlreadySaved(location: String) -> Bool {
+    func isFavourited(id: Int) -> Bool {
         guard let beaches = userDefaults.arrayForKey(BeachesKey) else {
             return false
         }
         
         for beach in beaches {
-            if beach["location"] as! String == location {
+            if beach["id"] as! Int == id {
                 return true
             }
         }

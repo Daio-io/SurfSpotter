@@ -13,9 +13,10 @@ struct BeachLocationItemViewModel {
     
     private let surfService: SurfReportService?
     private let locationService: CurrentLocationService?
+    private let myBeachesService: MyBeachesService?
     private let disposeBag = DisposeBag()
     
-    private let locationId: Int
+    private let beachLocation: BeachLocation
     
     let location = Variable("")
     let maxSwell = Variable(0)
@@ -27,24 +28,31 @@ struct BeachLocationItemViewModel {
     let fadedStar = Variable(0)
     let coords = Variable(Coordinates(0, 0))
     let distanceToBeach = Variable(Double())
+    let isFavourited = Variable(false)
     
-    init(_ service: SurfReportService, _ locationService: CurrentLocationService, _ beachLocation: BeachLocation) {
+    init(_ service: SurfReportService,
+           _ locationService: CurrentLocationService,
+             _ beachLocation: BeachLocation,
+               _ myBeachesService: MyBeachesService) {
+        
         self.surfService = service
         self.locationService = locationService
-        self.locationId = beachLocation.spotId
+        self.myBeachesService = myBeachesService
+        self.beachLocation = beachLocation
         self.location.value = beachLocation.location
         self.coords.value = beachLocation.coords
+        self.isFavourited.value = myBeachesService.isFavourited(beachLocation.spotId)
         
         self.locationService?.distanceToLocation(beachLocation.coords)
             .asObservable()
             .subscribeNext({ (distance) -> Void in
-            self.distanceToBeach.value = distance
-        }).addDisposableTo(disposeBag)
+                self.distanceToBeach.value = distance
+            }).addDisposableTo(disposeBag)
         
     }
     
     func refresh(start: Int = NSDate.currentHour()) {
-       surfService?.getNextSurf(locationId, startTime: start)
+        surfService?.getNextSurf(beachLocation.spotId, startTime: start)
             .subscribe(onNext: { (surfReport) -> Void in
                 self.maxSwell.value = surfReport.maxSwell
                 self.minSwell.value = surfReport.minSwell
@@ -54,6 +62,16 @@ struct BeachLocationItemViewModel {
                 self.fadedStar.value = surfReport.fadedStar
                 self.wind.value = surfReport.wind
                 }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
+    }
+    
+    func favourite() {
+        if isFavourited.value == true {
+            myBeachesService?.removeBeach(beachLocation.spotId)
+            isFavourited.value = false
+        } else {
+            isFavourited.value = true
+            myBeachesService?.saveBeach(beachLocation)
+        }
     }
     
 }

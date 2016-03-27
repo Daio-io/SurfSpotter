@@ -17,7 +17,7 @@ class BeachLocationCell : FoldingCell {
     // Closed cell
     @IBOutlet private weak var closedTitle: UILabel!
     @IBOutlet private weak var distanceToBeachLabel: BeachFinderLabel!
-    @IBOutlet private weak var closedSwellText: BeachFinderLabel!
+    @IBOutlet private weak var favouriteButton: FavouriteButton!
     
     // Open cell
     @IBOutlet private weak var mapPlaceholder: UIView!
@@ -74,8 +74,11 @@ class BeachLocationCell : FoldingCell {
         viewBinder.bindSwell(viewModel, openSwellText.rx_text)
             .addDisposableTo(disposeBag)
         
-        viewBinder.bindSwell(viewModel, closedSwellText.rx_text)
-            .addDisposableTo(disposeBag)
+        viewModel.isFavourited.asObservable()
+            .doOnNext { [unowned self] (fav) in
+            self.favouriteButton.favourite = fav
+        }.subscribe().addDisposableTo(disposeBag)
+        
     }
     
     func removeMap(){
@@ -119,6 +122,10 @@ class BeachLocationCell : FoldingCell {
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = viewModel.location.value
         mapItem.openInMapsWithLaunchOptions(nil)
+    }
+    
+    @IBAction func favClicked(sender: AnyObject) {
+        viewModel?.favourite()
     }
     
     @IBAction func navigateClicked(sender: AnyObject) {

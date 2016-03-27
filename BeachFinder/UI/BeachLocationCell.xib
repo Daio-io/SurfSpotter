@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="667" id="cJF-q9-lpC" customClass="BeachLocationCell" customModule="BeachFinder" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="667" id="cJF-q9-lpC" customClass="BeachLocationCell" customModule="Surf_Finder" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="667"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cJF-q9-lpC" id="mhr-6W-5Hx">
@@ -18,13 +18,13 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xea-YT-oDw" customClass="RotatedView" customModule="FoldingCell">
                         <rect key="frame" x="16" y="23" width="568" height="75"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcX-ZF-gwg" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcX-ZF-gwg" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
                                 <rect key="frame" x="8" y="8" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0039215686269999999" green="0.52549019610000003" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT7-zT-uzu" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT7-zT-uzu" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
                                 <rect key="frame" x="8" y="38" width="59" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,23 +37,27 @@
                                     <constraint firstAttribute="width" constant="1" id="HUd-8m-U8O"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjl-f4-M2t" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
-                                <rect key="frame" x="505" y="27" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.93725490199999995" green="0.38431372549999998" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJD-Hh-Tal" customClass="FavouriteButton" customModule="Surf_Finder" customModuleProvider="target">
+                                <rect key="frame" x="511" y="23" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="VqA-Mu-y43"/>
+                                    <constraint firstAttribute="height" constant="30" id="jON-FQ-FKW"/>
+                                </constraints>
+                                <state key="normal" image="not-fav"/>
+                                <connections>
+                                    <action selector="favClicked:" destination="cJF-q9-lpC" eventType="touchUpInside" id="esH-Gd-Ssa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="bwy-Ur-abZ" secondAttribute="bottom" constant="5" id="0Xm-Fu-emu"/>
                             <constraint firstItem="LT7-zT-uzu" firstAttribute="top" secondItem="dcX-ZF-gwg" secondAttribute="bottom" constant="9" id="A3X-Aq-doL"/>
                             <constraint firstAttribute="height" constant="75" id="JBt-rb-yAj"/>
-                            <constraint firstItem="hjl-f4-M2t" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" constant="27" id="MXf-VY-acg"/>
-                            <constraint firstAttribute="bottom" secondItem="hjl-f4-M2t" secondAttribute="bottom" constant="27" id="TPF-Yc-zjQ"/>
                             <constraint firstItem="LT7-zT-uzu" firstAttribute="leading" secondItem="dcX-ZF-gwg" secondAttribute="leading" id="UOE-Ud-YXh"/>
+                            <constraint firstItem="MJD-Hh-Tal" firstAttribute="leading" secondItem="bwy-Ur-abZ" secondAttribute="trailing" constant="20" id="UtT-0e-3Sp"/>
+                            <constraint firstItem="MJD-Hh-Tal" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" constant="23" id="ctu-lV-8zv"/>
                             <constraint firstItem="dcX-ZF-gwg" firstAttribute="leading" secondItem="xea-YT-oDw" secondAttribute="leading" constant="8" id="dWz-7A-Deh"/>
-                            <constraint firstItem="hjl-f4-M2t" firstAttribute="leading" secondItem="bwy-Ur-abZ" secondAttribute="trailing" constant="14" id="e83-6m-DfP"/>
                             <constraint firstItem="dcX-ZF-gwg" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" constant="8" id="u6Y-Yr-M1A"/>
                             <constraint firstItem="bwy-Ur-abZ" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" constant="5" id="vph-hH-vP2"/>
                             <constraint firstAttribute="trailing" secondItem="bwy-Ur-abZ" secondAttribute="trailing" constant="77" id="wZE-Oq-5Pl"/>
@@ -66,25 +70,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="568" height="233"/>
                                 <color key="backgroundColor" red="0.55686274509803924" green="0.69803921568627447" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-TD-tk6" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-TD-tk6" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
                                 <rect key="frame" x="8" y="241" width="33.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8P5-6M-CH3" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8P5-6M-CH3" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
                                 <rect key="frame" x="480" y="296" width="74" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCq-gl-7YB" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCq-gl-7YB" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
                                 <rect key="frame" x="8" y="335" width="114.5" height="62.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="52"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDa-a7-R0A" customClass="BeachSwellStarsView" customModule="BeachFinder" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDa-a7-R0A" customClass="BeachSwellStarsView" customModule="Surf_Finder" customModuleProvider="target">
                                 <rect key="frame" x="122.5" y="343" width="122" height="21"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-star" highlightedImage="star" translatesAutoresizingMaskIntoConstraints="NO" id="2v8-9a-kWM">
@@ -183,7 +187,7 @@
                                     <action selector="navigateClicked:" destination="cJF-q9-lpC" eventType="touchUpInside" id="MfM-uo-Q9F"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeq-Ez-6Co" customClass="BeachFinderLabel" customModule="BeachFinder" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeq-Ez-6Co" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
                                 <rect key="frame" x="8" y="308" width="39" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -246,10 +250,10 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="closedSwellText" destination="hjl-f4-M2t" id="PzG-oF-xdY"/>
                 <outlet property="closedTitle" destination="dcX-ZF-gwg" id="fRt-2Y-Zkv"/>
                 <outlet property="containerView" destination="40V-zM-Ty4" id="j2y-NF-2e9"/>
                 <outlet property="distanceToBeachLabel" destination="LT7-zT-uzu" id="6iH-8o-075"/>
+                <outlet property="favouriteButton" destination="MJD-Hh-Tal" id="Oy5-aJ-Rvp"/>
                 <outlet property="foregroundView" destination="xea-YT-oDw" id="gHo-kN-f5l"/>
                 <outlet property="mapPlaceholder" destination="p53-kz-fgd" id="gcr-we-nN9"/>
                 <outlet property="openSwellStarsView" destination="WDa-a7-R0A" id="Sae-CQ-I11"/>
@@ -265,6 +269,7 @@
         <image name="magic-sea" width="200" height="47"/>
         <image name="nav-map" width="48" height="48"/>
         <image name="no-star" width="100" height="100"/>
+        <image name="not-fav" width="50" height="50"/>
         <image name="star" width="100" height="100"/>
     </resources>
 </document>

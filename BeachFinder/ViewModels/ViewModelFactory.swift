@@ -19,7 +19,7 @@ class ViewModelFactory {
     }
     
     static func beachLocationItemViewModel(beachLocation: BeachLocation) -> BeachLocationItemViewModel {
-        return BeachLocationItemViewModel(surfReportService, currentLocationService, beachLocation)
+        return BeachLocationItemViewModel(surfReportService, currentLocationService, beachLocation, MyBeachesService.sharedInstance)
     }
     
 }
