@@ -187,7 +187,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan Range" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Us-7m-Xnz" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
-                    <rect key="frame" x="266.5" y="535.5" width="67.5" height="14.5"/>
+                    <rect key="frame" x="266.5" y="530.5" width="67.5" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -222,7 +222,7 @@
                 <constraint firstItem="dMZ-lA-qg9" firstAttribute="top" secondItem="Uki-Mi-pAz" secondAttribute="bottom" constant="8" id="c2y-EG-F9g"/>
                 <constraint firstItem="xJB-R0-aSQ" firstAttribute="leading" secondItem="tlg-P4-9e8" secondAttribute="trailing" constant="15" id="dFi-N7-y4j"/>
                 <constraint firstItem="Uki-Mi-pAz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-2" id="eqV-FJ-R4m"/>
-                <constraint firstItem="tlg-P4-9e8" firstAttribute="top" secondItem="7Us-7m-Xnz" secondAttribute="bottom" id="eyF-Sb-Ggt"/>
+                <constraint firstItem="tlg-P4-9e8" firstAttribute="top" secondItem="7Us-7m-Xnz" secondAttribute="bottom" constant="5" id="eyF-Sb-Ggt"/>
                 <constraint firstAttribute="bottom" secondItem="tlg-P4-9e8" secondAttribute="bottom" constant="20" id="fgx-2p-jws"/>
                 <constraint firstItem="VcM-tV-bFS" firstAttribute="top" secondItem="HaE-7x-pbp" secondAttribute="bottom" constant="13" id="iVJ-k2-CTY"/>
                 <constraint firstItem="Uki-Mi-pAz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="j9R-Ua-R3l"/>
