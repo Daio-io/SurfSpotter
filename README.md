@@ -14,7 +14,6 @@ Long game:
 
 - Create settings page for custom setup
 - Switch to a remote config solution if needed
-- Add my beaches section
 - Ability to search for beach by name
 - Show data over few days
 - Scan range seek bar styling - maybe do something further with this?
