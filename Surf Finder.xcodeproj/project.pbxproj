@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10B6C981375FA3186DD44719 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6CC31FBBDB5AD8E10BF56 /* Config.swift */; };
 		230019A21C8C80280053B047 /* BeachFinderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230019A11C8C80280053B047 /* BeachFinderButton.swift */; };
 		230019A61C8C925A0053B047 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230019A51C8C925A0053B047 /* LaunchScreen.storyboard */; };
 		23209C751CA2060F00978FC9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23209C741CA2060F00978FC9 /* AboutViewController.swift */; };
 		23209C771CA206CC00978FC9 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23209C761CA206CC00978FC9 /* AboutViewController.xib */; };
 		23209C791CA3203400978FC9 /* BeachFinderMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23209C781CA3203400978FC9 /* BeachFinderMap.swift */; };
+		234638F01CA76C6D00FEF119 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234638EF1CA76C6D00FEF119 /* Config.swift */; };
 		237ACFD01CA5D2D60059A25E /* CurrentLocationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237ACFCF1CA5D2D60059A25E /* CurrentLocationResult.swift */; };
 		237ACFD41CA751B50059A25E /* DistanceFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237ACFD31CA751B50059A25E /* DistanceFinder.swift */; };
 		23BCF31E1C864F6D007AD549 /* NSDate+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCF31D1C864F6D007AD549 /* NSDate+Time.swift */; };
@@ -70,12 +70,12 @@
 
 /* Begin PBXFileReference section */
 		07050374223A7CBAE10AD995 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		10B6CC31FBBDB5AD8E10BF56 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		230019A11C8C80280053B047 /* BeachFinderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachFinderButton.swift; sourceTree = "<group>"; };
 		230019A51C8C925A0053B047 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23209C741CA2060F00978FC9 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		23209C761CA206CC00978FC9 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		23209C781CA3203400978FC9 /* BeachFinderMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachFinderMap.swift; sourceTree = "<group>"; };
+		234638EF1CA76C6D00FEF119 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		237ACFCF1CA5D2D60059A25E /* CurrentLocationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationResult.swift; sourceTree = "<group>"; };
 		237ACFD31CA751B50059A25E /* DistanceFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceFinder.swift; sourceTree = "<group>"; };
 		23BCF31D1C864F6D007AD549 /* NSDate+Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Time.swift"; sourceTree = "<group>"; };
@@ -133,14 +133,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		10B6C9278A9465A6062CF2F1 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				10B6CC31FBBDB5AD8E10BF56 /* Config.swift */,
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
 		230019A41C8C924E0053B047 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +140,14 @@
 			);
 			path = Support;
 			sourceTree = "<group>";
+		};
+		234638EE1CA76C5C00FEF119 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				234638EF1CA76C6D00FEF119 /* Config.swift */,
+			);
+			path = Config;
+			sourceTree = SOURCE_ROOT;
 		};
 		23EF260B1C9D8C1300CDCC9D /* ViewBinders */ = {
 			isa = PBXGroup;
@@ -217,6 +217,7 @@
 		5753BEB61C4458D500304498 /* BeachFinder */ = {
 			isa = PBXGroup;
 			children = (
+				234638EE1CA76C5C00FEF119 /* Config */,
 				23EF26221C9F1D4700CDCC9D /* Assets.xcassets */,
 				230019A41C8C924E0053B047 /* Support */,
 				57E04E711C825CDE003DED3D /* Utils */,
@@ -228,7 +229,6 @@
 				5753BEB71C4458D500304498 /* AppDelegate.swift */,
 				5753BEC31C4458D500304498 /* Info.plist */,
 				BA88B183CF261F1501B58AEB /* Model */,
-				10B6C9278A9465A6062CF2F1 /* Config */,
 			);
 			path = BeachFinder;
 			sourceTree = "<group>";
@@ -468,13 +468,13 @@
 				23EF26191C9DE2A400CDCC9D /* LicenseViewController.swift in Sources */,
 				57690CC01C6BA3A700B7361A /* BeachLocationCell.swift in Sources */,
 				230019A21C8C80280053B047 /* BeachFinderButton.swift in Sources */,
+				234638F01CA76C6D00FEF119 /* Config.swift in Sources */,
 				23209C751CA2060F00978FC9 /* AboutViewController.swift in Sources */,
 				23EF26061C9CAD9A00CDCC9D /* BeachSwellStarsView.swift in Sources */,
 				57E04E751C8260CA003DED3D /* BeachFinderLabel.swift in Sources */,
 				23D6C5B71C97512000F891A7 /* StartUpViewController.swift in Sources */,
 				23EF261F1C9EEEC300CDCC9D /* HomeViewModelBinder.swift in Sources */,
 				57F6AE381C71DC4D009A152B /* BeachSurfReport.swift in Sources */,
-				10B6C981375FA3186DD44719 /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
