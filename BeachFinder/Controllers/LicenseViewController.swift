@@ -33,8 +33,8 @@ class LicenseViewController: UIViewController, UIWebViewDelegate {
     
     func loadLicense() {
         if let path = NSBundle.mainBundle().pathForResource("license", ofType: "html") {
-            let url = NSURL(string: path)
-            let request = NSURLRequest(URL: url!)
+            let url = NSURL(fileURLWithPath: path)
+            let request = NSURLRequest(URL: url)
             webView.loadRequest(request)
         }
     }
