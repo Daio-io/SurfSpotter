@@ -36,7 +36,14 @@ class MyBeachesViewController: BeachLocationsViewController {
         beaches = beaches.filter({ (beachLocation) -> Bool in
             return beachLocation.isFavourited.value
         })
-        self.tableView.reloadData()
+        animateReloadTableData()
+    }
+    
+    private func animateReloadTableData() {
+        UIView.transitionWithView(self.tableView, duration: 0.4, options: .TransitionCrossDissolve, animations: {
+            self.tableView.reloadData()
+            }, completion: nil)
+        
     }
     
 }

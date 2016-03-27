@@ -38,10 +38,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJD-Hh-Tal" customClass="FavouriteButton" customModule="Surf_Finder" customModuleProvider="target">
-                                <rect key="frame" x="511" y="23" width="30" height="30"/>
+                                <rect key="frame" x="516" y="25" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="VqA-Mu-y43"/>
-                                    <constraint firstAttribute="height" constant="30" id="jON-FQ-FKW"/>
+                                    <constraint firstAttribute="width" constant="25" id="VqA-Mu-y43"/>
+                                    <constraint firstAttribute="height" constant="25" id="jON-FQ-FKW"/>
                                 </constraints>
                                 <state key="normal" image="not-fav"/>
                                 <connections>
@@ -55,8 +55,8 @@
                             <constraint firstItem="LT7-zT-uzu" firstAttribute="top" secondItem="dcX-ZF-gwg" secondAttribute="bottom" constant="9" id="A3X-Aq-doL"/>
                             <constraint firstAttribute="height" constant="75" id="JBt-rb-yAj"/>
                             <constraint firstItem="LT7-zT-uzu" firstAttribute="leading" secondItem="dcX-ZF-gwg" secondAttribute="leading" id="UOE-Ud-YXh"/>
-                            <constraint firstItem="MJD-Hh-Tal" firstAttribute="leading" secondItem="bwy-Ur-abZ" secondAttribute="trailing" constant="20" id="UtT-0e-3Sp"/>
-                            <constraint firstItem="MJD-Hh-Tal" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" constant="23" id="ctu-lV-8zv"/>
+                            <constraint firstItem="MJD-Hh-Tal" firstAttribute="leading" secondItem="bwy-Ur-abZ" secondAttribute="trailing" constant="25" id="UtT-0e-3Sp"/>
+                            <constraint firstItem="MJD-Hh-Tal" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" constant="25" id="ctu-lV-8zv"/>
                             <constraint firstItem="dcX-ZF-gwg" firstAttribute="leading" secondItem="xea-YT-oDw" secondAttribute="leading" constant="8" id="dWz-7A-Deh"/>
                             <constraint firstItem="dcX-ZF-gwg" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" constant="8" id="u6Y-Yr-M1A"/>
                             <constraint firstItem="bwy-Ur-abZ" firstAttribute="top" secondItem="xea-YT-oDw" secondAttribute="top" constant="5" id="vph-hH-vP2"/>
