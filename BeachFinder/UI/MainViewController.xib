@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="Surf_Finder" customModuleProvider="target">
             <connections>
+                <outlet property="beachCountLabel" destination="7qo-Kp-pR9" id="VNf-Fb-bhd"/>
                 <outlet property="currentCityLabel" destination="Gvg-mv-kgh" id="Hx0-Yk-MSY"/>
                 <outlet property="distanceLabel" destination="HaE-7x-pbp" id="kcb-Cx-Yoh"/>
                 <outlet property="distanceSlider" destination="tlg-P4-9e8" id="1uF-mw-qJA"/>
@@ -22,19 +23,29 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="tlg-P4-9e8">
+                    <rect key="frame" x="53" y="550" width="476" height="31"/>
+                    <color key="tintColor" red="1" green="0.82352941180000006" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                </slider>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaE-7x-pbp">
-                    <rect key="frame" x="550" y="363" width="42" height="21"/>
+                    <rect key="frame" x="550" y="363" width="42" height="22"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0078431372550000003" green="0.45882352939999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMZ-lA-qg9" customClass="BeachFinderButton" customModule="Surf_Finder" customModuleProvider="target">
-                    <rect key="frame" x="8" y="359" width="96" height="30"/>
+                    <rect key="frame" x="8" y="359" width="95" height="31"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.38431372549999998" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="95" id="qQv-JB-pgr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                     <state key="normal" title="View Beaches">
-                        <color key="titleColor" red="0.93725490196078431" green="0.3843137254901961" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="disabled">
-                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="disabled" title="None Found">
+                        <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                     </state>
                     <connections>
                         <action selector="viewLocations:" destination="-1" eventType="touchUpInside" id="LP1-WB-N7j"/>
@@ -127,7 +138,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VcM-tV-bFS" userLabel="Divider">
-                    <rect key="frame" x="0.0" y="397" width="600" height="1"/>
+                    <rect key="frame" x="0.0" y="398" width="600" height="1"/>
                     <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="0PR-R7-WeH"/>
@@ -156,14 +167,22 @@
                                 <action selector="settingsClicked:" destination="-1" eventType="touchUpInside" id="JBL-6W-ZRc"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qo-Kp-pR9" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
+                            <rect key="frame" x="12" y="30" width="9.5" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="GLJ-d1-QHN" secondAttribute="trailing" constant="13" id="D7D-1d-r0k"/>
                         <constraint firstItem="GLJ-d1-QHN" firstAttribute="top" secondItem="ILB-Qa-nRf" secondAttribute="top" constant="22" id="Q0b-Ib-Ijc"/>
+                        <constraint firstItem="7qo-Kp-pR9" firstAttribute="leading" secondItem="ILB-Qa-nRf" secondAttribute="leading" constant="12" id="Th0-bU-eqi"/>
                         <constraint firstAttribute="height" constant="55" id="WjA-Hw-RQA"/>
                         <constraint firstAttribute="trailing" secondItem="GLJ-d1-QHN" secondAttribute="trailing" constant="8" id="aFw-a9-NKu"/>
                         <constraint firstItem="GLJ-d1-QHN" firstAttribute="top" secondItem="ILB-Qa-nRf" secondAttribute="top" constant="17" id="du5-Yu-FTM"/>
+                        <constraint firstItem="7qo-Kp-pR9" firstAttribute="top" secondItem="ILB-Qa-nRf" secondAttribute="top" constant="30" id="ghl-KM-5Qf"/>
                         <constraint firstAttribute="trailing" secondItem="GLJ-d1-QHN" secondAttribute="trailing" constant="37" id="zLk-hi-xhW"/>
                     </constraints>
                     <variation key="default">
@@ -187,15 +206,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan Range" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Us-7m-Xnz" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
-                    <rect key="frame" x="266.5" y="530.5" width="67.5" height="14.5"/>
+                    <rect key="frame" x="266" y="530" width="67.5" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="tlg-P4-9e8">
-                    <rect key="frame" x="53" y="550" width="476" height="31"/>
-                    <color key="tintColor" red="1" green="0.82352941180000006" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
-                </slider>
             </subviews>
             <color key="backgroundColor" red="0.96078431372549022" green="0.94509803921568625" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>

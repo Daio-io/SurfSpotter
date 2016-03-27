@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var currentCityLabel: BeachFinderLabel!
     @IBOutlet private weak var viewBeachesButton: BeachFinderButton!
     @IBOutlet private weak var errorButton: UIButton!
+    @IBOutlet private weak var beachCountLabel: BeachFinderLabel!
     
     private let disposeBag = DisposeBag()
     
@@ -49,6 +50,12 @@ class MainViewController: UIViewController {
     
     private func bindViewsToViewModel() {
         mainMapView.myLocationEnabled = true
+        
+        viewModel.locations.asObservable()
+            .map { (locations) -> String in
+            return "\(locations.count) Beaches"
+        }.bindTo(beachCountLabel.rx_text)
+            .addDisposableTo(disposeBag)
         
         viewBinder.bindToBeachScan(viewModel)
             .addDisposableTo(disposeBag)
