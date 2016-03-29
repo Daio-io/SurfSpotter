@@ -25,6 +25,10 @@ class StartUpViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
+    override func viewDidLoad() {
+        startingText.changeToFont = "Roboto-Bold"
+    }
+    
     override func viewDidAppear(animated: Bool) {
         delay(0.5) { [unowned self] () -> () in
             self.loadServices()
