@@ -26,7 +26,7 @@ class StartUpViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        startingText.changeToFont = "Roboto-Bold"
+        startingText.changeToFont = "Roboto-Medium"
     }
     
     override func viewDidAppear(animated: Bool) {
