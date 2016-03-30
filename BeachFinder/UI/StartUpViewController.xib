@@ -17,15 +17,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting up.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMR-TF-xeq" customClass="BeachFinderLabel" customModule="Surf_Finder" customModuleProvider="target">
-                    <rect key="frame" x="253" y="313" width="94" height="20.5"/>
+                    <rect key="frame" x="253" y="318" width="94" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="vrX-Hr-LAw">
-                    <rect key="frame" x="290" y="343.5" width="20" height="20"/>
+                    <rect key="frame" x="290" y="348.5" width="20" height="20"/>
                 </activityIndicatorView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wave" translatesAutoresizingMaskIntoConstraints="NO" id="1tt-ex-Gp2">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-icon" translatesAutoresizingMaskIntoConstraints="NO" id="1tt-ex-Gp2">
                     <rect key="frame" x="275" y="258" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="18G-Vb-Hit"/>
@@ -41,7 +41,7 @@
                 <constraint firstItem="vrX-Hr-LAw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DHz-AH-iI3"/>
                 <constraint firstItem="1tt-ex-Gp2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="GU1-9L-Zgl"/>
                 <constraint firstItem="vrX-Hr-LAw" firstAttribute="top" secondItem="oMR-TF-xeq" secondAttribute="bottom" constant="10" id="JJ9-R8-gSH"/>
-                <constraint firstItem="oMR-TF-xeq" firstAttribute="top" secondItem="1tt-ex-Gp2" secondAttribute="bottom" constant="5" id="SdM-em-4OQ"/>
+                <constraint firstItem="oMR-TF-xeq" firstAttribute="top" secondItem="1tt-ex-Gp2" secondAttribute="bottom" constant="10" id="SdM-em-4OQ"/>
                 <constraint firstItem="1tt-ex-Gp2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nw7-6L-RLV"/>
                 <constraint firstItem="1tt-ex-Gp2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yKx-R3-fU6"/>
             </constraints>
@@ -55,6 +55,6 @@
         </view>
     </objects>
     <resources>
-        <image name="wave" width="52" height="52"/>
+        <image name="logo-icon" width="120" height="120"/>
     </resources>
 </document>
