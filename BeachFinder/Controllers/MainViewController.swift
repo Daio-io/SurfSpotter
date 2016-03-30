@@ -53,7 +53,7 @@ class MainViewController: UIViewController {
         
         viewModel.locations.asObservable()
             .map { (locations) -> String in
-            return "\(locations.count) Beaches"
+            return "\(locations.count) Spots"
         }.bindTo(beachCountLabel.rx_text)
             .addDisposableTo(disposeBag)
         
