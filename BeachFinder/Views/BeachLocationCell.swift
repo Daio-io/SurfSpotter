@@ -18,6 +18,7 @@ class BeachLocationCell : FoldingCell {
     @IBOutlet private weak var closedTitle: UILabel!
     @IBOutlet private weak var distanceToBeachLabel: BeachFinderLabel!
     @IBOutlet private weak var favouriteButton: FavouriteButton!
+    @IBOutlet weak var closeFavButton: FavouriteButton!
     
     // Open cell
     @IBOutlet private weak var mapPlaceholder: UIView!
@@ -76,7 +77,8 @@ class BeachLocationCell : FoldingCell {
             .addDisposableTo(disposeBag)
         
         viewModel.isFavourited.asObservable()
-            .doOnNext { (fav) in
+            .doOnNext { [unowned self] (fav) in
+            self.closeFavButton.favourite = fav
             self.favouriteButton.favourite = fav
         }.subscribe().addDisposableTo(disposeBag)
         

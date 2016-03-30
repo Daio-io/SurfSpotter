@@ -23,9 +23,9 @@ class FavouriteButton: UIButton {
         }
         set(favourited) {
             if favourited == true {
-                self.animateChangeToImage("fav")
+                self.animateChangeToImage("minus")
             } else {
-                self.animateChangeToImage("not-fav")
+                self.animateChangeToImage("plus")
             }
             isFavourited = favourited
         }
