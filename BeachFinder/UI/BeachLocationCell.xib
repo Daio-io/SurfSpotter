@@ -44,7 +44,7 @@
                                     <constraint firstAttribute="width" constant="70" id="VqA-Mu-y43"/>
                                     <constraint firstAttribute="height" constant="50" id="jON-FQ-FKW"/>
                                 </constraints>
-                                <inset key="contentEdgeInsets" minX="20" minY="25" maxX="20" maxY="20"/>
+                                <inset key="contentEdgeInsets" minX="25" minY="30" maxX="25" maxY="25"/>
                                 <state key="normal" image="plus"/>
                                 <variation key="default">
                                     <mask key="constraints">
