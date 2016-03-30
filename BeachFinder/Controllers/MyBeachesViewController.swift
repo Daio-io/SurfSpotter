@@ -15,7 +15,7 @@ class MyBeachesViewController: BeachLocationsViewController {
     
     override init(beaches: [BeachLocationItemViewModel] = [],
                   cellViewBinder: LocationCellBinder = BeachViewModelBinder(),
-                  title: String = "My Beaches") {
+                  title: String = "My Spots") {
         
         super.init(beaches: beaches, cellViewBinder: cellViewBinder, title: title)
         bindFavouriteChanges()

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnBoardingViewController" customModule="Surf_Spotter" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="dQM-p6-IZy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-icon" translatesAutoresizingMaskIntoConstraints="NO" id="q9K-UX-GA4">
+                    <rect key="frame" x="275" y="501" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="AfD-dB-mzy"/>
+                        <constraint firstAttribute="width" constant="50" id="uhX-dY-qlS"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Surf Spotter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rft-Xp-bBU" customClass="BeachFinderLabel" customModule="Surf_Spotter" customModuleProvider="target">
+                    <rect key="frame" x="253" y="559.5" width="94" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lh4-Gg-6hf" userLabel="Container">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="405"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0x-Sr-cOS" userLabel="Slider Container">
+                            <rect key="frame" x="0.0" y="60" width="600" height="50"/>
+                            <subviews>
+                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ERG-jw-9Hv">
+                                    <rect key="frame" x="33" y="8" width="63" height="31"/>
+                                    <color key="tintColor" red="1" green="0.82352941180000006" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="59" id="ALd-7r-lEe"/>
+                                    </constraints>
+                                </slider>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan to find spots" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRP-or-ipH" customClass="BeachFinderLabel" customModule="Surf_Spotter" customModuleProvider="target">
+                                    <rect key="frame" x="108" y="14" width="124" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0047203559909999998" green="0.56862801240000005" blue="0.48065662479999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="GSZ-j7-Lnl"/>
+                                <constraint firstAttribute="width" constant="600" id="igU-mH-RGR"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="600" id="rpb-TE-VGX"/>
+                                <constraint firstItem="ERG-jw-9Hv" firstAttribute="leading" secondItem="i0x-Sr-cOS" secondAttribute="leading" constant="35" id="tWJ-yv-uFi"/>
+                                <constraint firstItem="ERG-jw-9Hv" firstAttribute="top" secondItem="i0x-Sr-cOS" secondAttribute="top" constant="8" id="tdp-qW-mb8"/>
+                                <constraint firstItem="iRP-or-ipH" firstAttribute="top" secondItem="i0x-Sr-cOS" secondAttribute="top" constant="14" id="tk2-7S-XPb"/>
+                                <constraint firstItem="iRP-or-ipH" firstAttribute="leading" secondItem="ERG-jw-9Hv" secondAttribute="trailing" constant="14" id="xPo-ls-LTn"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="igU-mH-RGR"/>
+                                    <exclude reference="rpb-TE-VGX"/>
+                                </mask>
+                            </variation>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lgD-wj-iXP" userLabel="View Spots Container">
+                            <rect key="frame" x="0.0" y="110" width="600" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSu-jv-EFB">
+                                    <rect key="frame" x="34" y="12" width="60" height="25"/>
+                                    <color key="backgroundColor" red="0.93725490199999995" green="0.38431372549999998" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" id="NTJ-vg-AEd"/>
+                                        <constraint firstAttribute="width" constant="60" id="rGj-Qy-kVz"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <state key="normal" title="View Spots">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View found spots" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPo-aK-hFI" customClass="BeachFinderLabel" customModule="Surf_Spotter" customModuleProvider="target">
+                                    <rect key="frame" x="109" y="14" width="118.5" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0047203559909999998" green="0.56862801240000005" blue="0.48065662479999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="QPo-aK-hFI" firstAttribute="top" secondItem="lgD-wj-iXP" secondAttribute="top" constant="14" id="2jO-UA-56r"/>
+                                <constraint firstItem="cSu-jv-EFB" firstAttribute="leading" secondItem="lgD-wj-iXP" secondAttribute="leading" constant="34" id="9Mu-A4-2RE"/>
+                                <constraint firstItem="cSu-jv-EFB" firstAttribute="top" secondItem="lgD-wj-iXP" secondAttribute="top" constant="12" id="MQN-DO-7g4"/>
+                                <constraint firstItem="QPo-aK-hFI" firstAttribute="leading" secondItem="cSu-jv-EFB" secondAttribute="trailing" constant="15" id="Vie-Ro-pva"/>
+                                <constraint firstAttribute="height" constant="50" id="qT6-iW-U8O"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWJ-eF-I9l" userLabel="Navigate Container">
+                            <rect key="frame" x="0.0" y="160" width="600" height="50"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navigate" translatesAutoresizingMaskIntoConstraints="NO" id="6Ah-oC-5vb">
+                                    <rect key="frame" x="48" y="10" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="Iby-cX-1fV"/>
+                                        <constraint firstAttribute="width" constant="30" id="vo2-jC-47O"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Navigate in Maps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsB-0k-6Qm" customClass="BeachFinderLabel" customModule="Surf_Spotter" customModuleProvider="target">
+                                    <rect key="frame" x="110" y="14" width="118" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0047203559909999998" green="0.56862801240000005" blue="0.48065662479999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="jsB-0k-6Qm" firstAttribute="leading" secondItem="6Ah-oC-5vb" secondAttribute="trailing" constant="32" id="IUy-I2-z6M"/>
+                                <constraint firstAttribute="height" constant="50" id="Lf0-in-Hcv"/>
+                                <constraint firstItem="jsB-0k-6Qm" firstAttribute="top" secondItem="iWJ-eF-I9l" secondAttribute="top" constant="14" id="OCo-Gb-FWh"/>
+                                <constraint firstItem="6Ah-oC-5vb" firstAttribute="top" secondItem="iWJ-eF-I9l" secondAttribute="top" constant="10" id="dCV-Wb-hIc"/>
+                                <constraint firstItem="6Ah-oC-5vb" firstAttribute="leading" secondItem="iWJ-eF-I9l" secondAttribute="leading" constant="48" id="uR1-Q7-l7Q"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFt-1H-zet" userLabel="My Beaches Container">
+                            <rect key="frame" x="0.0" y="260" width="600" height="50"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beach-info" translatesAutoresizingMaskIntoConstraints="NO" id="Adn-0X-iX4">
+                                    <rect key="frame" x="48" y="10" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="YFi-dz-km0"/>
+                                        <constraint firstAttribute="width" constant="30" id="ZLl-ca-gxP"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to view &quot;My Spots&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEG-Ys-7Yb" customClass="BeachFinderLabel" customModule="Surf_Spotter" customModuleProvider="target">
+                                    <rect key="frame" x="110" y="14" width="159" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0047203559909999998" green="0.56862801240000005" blue="0.48065662479999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="vEG-Ys-7Yb" firstAttribute="leading" secondItem="Adn-0X-iX4" secondAttribute="trailing" constant="32" id="9GP-9c-Nuf"/>
+                                <constraint firstItem="Adn-0X-iX4" firstAttribute="leading" secondItem="EFt-1H-zet" secondAttribute="leading" constant="48" id="NsD-5L-Kal"/>
+                                <constraint firstItem="vEG-Ys-7Yb" firstAttribute="top" secondItem="EFt-1H-zet" secondAttribute="top" constant="14" id="XX6-rz-fsO"/>
+                                <constraint firstItem="Adn-0X-iX4" firstAttribute="top" secondItem="EFt-1H-zet" secondAttribute="top" constant="10" id="ZuB-4j-0Yp"/>
+                                <constraint firstAttribute="height" constant="50" id="bF6-H8-0GG"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unf-yg-zsZ" userLabel="Add Container">
+                            <rect key="frame" x="0.0" y="210" width="600" height="50"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="nyI-iO-blz">
+                                    <rect key="frame" x="31" y="10" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="Lc3-L4-GDp"/>
+                                        <constraint firstAttribute="height" constant="30" id="boA-QB-DJ9"/>
+                                    </constraints>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="minus" translatesAutoresizingMaskIntoConstraints="NO" id="Tdn-w5-1Is">
+                                    <rect key="frame" x="64" y="10" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="3j1-j8-lDA"/>
+                                        <constraint firstAttribute="height" constant="30" id="w2R-fT-XLe"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add/remove to &quot;My Spots&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLT-k5-UBb" customClass="BeachFinderLabel" customModule="Surf_Spotter" customModuleProvider="target">
+                                    <rect key="frame" x="110" y="14" width="182" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0047203559909999998" green="0.56862801240000005" blue="0.48065662479999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="eLT-k5-UBb" firstAttribute="top" secondItem="unf-yg-zsZ" secondAttribute="top" constant="14" id="BwS-1D-WL0"/>
+                                <constraint firstItem="nyI-iO-blz" firstAttribute="leading" secondItem="unf-yg-zsZ" secondAttribute="leading" constant="31" id="Kkw-mR-75h"/>
+                                <constraint firstItem="nyI-iO-blz" firstAttribute="top" secondItem="unf-yg-zsZ" secondAttribute="top" constant="10" id="XfE-pF-hsS"/>
+                                <constraint firstItem="Tdn-w5-1Is" firstAttribute="top" secondItem="unf-yg-zsZ" secondAttribute="top" constant="10" id="iJJ-rX-cR8"/>
+                                <constraint firstItem="Tdn-w5-1Is" firstAttribute="leading" secondItem="nyI-iO-blz" secondAttribute="trailing" constant="3" id="tPX-Rb-dvJ"/>
+                                <constraint firstItem="eLT-k5-UBb" firstAttribute="leading" secondItem="Tdn-w5-1Is" secondAttribute="trailing" constant="16" id="uZl-Ji-QdT"/>
+                                <constraint firstAttribute="height" constant="50" id="zRi-ae-QJH"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0047203559909999998" green="0.56862801240000005" blue="0.48065662479999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="iWJ-eF-I9l" firstAttribute="leading" secondItem="Lh4-Gg-6hf" secondAttribute="leading" id="30X-LL-r5g"/>
+                        <constraint firstItem="i0x-Sr-cOS" firstAttribute="top" secondItem="Lh4-Gg-6hf" secondAttribute="top" constant="60" id="6aB-Y5-GnG"/>
+                        <constraint firstItem="unf-yg-zsZ" firstAttribute="top" secondItem="iWJ-eF-I9l" secondAttribute="bottom" id="6bs-ES-gne"/>
+                        <constraint firstItem="EFt-1H-zet" firstAttribute="top" secondItem="unf-yg-zsZ" secondAttribute="bottom" id="AkS-Ee-25u"/>
+                        <constraint firstAttribute="trailing" secondItem="iWJ-eF-I9l" secondAttribute="trailing" id="FXl-Cf-gzG"/>
+                        <constraint firstItem="lgD-wj-iXP" firstAttribute="leading" secondItem="Lh4-Gg-6hf" secondAttribute="leading" id="FtN-s5-bNu"/>
+                        <constraint firstAttribute="trailing" secondItem="unf-yg-zsZ" secondAttribute="trailing" id="LoD-ZL-H6L"/>
+                        <constraint firstItem="EFt-1H-zet" firstAttribute="leading" secondItem="Lh4-Gg-6hf" secondAttribute="leading" id="Qoi-45-1Fi"/>
+                        <constraint firstItem="lgD-wj-iXP" firstAttribute="top" secondItem="i0x-Sr-cOS" secondAttribute="bottom" id="Ycj-gv-ESM"/>
+                        <constraint firstItem="iWJ-eF-I9l" firstAttribute="top" secondItem="lgD-wj-iXP" secondAttribute="bottom" id="ahM-s9-1XQ"/>
+                        <constraint firstItem="i0x-Sr-cOS" firstAttribute="leading" secondItem="Lh4-Gg-6hf" secondAttribute="leading" id="cvd-VS-OBo"/>
+                        <constraint firstAttribute="trailing" secondItem="EFt-1H-zet" secondAttribute="trailing" id="mdP-7r-6pv"/>
+                        <constraint firstItem="unf-yg-zsZ" firstAttribute="leading" secondItem="Lh4-Gg-6hf" secondAttribute="leading" id="sdd-be-vx1"/>
+                        <constraint firstAttribute="trailing" secondItem="lgD-wj-iXP" secondAttribute="trailing" id="yPW-fh-rVr"/>
+                        <constraint firstAttribute="trailing" secondItem="i0x-Sr-cOS" secondAttribute="trailing" id="zVx-9h-z1w"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoh-Ee-6pA">
+                    <rect key="frame" x="264" y="454" width="72" height="30"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.38431372549999998" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="72" id="F3l-BA-Tqu"/>
+                        <constraint firstAttribute="height" constant="30" id="Fxw-Iy-HFl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="OK, Got it!">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="okButtonClicked:" destination="-1" eventType="touchUpInside" id="8mi-ZI-bie"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0047203559909999998" green="0.56862801240000005" blue="0.48065662479999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="rft-Xp-bBU" secondAttribute="bottom" constant="20" id="0D3-Hi-6VH"/>
+                <constraint firstAttribute="trailing" secondItem="Lh4-Gg-6hf" secondAttribute="trailing" id="2AZ-4O-xtV"/>
+                <constraint firstAttribute="bottom" secondItem="Lh4-Gg-6hf" secondAttribute="bottom" constant="195" id="DAF-3X-u0B"/>
+                <constraint firstItem="q9K-UX-GA4" firstAttribute="top" secondItem="qoh-Ee-6pA" secondAttribute="bottom" constant="17" id="Jrd-Ys-4Xp"/>
+                <constraint firstItem="rft-Xp-bBU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="X6p-rB-v9V"/>
+                <constraint firstItem="qoh-Ee-6pA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Zim-iq-1hr"/>
+                <constraint firstItem="Lh4-Gg-6hf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="g9a-uz-l52"/>
+                <constraint firstItem="q9K-UX-GA4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nPR-1W-W0V"/>
+                <constraint firstItem="rft-Xp-bBU" firstAttribute="top" secondItem="q9K-UX-GA4" secondAttribute="bottom" constant="8" id="tSb-dX-iHN"/>
+                <constraint firstItem="Lh4-Gg-6hf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zyD-GV-TLb"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="beach-info" width="96" height="96"/>
+        <image name="logo-icon" width="120" height="120"/>
+        <image name="minus" width="50" height="50"/>
+        <image name="navigate" width="48" height="48"/>
+        <image name="plus" width="50" height="50"/>
+    </resources>
+</document>

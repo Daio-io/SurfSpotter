@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		230019A21C8C80280053B047 /* BeachFinderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230019A11C8C80280053B047 /* BeachFinderButton.swift */; };
 		230019A61C8C925A0053B047 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230019A51C8C925A0053B047 /* LaunchScreen.storyboard */; };
+		23184C521CAC52EE00620D86 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23184C511CAC52EE00620D86 /* OnBoardingViewController.swift */; };
+		23184C541CAC532E00620D86 /* OnBoardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23184C531CAC532E00620D86 /* OnBoardingViewController.xib */; };
 		23209C751CA2060F00978FC9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23209C741CA2060F00978FC9 /* AboutViewController.swift */; };
 		23209C771CA206CC00978FC9 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23209C761CA206CC00978FC9 /* AboutViewController.xib */; };
 		23209C791CA3203400978FC9 /* BeachFinderMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23209C781CA3203400978FC9 /* BeachFinderMap.swift */; };
@@ -75,6 +77,8 @@
 		07050374223A7CBAE10AD995 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		230019A11C8C80280053B047 /* BeachFinderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachFinderButton.swift; sourceTree = "<group>"; };
 		230019A51C8C925A0053B047 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		23184C511CAC52EE00620D86 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		23184C531CAC532E00620D86 /* OnBoardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnBoardingViewController.xib; sourceTree = "<group>"; };
 		23209C741CA2060F00978FC9 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		23209C761CA206CC00978FC9 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		23209C781CA3203400978FC9 /* BeachFinderMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachFinderMap.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 				23D6C5B81C97515200F891A7 /* StartUpViewController.xib */,
 				23EF26161C9DE1F800CDCC9D /* LicenseViewController.xib */,
 				23209C761CA206CC00978FC9 /* AboutViewController.xib */,
+				23184C531CAC532E00620D86 /* OnBoardingViewController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 				23D6C5B61C97512000F891A7 /* StartUpViewController.swift */,
 				23209C741CA2060F00978FC9 /* AboutViewController.swift */,
 				239632F61CA82D0500DC06E8 /* MyBeachesViewController.swift */,
+				23184C511CAC52EE00620D86 /* OnBoardingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23D6C5B91C97515200F891A7 /* StartUpViewController.xib in Resources */,
+				23184C541CAC532E00620D86 /* OnBoardingViewController.xib in Resources */,
 				230019A61C8C925A0053B047 /* LaunchScreen.storyboard in Resources */,
 				23EF26231C9F1D4700CDCC9D /* Assets.xcassets in Resources */,
 				57E04E6C1C821AD7003DED3D /* Roboto-Regular.ttf in Resources */,
@@ -484,6 +491,7 @@
 				234638F51CA7EAA700FEF119 /* MyBeachesService.swift in Sources */,
 				57E04E751C8260CA003DED3D /* BeachFinderLabel.swift in Sources */,
 				23D6C5B71C97512000F891A7 /* StartUpViewController.swift in Sources */,
+				23184C521CAC52EE00620D86 /* OnBoardingViewController.swift in Sources */,
 				23EF261F1C9EEEC300CDCC9D /* HomeViewModelBinder.swift in Sources */,
 				239632F71CA82D0500DC06E8 /* MyBeachesViewController.swift in Sources */,
 				57F6AE381C71DC4D009A152B /* BeachSurfReport.swift in Sources */,

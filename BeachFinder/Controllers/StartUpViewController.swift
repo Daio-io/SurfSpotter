@@ -11,11 +11,14 @@ import RxSwift
 
 class StartUpViewController: UIViewController {
     
-    private let disposeBag = DisposeBag()
     @IBOutlet weak var startingText: BeachFinderLabel!
     
+    private let disposeBag = DisposeBag()
     private let locatorEndpoint = "https://beach-locator.herokuapp.com/status"
     private let surfQueryEndpoint = "https://surf-query.herokuapp.com/status"
+    private let NotFirstRunKey = "NotFirstRun"
+    
+    private lazy var userDefaults = NSUserDefaults.standardUserDefaults()
     
     init() {
         super.init(nibName: "StartUpViewController", bundle: nil)
@@ -46,9 +49,16 @@ class StartUpViewController: UIViewController {
     }
 
     func displayMainViewController() {
-        let viewModel = ViewModelFactory.homeViewModel()
-        let mainController = MainViewController(viewModel: viewModel, viewBinder: HomeViewModelBinder())
-        navigationController?.setViewControllers([mainController], animated: true)
+        
+        if userDefaults.boolForKey(NotFirstRunKey) {
+            let viewModel = ViewModelFactory.homeViewModel()
+            let mainController = MainViewController(viewModel: viewModel, viewBinder: HomeViewModelBinder())
+            navigationController?.setViewControllers([mainController], animated: true)
+        } else {
+            userDefaults.setObject(true, forKey: NotFirstRunKey)
+            navigationController?.setViewControllers([OnBoardingViewController()], animated: true)
+        }
+
     }
     
     func delay(delay:Double, closure:()->()) {

@@ -24,7 +24,7 @@ class BeachLocationsViewController: UITableViewController {
     
     init(beaches: [BeachLocationItemViewModel] = [],
          cellViewBinder: LocationCellBinder = BeachViewModelBinder(),
-         title: String = "Beaches") {
+         title: String = "Spots") {
         self.beaches = beaches
         self.cellViewBinder = cellViewBinder
         super.init(nibName: "BeachLocationsViewController", bundle: nil)

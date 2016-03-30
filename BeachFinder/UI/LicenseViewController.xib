@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutViewController" customModule="BeachFinder" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutViewController" customModule="Surf_Spotter" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="iN0-l3-epB" id="rxj-AJ-Y6I"/>
                 <outlet property="webView" destination="IcG-Ab-QRq" id="bZA-kd-Ul8"/>
