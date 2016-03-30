@@ -1,4 +1,4 @@
-# Surf Finder
+# Surf Spotter
 
 What started out as a little hack around with RXSwift I am now turning into an app
 
