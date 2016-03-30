@@ -12,6 +12,7 @@ So, TODO:
 
 Long game:
 
+- Break out ui components into separate views and xib's
 - Create settings page for custom setup
 - Switch to a remote config solution if needed
 - Ability to search for beach by name
