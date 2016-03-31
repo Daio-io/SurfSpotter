@@ -6,7 +6,6 @@
 //  Copyright © 2016 daio. All rights reserved.
 //
 
-import Foundation
 import RxSwift
 
 struct HomeViewModel {

@@ -6,8 +6,6 @@
 //  Copyright © 2016 daio. All rights reserved.
 //
 
-import Foundation
-
 class ViewModelFactory {
     
     private static let currentLocationService = CurrentLocationService(distanceFinder: DistanceFinder())

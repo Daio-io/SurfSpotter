@@ -6,8 +6,6 @@
 //  Copyright © 2016 daio. All rights reserved.
 //
 
-import Foundation
-
 class DistanceConverter {
     
     private static let metersInAMile: Float = 1609.3
