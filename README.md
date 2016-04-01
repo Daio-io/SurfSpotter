@@ -6,13 +6,9 @@ What started out as a little hack around with RXSwift I am now turning into an a
 
 #### You can leave at this point... this is for me
 
-So, TODO:
-
-- Icon assets
-
 Long game:
 
-- Break out ui components into separate views and xib's
+- Break out ui components into separate views and xib's for reuse
 - Create settings page for custom setup
 - Switch to a remote config solution if needed
 - Ability to search for beach by name
