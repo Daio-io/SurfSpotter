@@ -59,6 +59,11 @@ class BeachLocationsViewController: UITableViewController {
         refreshData()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        StatsLogger.logViewEvent("Spots", contentId: nil, customLabels: nil)
+    }
+    
     // MARK - Internal
     
     func refreshData() {

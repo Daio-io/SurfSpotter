@@ -14,6 +14,11 @@ class AboutViewController: UIViewController {
         super.init(nibName: "AboutViewController", bundle: nil)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        StatsLogger.logViewEvent("About", contentId: nil, customLabels: nil)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

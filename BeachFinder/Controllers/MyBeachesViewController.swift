@@ -25,6 +25,11 @@ class MyBeachesViewController: BeachLocationsViewController {
         super.init(coder: aDecoder)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        StatsLogger.logViewEvent("MySpots", contentId: nil, customLabels: nil)
+    }
+    
     private func bindFavouriteChanges() {
         for beach in beaches {
             beach.isFavourited.asObservable().doOnNext({ [unowned self] (isFav) in

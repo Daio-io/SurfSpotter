@@ -41,9 +41,11 @@ class MainViewController: UIViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         // Hide the NavBar because its not needed - Custom Nav Bar created using UIView
         navigationController?.setNavigationBarHidden(true, animated: false)
         viewModel.locateMe()
+        StatsLogger.logViewEvent("Home", contentId: nil, customLabels: nil)
     }
     
     // MARK - Internal
