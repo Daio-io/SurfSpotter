@@ -1,5 +1,9 @@
 # Surf Spotter
 
+<a href='https://itunes.apple.com/gb/app/surf-spotter/id1098286036'>
+    <img width="128px" alt='Available on AppStore' src='https://raw.githubusercontent.com/Daio-io/SurfFinder/master/Screens/appstore.png'/>
+</a>
+
 What started out as a little hack around with RXSwift I am now turning into an app
 
 ![Gif](https://raw.githubusercontent.com/Daio-io/SurfFinder/master/Screens/finder0.2.gif)
