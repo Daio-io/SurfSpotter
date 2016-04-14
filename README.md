@@ -1,6 +1,5 @@
-# Surf Spotter
 <a href='https://itunes.apple.com/gb/app/surf-spotter/id1098286036'>
-    <img width="128px" alt='Available on AppStore' src='https://raw.githubusercontent.com/Daio-io/SurfFinder/master/Screens/appstore.png'/>
+    <img width="128px" alt='Available on AppStore' src='https://raw.githubusercontent.com/Daio-io/SurfFinder/master/Screens/appstore.png'/> <h1>Surf Spotter</h1>
 </a>
 
 ![Gif](https://raw.githubusercontent.com/Daio-io/SurfFinder/master/Screens/finder0.2.gif)
