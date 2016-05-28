@@ -61,7 +61,7 @@ class BeachLocationsViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        StatsLogger.logViewEvent("Spots", contentId: nil, customLabels: nil)
+        StatsLogger.logViewEvent("Spots")
     }
     
     // MARK - Internal

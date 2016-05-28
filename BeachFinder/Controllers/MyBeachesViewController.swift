@@ -27,7 +27,7 @@ class MyBeachesViewController: BeachLocationsViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        StatsLogger.logViewEvent("MySpots", contentId: nil, customLabels: nil)
+        StatsLogger.logViewEvent("MySpots")
     }
     
     private func bindFavouriteChanges() {

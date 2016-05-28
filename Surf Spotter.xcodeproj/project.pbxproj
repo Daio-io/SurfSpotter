@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		230019A21C8C80280053B047 /* BeachFinderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230019A11C8C80280053B047 /* BeachFinderButton.swift */; };
 		230019A61C8C925A0053B047 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230019A51C8C925A0053B047 /* LaunchScreen.storyboard */; };
+		230D14C41CF99C9D00902C61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 230D14C31CF99C9D00902C61 /* GoogleService-Info.plist */; };
 		23184C521CAC52EE00620D86 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23184C511CAC52EE00620D86 /* OnBoardingViewController.swift */; };
 		23184C541CAC532E00620D86 /* OnBoardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23184C531CAC532E00620D86 /* OnBoardingViewController.xib */; };
 		23209C751CA2060F00978FC9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23209C741CA2060F00978FC9 /* AboutViewController.swift */; };
@@ -78,6 +79,7 @@
 		07050374223A7CBAE10AD995 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		230019A11C8C80280053B047 /* BeachFinderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachFinderButton.swift; sourceTree = "<group>"; };
 		230019A51C8C925A0053B047 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		230D14C31CF99C9D00902C61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		23184C511CAC52EE00620D86 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		23184C531CAC532E00620D86 /* OnBoardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnBoardingViewController.xib; sourceTree = "<group>"; };
 		23209C741CA2060F00978FC9 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		5753BEB61C4458D500304498 /* BeachFinder */ = {
 			isa = PBXGroup;
 			children = (
+				230D14C31CF99C9D00902C61 /* GoogleService-Info.plist */,
 				234638F11CA76D8E00FEF119 /* Config */,
 				23EF26221C9F1D4700CDCC9D /* Assets.xcassets */,
 				230019A41C8C924E0053B047 /* Support */,
@@ -403,6 +406,7 @@
 				570337231C7D321400DB5BE1 /* BeachLocationsViewController.xib in Resources */,
 				23EF261B1C9DEB6700CDCC9D /* license.html in Resources */,
 				57DE5D601C6BA429002A74B9 /* BeachLocationCell.xib in Resources */,
+				230D14C41CF99C9D00902C61 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

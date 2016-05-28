@@ -6,18 +6,14 @@
 //  Copyright © 2016 daio. All rights reserved.
 //
 
-import Crashlytics
+import Firebase
 
 internal class StatsLogger {
 
-    class func logViewEvent(viewName: String?, contentId: String?, customLabels: [String : AnyObject]?) {
-        Answers.logContentViewWithName(viewName, contentType: "ViewController",
-                                       contentId: contentId,
-                                       customAttributes: customLabels)
-    }
-    
-    class func logClickEvent(name: String, currentDisplay: String = "unknown") {
-        Answers.logCustomEventWithName(name, customAttributes: ["display": currentDisplay])
+    class func logViewEvent(viewName: String, customLabels: [String : String] = [:]) {
+        var labels = customLabels
+        labels["screen"] = viewName
+        FIRAnalytics.logEventWithName("view", parameters: customLabels)
     }
     
 }

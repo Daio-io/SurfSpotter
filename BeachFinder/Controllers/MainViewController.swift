@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
         // Hide the NavBar because its not needed - Custom Nav Bar created using UIView
         navigationController?.setNavigationBarHidden(true, animated: false)
         viewModel.locateMe()
-        StatsLogger.logViewEvent("Home", contentId: nil, customLabels: nil)
+        StatsLogger.logViewEvent("Home")
     }
     
     // MARK - Internal

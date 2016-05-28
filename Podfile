@@ -5,7 +5,8 @@ pod 'Alamofire', '~> 3.0'
 pod 'RxSwift', '~> 2.1'
 pod 'FoldingCell', '~> 0.7.3'
 pod 'RxCocoa',    '~> 2.1'
+pod 'Firebase'
+pod 'Firebase/Crash'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
-pod 'Fabric'
-pod 'Crashlytics'
+
 use_frameworks!

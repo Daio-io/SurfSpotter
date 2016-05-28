@@ -16,7 +16,7 @@ class AboutViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        StatsLogger.logViewEvent("About", contentId: nil, customLabels: nil)
+        StatsLogger.logViewEvent("About")
     }
     
     required init?(coder aDecoder: NSCoder) {

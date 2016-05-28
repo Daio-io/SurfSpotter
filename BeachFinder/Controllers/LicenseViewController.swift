@@ -29,7 +29,7 @@ class LicenseViewController: UIViewController, UIWebViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
-        StatsLogger.logViewEvent("License", contentId: nil, customLabels: nil)
+        StatsLogger.logViewEvent("License")
     }
     
     func loadLicense() {
