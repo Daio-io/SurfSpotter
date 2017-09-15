@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0297033832EC81C59AB27C53 /* Pods_Surf_Spotter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9DC326B42D18CE592D141A /* Pods_Surf_Spotter.framework */; };
 		230019A21C8C80280053B047 /* BeachFinderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230019A11C8C80280053B047 /* BeachFinderButton.swift */; };
 		230019A61C8C925A0053B047 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230019A51C8C925A0053B047 /* LaunchScreen.storyboard */; };
 		23184C521CAC52EE00620D86 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23184C511CAC52EE00620D86 /* OnBoardingViewController.swift */; };
@@ -125,7 +126,10 @@
 		57E2CD041C737E7100B212DC /* BeachLocationItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachLocationItemViewModel.swift; sourceTree = "<group>"; };
 		57EF0A921C455F2400695BC0 /* BeachLocatorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachLocatorService.swift; sourceTree = "<group>"; };
 		57F6AE371C71DC4D009A152B /* BeachSurfReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachSurfReport.swift; sourceTree = "<group>"; };
+		8A9DC326B42D18CE592D141A /* Pods_Surf_Spotter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Surf_Spotter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA88B4D76B55E12ACB8BC748 /* BeachLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachLocation.swift; sourceTree = "<group>"; };
+		E6B6467CC9A1243B54CC3C1F /* Pods-Surf Spotter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surf Spotter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Surf Spotter/Pods-Surf Spotter.debug.xcconfig"; sourceTree = "<group>"; };
+		FB34ECED3DD2A97BA880CBDE /* Pods-Surf Spotter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surf Spotter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Surf Spotter/Pods-Surf Spotter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0297033832EC81C59AB27C53 /* Pods_Surf_Spotter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +169,15 @@
 				23EF261E1C9EEEC300CDCC9D /* HomeViewModelBinder.swift */,
 			);
 			path = ViewBinders;
+			sourceTree = "<group>";
+		};
+		2A18F29F0BA099FF50B738F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E6B6467CC9A1243B54CC3C1F /* Pods-Surf Spotter.debug.xcconfig */,
+				FB34ECED3DD2A97BA880CBDE /* Pods-Surf Spotter.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		570F10071C5E4BDA0038A0B1 /* UI */ = {
@@ -201,6 +215,7 @@
 				5753BEB61C4458D500304498 /* BeachFinder */,
 				5753BEB51C4458D500304498 /* Products */,
 				9E6F0280635B99D8F5820FD5 /* Frameworks */,
+				2A18F29F0BA099FF50B738F3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -296,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				43156B5FD7E971278E18C0C5 /* Pods.framework */,
+				8A9DC326B42D18CE592D141A /* Pods_Surf_Spotter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -317,10 +333,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5753BEC61C4458D500304498 /* Build configuration list for PBXNativeTarget "Surf Spotter" */;
 			buildPhases = (
+				C166E323043EA84AD9F92424 /* [CP] Check Pods Manifest.lock */,
 				5753BEB01C4458D500304498 /* Sources */,
 				5753BEB11C4458D500304498 /* Frameworks */,
 				5753BEB21C4458D500304498 /* Resources */,
 				23E425631C8A5BBF000CAEED /* Embed Frameworks */,
+				67C527C3BBD88E929C115150 /* [CP] Embed Pods Frameworks */,
+				4EE1FA6779920485127E48FF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -387,6 +406,71 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4EE1FA6779920485127E48FF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Surf Spotter/Pods-Surf Spotter-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Surf Spotter/Pods-Surf Spotter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67C527C3BBD88E929C115150 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Surf Spotter/Pods-Surf Spotter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Surf Spotter/Pods-Surf Spotter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C166E323043EA84AD9F92424 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Surf Spotter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5753BEB01C4458D500304498 /* Sources */ = {
@@ -519,6 +603,7 @@
 		};
 		5753BEC71C4458D500304498 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6B6467CC9A1243B54CC3C1F /* Pods-Surf Spotter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -536,6 +621,7 @@
 		};
 		5753BEC81C4458D500304498 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB34ECED3DD2A97BA880CBDE /* Pods-Surf Spotter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
